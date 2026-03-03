@@ -1,121 +1,151 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
- 
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Déterminer si on doit avoir un header transparent
-  // Page d'accueil OU pages de services individuels
-  const shouldBeTransparent = pathname === '/' || (pathname?.startsWith('/services/') && pathname !== '/services');
-  
-  // Déterminer si on est sur une page avec fond sombre (pour les couleurs du texte)
-  const isDarkBg = pathname?.startsWith('/services/') && pathname !== '/services';
+  const pagesWithHero = ["/etudes-de-cas", "/a-propos", "/contact"];
+
+  const shouldBeTransparent =
+    pathname === "/" ||
+    (pathname?.startsWith("/services/") && pathname !== "/services") ||
+    pagesWithHero.includes(pathname ?? "");
+
+  const isDarkBg =
+    pathname === "/" ||
+    (pathname?.startsWith("/services/") && pathname !== "/services") ||
+    pagesWithHero.includes(pathname ?? "");
 
   const services = [
     { name: "Cybersécurité", href: "/services/cybersecurite" },
-    { name: "Cloud et Infogérance", href: "/services/cloud" },
-    { name: "DevOps et CI/CD", href: "/services/devops" },
+    { name: "Infrastructure & Cloud", href: "/services/cloud" },
+    { name: "Infogérance & Services Managés", href: "/services/infogerance" },
     { name: "Ingénierie logicielle", href: "/services/ingenierie" },
     { name: "IA et automatisation", href: "/services/ia" },
-    { name: "Data & Analytics", href: "/services/data" }
   ];
 
-  // Détecter le scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Logique des couleurs
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setSearchOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    setServicesDropdownOpen(false);
+    setMobileMenuOpen(false);
+    setSearchOpen(false);
+  }, [pathname]);
+
+  // Focus automatique sur l'input quand la recherche s'ouvre
+  useEffect(() => {
+    if (searchOpen) searchInputRef.current?.focus();
+  }, [searchOpen]);
+
   const isTransparent = !isScrolled && shouldBeTransparent;
-  
-  // Sur page d'accueil : toujours texte gris même si transparent
-  // Sur pages services : texte blanc si transparent, gris si scrollé
-  const textColor = isTransparent && isDarkBg ? "text-white" : "text-gray-600";
+
+  const textColor = isTransparent && isDarkBg ? "text-white/90" : "text-gray-600";
   const textHoverColor = isTransparent && isDarkBg ? "hover:text-white" : "hover:text-gray-900";
   const logoColor = isTransparent && isDarkBg ? "text-white" : "text-gray-900";
-  const buttonStyle = isTransparent && isDarkBg
-    ? "bg-white text-gray-900 hover:bg-gray-100"
-    : "bg-gray-900 text-white hover:bg-gray-800";
+  const iconColor = isTransparent && isDarkBg ? "text-white/80 hover:text-white" : "text-gray-500 hover:text-gray-900";
 
   return (
-    <header 
+    <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isTransparent
-          ? "border-transparent bg-transparent" 
+          ? "border-transparent bg-transparent"
           : "border-b border-gray-200 bg-white shadow-sm"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          
-          {/* Logo avec marge à gauche */}
-          <Link 
-            href="/" 
-            className={`ml-4 text-2xl font-bold transition-colors lg:ml-8 ${logoColor}`}
-          >
-            Teknosure
+      {/* Conteneur pleine largeur avec padding latéral */}
+      <div className="w-full px-6 lg:px-10">
+        <div className="flex h-20 items-center justify-between gap-6">
+
+          {/* Logo + Navigation groupés à gauche */}
+          <div className="flex items-center gap-8">
+          <Link href="/" className="shrink-0" aria-label="Teknosure — Accueil">
+            <Image
+              src={isTransparent && isDarkBg ? "/images/logo-transparent.png" : "/images/logo.png"}
+              alt="Teknosure"
+              width={320}
+              height={80}
+              className="h-20 w-auto object-contain transition-all duration-300"
+              priority
+            />
           </Link>
 
-          {/* Navigation Desktop + CTA Button */}
-          <nav className="hidden items-center gap-8 md:flex">
-            <Link 
+          {/* Navigation Desktop */}
+          <nav className="hidden items-center gap-6 md:flex lg:gap-8">
+            <Link
               href="/"
-              className={`text-sm font-medium transition-colors ${textColor} ${textHoverColor}`}
+              className={`text-base font-medium transition-colors ${textColor} ${textHoverColor}`}
             >
-              Maison
+              Accueil
             </Link>
 
             {/* Dropdown Services */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setServicesDropdownOpen(true)}
-              onMouseLeave={() => setServicesDropdownOpen(false)}
-            >
-              <button 
-                className={`flex items-center gap-1 py-2 text-sm font-medium transition-colors ${textColor} ${textHoverColor}`}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setServicesDropdownOpen((prev) => !prev)}
+                aria-expanded={servicesDropdownOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-1 py-2 text-base font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${textColor} ${textHoverColor}`}
               >
-                Services
-                <svg 
-                  className={`h-4 w-4 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
+                Expertise
+                <svg
+                  className={`h-4 w-4 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
 
-              {/* Menu déroulant */}
               {servicesDropdownOpen && (
-                <div className="absolute left-0 top-full pt-2 w-64">
+                <div role="menu" className="absolute left-0 top-full z-50 w-64 pt-2">
                   <div className="rounded-xl border border-gray-200 bg-white py-2 shadow-xl">
                     {services.map((service) => (
                       <Link
                         key={service.href}
                         href={service.href}
-                        className="block px-4 py-3 text-sm text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-600"
+                        role="menuitem"
+                        className="block px-4 py-3 text-sm text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-600 focus:bg-blue-50 focus:text-blue-600 focus:outline-none"
                       >
                         {service.name}
                       </Link>
                     ))}
-                    
-                    <div className="border-t border-gray-100 mt-2 pt-2">
+                    <div className="mt-2 border-t border-gray-100 pt-2">
                       <Link
                         href="/services"
-                        className="block px-4 py-3 text-sm font-semibold text-blue-600 transition-colors hover:bg-blue-50"
+                        role="menuitem"
+                        className="block px-4 py-3 text-sm font-semibold text-blue-600 transition-colors hover:bg-blue-50 focus:bg-blue-50 focus:outline-none"
                       >
-                        Voir tous les services →
+                        Voir toutes les expertises →
                       </Link>
                     </div>
                   </div>
@@ -123,74 +153,121 @@ export default function Header() {
               )}
             </div>
 
-            <Link 
-              href="/a-propos"
-              className={`text-sm font-medium transition-colors ${textColor} ${textHoverColor}`}
-            >
+            <Link href="/a-propos" className={`text-base font-medium transition-colors ${textColor} ${textHoverColor}`}>
               À propos
             </Link>
-            <Link 
-              href="/etudes-de-cas"
-              className={`text-sm font-medium transition-colors ${textColor} ${textHoverColor}`}
-            >
-              Études de cas
+            <Link href="/etudes-de-cas" className={`text-base font-medium transition-colors ${textColor} ${textHoverColor}`}>
+              Nos Réalisations
             </Link>
-            <Link 
-              href="/contact"
-              className={`text-sm font-medium transition-colors ${textColor} ${textHoverColor}`}
-            >
+            <Link href="/contact" className={`text-base font-medium transition-colors ${textColor} ${textHoverColor}`}>
               Contact
-            </Link>
-
-            {/* CTA Button */}
-            <Link
-              href="/contact"
-              className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all ${buttonStyle}`}
-            >
-              Commencer
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button 
+          </div>
+
+          {/* Droite : recherche + langue + CTA */}
+          <div className="hidden items-center gap-3 md:flex">
+
+            {/* Barre de recherche extensible */}
+            <div ref={searchRef} className="relative flex items-center">
+              {searchOpen && (
+                <input
+                  ref={searchInputRef}
+                  type="search"
+                  placeholder="Rechercher..."
+                  className={`mr-2 w-48 rounded-full border px-4 py-1.5 text-sm outline-none transition-all focus:ring-2 focus:ring-blue-400 lg:w-56 ${
+                    isTransparent && isDarkBg
+                      ? "border-white/30 bg-white/10 text-white placeholder-white/50 focus:border-white/60"
+                      : "border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-400 focus:border-blue-400"
+                  }`}
+                />
+              )}
+              <button
+                onClick={() => setSearchOpen((prev) => !prev)}
+                aria-label="Rechercher"
+                className={`p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${iconColor}`}
+              >
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Sélecteur de langue */}
+            <button
+              aria-label="Changer de langue"
+              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                isTransparent && isDarkBg
+                  ? "border-white/30 text-white/80 hover:border-white/60 hover:text-white"
+                  : "border-gray-300 text-gray-600 hover:border-gray-400 hover:text-gray-900"
+              }`}
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              FR
+              <svg className="h-3 w-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* CTA principal */}
+            <Link
+              href="/contact"
+              className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${
+                isTransparent && isDarkBg
+                  ? "bg-white text-gray-900 hover:bg-gray-100"
+                  : "bg-gray-900 text-white hover:bg-gray-800"
+              }`}
+            >
+              Parlons de votre projet
+            </Link>
+          </div>
+
+          {/* Bouton menu mobile */}
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`p-2 text-2xl md:hidden ${isTransparent ? "text-white" : "text-gray-900"}`}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            className={`p-2 text-2xl md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+              isTransparent ? "text-white" : "text-gray-900"
+            }`}
           >
             {mobileMenuOpen ? "✕" : "☰"}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Menu mobile */}
         {mobileMenuOpen && (
           <div className="border-t border-gray-200 bg-white pb-4 pt-4 md:hidden">
             <nav className="flex flex-col gap-4">
-              <Link href="/" className="text-sm font-medium text-gray-600">
-                Maison
-              </Link>
-              
+              <Link href="/" className="text-sm font-medium text-gray-600">Accueil</Link>
               <div>
                 <div className="mb-2 text-sm font-semibold text-gray-900">Services</div>
                 <div className="ml-4 space-y-2">
                   {services.map((service) => (
-                    <Link
-                      key={service.href}
-                      href={service.href}
-                      className="block text-sm text-gray-600"
-                    >
+                    <Link key={service.href} href={service.href} className="block text-sm text-gray-600 hover:text-blue-600">
                       • {service.name}
                     </Link>
                   ))}
                 </div>
               </div>
+              <Link href="/a-propos" className="text-sm font-medium text-gray-600">À propos</Link>
+              <Link href="/etudes-de-cas" className="text-sm font-medium text-gray-600">Études de cas</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600">Contact</Link>
 
-              <Link href="/a-propos" className="text-sm font-medium text-gray-600">
-                À propos
-              </Link>
-              <Link href="/etudes-de-cas" className="text-sm font-medium text-gray-600">
-                Études de cas
-              </Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600">
-                Contact
+              {/* Recherche mobile */}
+              <div className="relative">
+                <input
+                  type="search"
+                  placeholder="Rechercher..."
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-blue-400"
+                />
+              </div>
+
+              <Link href="/contact" className="w-fit rounded-lg bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white">
+                Parlons de votre projet
               </Link>
             </nav>
           </div>

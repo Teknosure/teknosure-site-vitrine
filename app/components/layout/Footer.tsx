@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Globe, Phone } from "lucide-react";
 
 export default function Footer() {
@@ -11,11 +12,16 @@ export default function Footer() {
           
           {/* Logo + Description */}
           <div className="lg:col-span-1">
-            <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
-                <span className="text-lg font-bold text-white">T</span>
-              </div>
-              <span className="text-xl font-bold text-white">Teknosure</span>
+            <div className="mb-4">
+              <Link href="/" aria-label="Teknosure — Accueil">
+                <Image
+                  src="/images/logo-transparent.png"
+                  alt="Teknosure"
+                  width={200}
+                  height={60}
+                  className="h-20 w-auto object-contain"
+                />
+              </Link>
             </div>
             <p className="text-sm leading-relaxed">
               Des solutions numériques sécurisées et évolutives pour les entreprises modernes. 
@@ -26,26 +32,25 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-              Services
+              Expertises
             </h3>
             <ul className="space-y-3">
-              <li><Link href="/services#cybersecurite" className="text-sm transition-colors hover:text-white">cybersécurité</Link></li>
-              <li><Link href="/services#cloud" className="text-sm transition-colors hover:text-white">Services cloud et gérés</Link></li>
-              <li><Link href="/services#devops" className="text-sm transition-colors hover:text-white">DevOps et CI/CD</Link></li>
-              <li><Link href="/services#ingenierie" className="text-sm transition-colors hover:text-white">Ingénierie logicielle</Link></li>
-              <li><Link href="/services#ia" className="text-sm transition-colors hover:text-white">IA et automatisation</Link></li>
+              <li><Link href="/services/cybersecurite" className="text-sm transition-colors hover:text-white">Cybersécurité & conformité</Link></li>
+              <li><Link href="/services/cloud" className="text-sm transition-colors hover:text-white">Infrastructure & Cloud</Link></li>
+              <li><Link href="/services/infogerance" className="text-sm transition-colors hover:text-white">Infogérance & Services Managés</Link></li>
+              <li><Link href="/services/ingenierie" className="text-sm transition-colors hover:text-white">Ingénierie logicielle</Link></li>
+              <li><Link href="/services/ia" className="text-sm transition-colors hover:text-white">IA et automatisation</Link></li>
             </ul>
           </div>
 
           {/* Entreprise */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-              Entreprise
+              Teknosure
             </h3>
             <ul className="space-y-3">
               <li><Link href="/a-propos" className="text-sm transition-colors hover:text-white">À propos de nous</Link></li>
-              <li><Link href="/etudes-de-cas" className="text-sm transition-colors hover:text-white">Études de cas</Link></li>
-              <li><Link href="/carrieres" className="text-sm transition-colors hover:text-white">Carrières</Link></li>
+              <li><Link href="/etudes-de-cas" className="text-sm transition-colors hover:text-white">Nos Réalisations</Link></li>
               <li><Link href="/contact" className="text-sm transition-colors hover:text-white">Contact</Link></li>
             </ul>
           </div>
@@ -57,14 +62,14 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Globe className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-500" />
+                <Globe className="mt-0.5 h-5 w-5 shrink-0 text-blue-500" />
                 <span className="text-sm">
                   123 boulevard Tech, quartier Tech, 75001<br />
                   Paris, France
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 flex-shrink-0 text-blue-500" />
+                <Phone className="h-5 w-5 shrink-0 text-blue-500" />
                 <a 
                   href="tel:+33123456789"
                   className="text-sm transition-colors hover:text-white"

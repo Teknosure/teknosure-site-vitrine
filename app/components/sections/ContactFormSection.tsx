@@ -32,8 +32,8 @@ const infos = [
       </svg>
     ),
     label: "Téléphone",
-    value: "+33 1 XX XX XX XX",
-    href: "tel:+33100000000",
+    value: "+33 1 46 88 49 75",
+    href: "tel:+33146884975",
   },
   {
     icon: (
@@ -43,7 +43,7 @@ const infos = [
       </svg>
     ),
     label: "Adresse",
-    value: "Paris, France",
+    value: "16 rue de Condorcet, 95150 Taverny, France",
     href: "#",
   },
 ];
@@ -66,6 +66,8 @@ export default function ContactFormSection() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
   const firstInputRef = useRef<HTMLInputElement>(null);
 
@@ -77,9 +79,31 @@ export default function ContactFormSection() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Une erreur est survenue. Veuillez réessayer.");
+        return;
+      }
+
+      setSent(true);
+    } catch {
+      setError("Impossible d'envoyer le message. Vérifiez votre connexion.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass = (name: string) =>
@@ -176,7 +200,7 @@ export default function ContactFormSection() {
                     </p>
                   </div>
                   <button
-                    onClick={() => { setSent(false); setForm({ prenom: "", nom: "", email: "", telephone: "", entreprise: "", service: "", message: "" }); }}
+                    onClick={() => { setSent(false); setError(null); setForm({ prenom: "", nom: "", email: "", telephone: "", entreprise: "", service: "", message: "" }); }}
                     className="rounded-full bg-linear-to-r from-blue-600 to-cyan-500 px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
                     Envoyer un autre message
@@ -189,6 +213,16 @@ export default function ContactFormSection() {
                     <h2 className="text-xl font-bold text-gray-900">Envoyez-nous un message</h2>
                     <p className="mt-1 text-sm text-gray-400">Tous les champs marqués * sont obligatoires.</p>
                   </div>
+
+                  {/* Message d'erreur */}
+                  {error && (
+                    <div className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+                      <svg className="mt-0.5 h-4 w-4 shrink-0 text-red-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                      </svg>
+                      <p className="text-sm text-red-600">{error}</p>
+                    </div>
+                  )}
 
                   {/* Prénom + Nom */}
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -332,9 +366,20 @@ export default function ContactFormSection() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="mt-1 w-full rounded-xl bg-linear-to-r from-blue-600 to-cyan-500 py-4 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    disabled={loading}
+                    className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-blue-600 to-cyan-500 py-4 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                   >
-                    Envoyer le message
+                    {loading ? (
+                      <>
+                        <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Envoi en cours...
+                      </>
+                    ) : (
+                      "Envoyer le message"
+                    )}
                   </button>
 
                 </form>

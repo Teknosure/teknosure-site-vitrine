@@ -13,7 +13,7 @@ const expertiseTabs: HeroTab[] = [
     title: "et conformité numérique",
     subtitle:
       "Détection avancée des menaces, tests d'intrusion et audits ISO 27001 / RGPD pour sécuriser votre périmètre numérique.",
-    imageSrc: "/images/cyber.jpg",
+    imageSrc: "/images/cyber2.jpg",
   },
   {
     label: "IA et automatisation",

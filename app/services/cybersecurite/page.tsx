@@ -38,7 +38,7 @@ export default function CybersecuritePage() {
         primaryHref="/contact"
         secondaryLabel="Nos solutions"
         secondaryHref="#solutions"
-        imageSrc="/images/cyber.jpg"
+        imageSrc="/images/cyber2.jpg"
         overlayMode="dark"
       />
 

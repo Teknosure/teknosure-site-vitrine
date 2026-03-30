@@ -33,8 +33,8 @@ export default function CloudContactSection() {
         <div className="flex-1 text-white">
           <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-blue-400/40 bg-white/10 px-4 py-1.5 backdrop-blur-sm">
             <span className="relative flex h-2 w-2 shrink-0">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1B9AD2] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#1B9AD2]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--primary)] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--primary)]" />
             </span>
             <span className="text-xs font-semibold uppercase tracking-widest text-blue-200">Audit offert</span>
           </div>
@@ -75,7 +75,7 @@ export default function CloudContactSection() {
               </span>
               <h3 className="text-xl font-bold text-gray-900">Demande reçue !</h3>
               <p className="text-sm text-gray-500">Notre équipe cloud vous contactera sous 48h avec un premier diagnostic.</p>
-              <button onClick={() => setSent(false)} className="mt-2 text-sm font-medium text-[#1B9AD2] hover:underline">Envoyer un autre message</button>
+              <button onClick={() => setSent(false)} className="mt-2 text-sm font-medium text-[var(--primary)] hover:underline">Envoyer un autre message</button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
@@ -87,7 +87,7 @@ export default function CloudContactSection() {
                   <div key={String(id)}>
                     <label htmlFor={String(id)} className="sr-only">{String(ph)}</label>
                     <input id={String(id)} name={String(name)} type={String(type)} required={Boolean(req)} placeholder={String(ph)} value={form[name as keyof typeof form]} onChange={handleChange}
-                      className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
+                      className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]" />
                   </div>
                 ))}
               </div>
@@ -95,22 +95,22 @@ export default function CloudContactSection() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label htmlFor="cloud-email" className="sr-only">Email</label>
-                  <input id="cloud-email" name="email" type="email" required placeholder="Email *" value={form.email} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
+                  <input id="cloud-email" name="email" type="email" required placeholder="Email *" value={form.email} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]" />
                 </div>
                 <div>
                   <label htmlFor="cloud-tel" className="sr-only">Téléphone</label>
-                  <input id="cloud-tel" name="telephone" type="tel" placeholder="Téléphone" value={form.telephone} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
+                  <input id="cloud-tel" name="telephone" type="tel" placeholder="Téléphone" value={form.telephone} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]" />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="cloud-entreprise" className="sr-only">Entreprise</label>
-                <input id="cloud-entreprise" name="entreprise" type="text" required placeholder="Entreprise *" value={form.entreprise} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
+                <input id="cloud-entreprise" name="entreprise" type="text" required placeholder="Entreprise *" value={form.entreprise} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]" />
               </div>
 
               <div>
                 <label htmlFor="cloud-sujet" className="sr-only">Besoin</label>
-                <select id="cloud-sujet" name="sujet" required value={form.sujet} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]">
+                <select id="cloud-sujet" name="sujet" required value={form.sujet} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]">
                   <option value="" disabled>Votre besoin principal *</option>
                   {subjects.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
@@ -118,14 +118,14 @@ export default function CloudContactSection() {
 
               <div>
                 <label htmlFor="cloud-message" className="sr-only">Message</label>
-                <textarea id="cloud-message" name="message" rows={4} required placeholder="Décrivez votre infrastructure actuelle et vos objectifs... *" value={form.message} onChange={handleChange} className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
+                <textarea id="cloud-message" name="message" rows={4} required placeholder="Décrivez votre infrastructure actuelle et vos objectifs... *" value={form.message} onChange={handleChange} className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]" />
               </div>
 
-              <button type="submit" className="mt-1 w-full rounded-lg bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] py-3 text-sm font-bold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[#1B9AD2] focus-visible:ring-offset-2">
+              <button type="submit" className="mt-1 w-full rounded-lg bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] py-3 text-sm font-bold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2">
                 Demander mon audit cloud gratuit
               </button>
               <p className="text-center text-xs text-gray-400">
-                En soumettant ce formulaire, vous acceptez notre <a href="/legal" className="text-[#1B9AD2] hover:underline">politique de confidentialité</a>.
+                En soumettant ce formulaire, vous acceptez notre <a href="/legal" className="text-[var(--primary)] hover:underline">politique de confidentialité</a>.
               </p>
             </form>
           )}

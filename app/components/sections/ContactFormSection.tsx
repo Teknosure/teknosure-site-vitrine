@@ -137,7 +137,7 @@ export default function ContactFormSection() {
   const inputClass = (name: string) =>
     `w-full rounded-xl border px-4 py-3 text-sm text-gray-900 outline-none transition-all placeholder:text-gray-400 ${
       focused === name
-        ? "border-[#1B9AD2] bg-white ring-3 ring-[#E8F5FC]"
+        ? "border-[var(--primary)] bg-white ring-3 ring-[var(--primary-light)]"
         : "border-gray-200 bg-gray-50 hover:border-gray-300"
     }`;
 
@@ -151,12 +151,12 @@ export default function ContactFormSection() {
 
             {/* Titre */}
             <div>
-              <span className="mb-3 inline-block rounded-full bg-[#E8F5FC] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
+              <span className="mb-3 inline-block rounded-full bg-[var(--primary-light)] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
                 Contact
               </span>
               <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
                 Parlons de{" "}
-                <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] bg-clip-text text-transparent">
                   votre projet
                 </span>
               </h1>
@@ -172,9 +172,9 @@ export default function ContactFormSection() {
                 <Link
                   key={info.label}
                   href={info.href}
-                  className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#B8DFF2] hover:shadow-md"
+                  className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[var(--primary-border)] hover:shadow-md"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#E8F5FC] text-[#1B9AD2] transition-colors group-hover:bg-[#0D6EA1] group-hover:text-white">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--primary-light)] text-[var(--primary)] transition-colors group-hover:bg-[var(--primary-dark)] group-hover:text-white">
                     {info.icon}
                   </div>
                   <div>
@@ -186,8 +186,8 @@ export default function ContactFormSection() {
             </div>
 
             {/* Atouts */}
-            <div className="rounded-2xl bg-linear-to-br from-[#0D6EA1] to-[#1B9AD2] p-6 text-white">
-              <p className="mb-4 text-sm font-bold uppercase tracking-wide text-[#B8DFF2]">
+            <div className="rounded-2xl bg-linear-to-br from-[var(--primary-dark)] to-[var(--primary)] p-6 text-white">
+              <p className="mb-4 text-sm font-bold uppercase tracking-wide text-[var(--primary-border)]">
                 Pourquoi nous contacter ?
               </p>
               <div className="grid grid-cols-2 gap-3">
@@ -231,7 +231,7 @@ export default function ContactFormSection() {
                   </div>
                   <button
                     onClick={() => { setSent(false); setError(null); setForm({ prenom: "", nom: "", email: "", telephone: "", entreprise: "", service: "", message: "" }); }}
-                    className="rounded-full bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    className="rounded-full bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
                     Envoyer un autre message
                   </button>
@@ -382,11 +382,11 @@ export default function ContactFormSection() {
 
                   {/* Consentement */}
                   <label className="flex cursor-pointer items-start gap-3 text-xs text-gray-500">
-                    <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded accent-[#1B9AD2]" />
+                    <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded accent-[var(--primary)]" />
                     <span>
                       J&apos;accepte que mes données soient utilisées pour traiter ma demande,
                       conformément à la{" "}
-                      <Link href="/mentions-legales" className="font-medium text-[#1B9AD2] hover:underline">
+                      <Link href="/mentions-legales" className="font-medium text-[var(--primary)] hover:underline">
                         politique de confidentialité
                       </Link>{" "}
                       de Teknosure.
@@ -397,7 +397,7 @@ export default function ContactFormSection() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] py-4 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B9AD2] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                    className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] py-4 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                   >
                     {loading ? (
                       <>

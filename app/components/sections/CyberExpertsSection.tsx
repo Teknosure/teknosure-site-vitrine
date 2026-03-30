@@ -59,7 +59,7 @@ export default function CyberExpertsSection() {
         {/* En-tête */}
         <div className="mb-14 flex flex-col items-center gap-6">
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
               Expertise &amp; Veille
             </span>
             <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl">
@@ -68,7 +68,7 @@ export default function CyberExpertsSection() {
           </div>
           <Link
             href="#"
-            className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400"
+            className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -91,7 +91,7 @@ export default function CyberExpertsSection() {
                 sizes="(max-width: 1280px) 100vw, 50vw"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/50 to-transparent" />
-              <span className="absolute left-4 top-4 rounded-full bg-[#1B9AD2] px-3 py-1 text-xs font-semibold text-white shadow">
+              <span className="absolute left-4 top-4 rounded-full bg-[var(--primary)] px-3 py-1 text-xs font-semibold text-white shadow">
                 {featured.category}
               </span>
             </div>
@@ -102,7 +102,7 @@ export default function CyberExpertsSection() {
                 </svg>
                 {featured.readTime} de lecture
               </div>
-              <h3 className="mb-3 text-lg font-bold leading-snug text-gray-900 transition-colors group-hover:text-[#1B9AD2] lg:text-xl">
+              <h3 className="mb-3 text-lg font-bold leading-snug text-gray-900 transition-colors group-hover:text-[var(--primary)] lg:text-xl">
                 {featured.title}
               </h3>
               <p className="mb-6 flex-1 text-sm leading-relaxed text-gray-500 line-clamp-4">
@@ -110,7 +110,7 @@ export default function CyberExpertsSection() {
               </p>
               <Link
                 href={featured.href}
-                className="inline-flex w-fit items-center gap-2 rounded-full border border-[#1B9AD2] px-5 py-2 text-sm font-semibold text-[#1B9AD2] transition-all hover:bg-[#E8F5FC]"
+                className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--primary)] transition-all hover:bg-[var(--primary-light)]"
               >
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -141,7 +141,7 @@ export default function CyberExpertsSection() {
                 {/* Contenu */}
                 <div className="flex flex-1 flex-col gap-1.5 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
                       {article.category}
                     </span>
                     <span className="text-gray-300">·</span>
@@ -152,7 +152,7 @@ export default function CyberExpertsSection() {
                       {article.readTime}
                     </span>
                   </div>
-                  <h3 className="text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-[#1B9AD2] lg:text-sm xl:text-base">
+                  <h3 className="text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-[var(--primary)] lg:text-sm xl:text-base">
                     {article.title}
                   </h3>
                   <p className="line-clamp-2 text-xs leading-relaxed text-gray-500 hidden sm:block">
@@ -160,7 +160,7 @@ export default function CyberExpertsSection() {
                   </p>
                   <Link
                     href={article.href}
-                    className="mt-1 inline-flex w-fit items-center gap-1.5 rounded-full border border-[#1B9AD2] px-3 py-1 text-xs font-semibold text-[#1B9AD2] transition-all hover:bg-[#E8F5FC]"
+                    className="mt-1 inline-flex w-fit items-center gap-1.5 rounded-full border border-[var(--primary)] px-3 py-1 text-xs font-semibold text-[var(--primary)] transition-all hover:bg-[var(--primary-light)]"
                   >
                     <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

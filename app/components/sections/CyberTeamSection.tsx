@@ -34,7 +34,7 @@ export default function CyberTeamSection() {
 
         {/* En-tête */}
         <div className="mb-14 flex flex-col items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
             Cyberdéfense
           </span>
           <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl">
@@ -55,7 +55,7 @@ export default function CyberTeamSection() {
             >
               {/* Avatar avec initiales + anneau gradient au hover */}
               <div className="relative mb-5">
-                <div className="flex h-28 w-28 items-center justify-center rounded-full bg-linear-to-br from-[#0D6EA1] to-cyan-400 text-2xl font-bold text-white shadow-lg ring-4 ring-white transition-all duration-300 group-hover:ring-blue-200">
+                <div className="flex h-28 w-28 items-center justify-center rounded-full bg-linear-to-br from-[var(--primary-dark)] to-cyan-400 text-2xl font-bold text-white shadow-lg ring-4 ring-white transition-all duration-300 group-hover:ring-blue-200">
                   {member.initials}
                 </div>
                 {/* Badge LinkedIn */}

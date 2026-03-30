@@ -56,7 +56,7 @@ export default function IngenieriePage() {
             </div>
 
             {/* Trait séparateur vertical */}
-            <div className="hidden lg:block lg:w-px lg:shrink-0 lg:bg-[#E8F5FC]0" />
+            <div className="hidden lg:block lg:w-px lg:shrink-0 lg:bg-[var(--primary-light)]0" />
 
             {/* 3 cartes stats droite */}
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mt-0 lg:w-3/5 lg:pl-16">
@@ -65,7 +65,7 @@ export default function IngenieriePage() {
                   key={i}
                   className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
                 >
-                  <p className="mb-3 text-3xl font-extrabold text-[#1B9AD2] lg:text-4xl">
+                  <p className="mb-3 text-3xl font-extrabold text-[var(--primary)] lg:text-4xl">
                     {item.stat}
                   </p>
                   <p className="text-sm leading-relaxed text-gray-500">

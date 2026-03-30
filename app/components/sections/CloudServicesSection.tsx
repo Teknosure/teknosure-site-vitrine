@@ -108,7 +108,7 @@ export default function CloudServicesSection() {
     <section id="solutions" className="bg-gray-50 py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-14 flex flex-col items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">Nos expertises</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">Nos expertises</span>
           <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl">
             Ce que nous gérons pour vous
           </h2>
@@ -119,11 +119,11 @@ export default function CloudServicesSection() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <article key={service.id} className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#B8DFF2] hover:shadow-lg">
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 text-[#1B9AD2] transition-colors group-hover:from-blue-100 group-hover:to-cyan-100">
+            <article key={service.id} className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-border)] hover:shadow-lg">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 text-[var(--primary)] transition-colors group-hover:from-blue-100 group-hover:to-cyan-100">
                 {service.icon}
               </div>
-              <h3 className="mb-3 text-base font-bold text-gray-900 transition-colors group-hover:text-[#1B9AD2]">
+              <h3 className="mb-3 text-base font-bold text-gray-900 transition-colors group-hover:text-[var(--primary)]">
                 {service.title}
               </h3>
               <p className="mb-5 text-sm leading-relaxed text-gray-500">{service.description}</p>

@@ -28,9 +28,9 @@ const services = [
       "Migration cloud, architecture multi-cloud AWS/Azure/GCP, supervision continue et optimisation des coûts. Votre infrastructure entre de bonnes mains.",
     highlight: "99.9% uptime",
     color: "from-blue-500 to-cyan-400",
-    bgLight: "bg-[#E8F5FC]",
-    textColor: "text-[#1B9AD2]",
-    borderHover: "hover:border-[#B8DFF2]",
+    bgLight: "bg-[var(--primary-light)]",
+    textColor: "text-[var(--primary)]",
+    borderHover: "hover:border-[var(--primary-border)]",
     href: "/services/cloud",
   },
   {
@@ -90,12 +90,12 @@ export default function ServicesSection() {
 
         {/* En-tête */}
         <div className="mb-16 flex flex-col items-center gap-4 text-center">
-          <span className="inline-block rounded-full bg-[#E8F5FC] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
+          <span className="inline-block rounded-full bg-[var(--primary-light)] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
             Nos expertises
           </span>
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">
             Des solutions IT{" "}
-            <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] bg-clip-text text-transparent">
               bout en bout
             </span>
           </h2>
@@ -124,7 +124,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Titre */}
-              <h3 className="mb-3 text-lg font-bold text-gray-900 transition-colors group-hover:text-[#1B9AD2]">
+              <h3 className="mb-3 text-lg font-bold text-gray-900 transition-colors group-hover:text-[var(--primary)]">
                 {service.title}
               </h3>
 
@@ -152,16 +152,16 @@ export default function ServicesSection() {
         </div>
 
         {/* Bande CTA */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-5 rounded-2xl bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] px-8 py-8 text-white sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-5 rounded-2xl bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-8 py-8 text-white sm:flex-row">
           <div>
             <p className="text-lg font-bold">Un projet spécifique ? Un besoin sur mesure ?</p>
-            <p className="mt-1 text-sm text-[#B8DFF2]">
+            <p className="mt-1 text-sm text-[var(--primary-border)]">
               Nous construisons des solutions adaptées à vos contraintes et à vos ambitions.
             </p>
           </div>
           <Link
             href="/contact"
-            className="shrink-0 rounded-full bg-white px-7 py-3 text-sm font-bold text-[#0D6EA1] shadow transition-all hover:-translate-y-0.5 hover:shadow-md"
+            className="shrink-0 rounded-full bg-white px-7 py-3 text-sm font-bold text-[var(--primary-dark)] shadow transition-all hover:-translate-y-0.5 hover:shadow-md"
           >
             Parler à un expert
           </Link>

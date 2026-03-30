@@ -7,7 +7,7 @@ const categories = [
       { name: "React",        logo: "/images/tech/react.svg",        bg: "bg-cyan-50",    filter: "invert(66%) sepia(90%) saturate(400%) hue-rotate(160deg)" },
       { name: "Angular",      logo: "/images/tech/angular.svg",      bg: "bg-red-50",     filter: "invert(14%) sepia(96%) saturate(5000%) hue-rotate(350deg)" },
       { name: "Vue.js",       logo: "/images/tech/vuedotjs.svg",     bg: "bg-emerald-50", filter: "invert(58%) sepia(70%) saturate(400%) hue-rotate(100deg)" },
-      { name: "TypeScript",   logo: "/images/tech/typescript.svg",   bg: "bg-[#E8F5FC]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(200deg)" },
+      { name: "TypeScript",   logo: "/images/tech/typescript.svg",   bg: "bg-[var(--primary-light)]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(200deg)" },
       { name: "Tailwind CSS", logo: "/images/tech/tailwindcss.svg",  bg: "bg-sky-50",     filter: "invert(60%) sepia(80%) saturate(400%) hue-rotate(170deg)" },
       { name: "Next.js",      logo: "/images/tech/nextdotjs.svg",    bg: "bg-gray-100",   filter: "none" },
     ],
@@ -20,7 +20,7 @@ const categories = [
       { name: "Spring Boot",  logo: "/images/tech/spring.svg",       bg: "bg-green-50",   filter: "invert(45%) sepia(80%) saturate(500%) hue-rotate(90deg)" },
       { name: "Go",           logo: "/images/tech/go.svg",           bg: "bg-cyan-50",    filter: "invert(50%) sepia(90%) saturate(400%) hue-rotate(160deg)" },
       { name: ".NET",         logo: "/images/tech/dotnet.svg",       bg: "bg-purple-50",  filter: "invert(25%) sepia(80%) saturate(600%) hue-rotate(250deg)" },
-      { name: "Python",       logo: "/images/tech/python.svg",       bg: "bg-[#E8F5FC]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(200deg)" },
+      { name: "Python",       logo: "/images/tech/python.svg",       bg: "bg-[var(--primary-light)]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(200deg)" },
     ],
   },
   {
@@ -29,14 +29,14 @@ const categories = [
       { name: "Swift",         logo: "/images/tech/swift.svg",       bg: "bg-orange-50",  filter: "invert(50%) sepia(90%) saturate(600%) hue-rotate(10deg)" },
       { name: "Kotlin",        logo: "/images/tech/kotlin.svg",      bg: "bg-violet-50",  filter: "invert(35%) sepia(90%) saturate(600%) hue-rotate(250deg)" },
       { name: "React Native",  logo: "/images/tech/react.svg",       bg: "bg-cyan-50",    filter: "invert(66%) sepia(90%) saturate(400%) hue-rotate(160deg)" },
-      { name: "Flutter",       logo: "/images/tech/flutter.svg",     bg: "bg-[#E8F5FC]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(185deg)" },
+      { name: "Flutter",       logo: "/images/tech/flutter.svg",     bg: "bg-[var(--primary-light)]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(185deg)" },
     ],
   },
   {
     label: "DevOps & Cloud",
     techs: [
-      { name: "Docker",        logo: "/images/tech/docker.svg",      bg: "bg-[#E8F5FC]",    filter: "invert(40%) sepia(90%) saturate(400%) hue-rotate(185deg)" },
-      { name: "Kubernetes",    logo: "/images/tech/kubernetes.svg",  bg: "bg-[#E8F5FC]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(200deg)" },
+      { name: "Docker",        logo: "/images/tech/docker.svg",      bg: "bg-[var(--primary-light)]",    filter: "invert(40%) sepia(90%) saturate(400%) hue-rotate(185deg)" },
+      { name: "Kubernetes",    logo: "/images/tech/kubernetes.svg",  bg: "bg-[var(--primary-light)]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(200deg)" },
       { name: "Terraform",     logo: "/images/tech/terraform.svg",   bg: "bg-violet-50",  filter: "invert(35%) sepia(90%) saturate(400%) hue-rotate(250deg)" },
       { name: "GitLab CI",     logo: "/images/tech/gitlab.svg",      bg: "bg-orange-50",  filter: "invert(50%) sepia(90%) saturate(600%) hue-rotate(10deg)" },
       { name: "AWS",           logo: "/images/tech/amazonaws.svg",   bg: "bg-amber-50",   filter: "invert(55%) sepia(90%) saturate(500%) hue-rotate(20deg)" },
@@ -52,7 +52,7 @@ export default function IngenieiereTechSection() {
 
         {/* En-tête */}
         <div className="mb-14 flex flex-col items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
             Stack technique
           </span>
           <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl">

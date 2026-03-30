@@ -110,7 +110,7 @@ export default function IngenieireServicesSection() {
 
         {/* En-tête */}
         <div className="mb-14 flex flex-col items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
             Nos expertises
           </span>
           <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl">
@@ -126,15 +126,15 @@ export default function IngenieireServicesSection() {
           {services.map((service) => (
             <article
               key={service.id}
-              className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#B8DFF2] hover:shadow-lg"
+              className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-border)] hover:shadow-lg"
             >
               {/* Icône */}
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 text-[#1B9AD2] transition-colors group-hover:from-blue-100 group-hover:to-cyan-100">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 text-[var(--primary)] transition-colors group-hover:from-blue-100 group-hover:to-cyan-100">
                 {service.icon}
               </div>
 
               {/* Titre + description */}
-              <h3 className="mb-3 text-base font-bold text-gray-900 group-hover:text-[#1B9AD2] transition-colors">
+              <h3 className="mb-3 text-base font-bold text-gray-900 group-hover:text-[var(--primary)] transition-colors">
                 {service.title}
               </h3>
               <p className="mb-5 text-sm leading-relaxed text-gray-500">

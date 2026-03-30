@@ -112,7 +112,7 @@ export default function Header() {
                 onClick={() => setServicesDropdownOpen((prev) => !prev)}
                 aria-expanded={servicesDropdownOpen}
                 aria-haspopup="true"
-                className={`flex items-center gap-1 py-2 text-base font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B9AD2] ${textColor} ${textHoverColor}`}
+                className={`flex items-center gap-1 py-2 text-base font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${textColor} ${textHoverColor}`}
               >
                 Expertise
                 <svg
@@ -134,7 +134,7 @@ export default function Header() {
                         key={service.href}
                         href={service.href}
                         role="menuitem"
-                        className="block px-4 py-3 text-sm text-gray-700 transition-colors hover:bg-[#E8F5FC] hover:text-[#0D6EA1] focus:bg-[#E8F5FC] focus:text-[#0D6EA1] focus:outline-none"
+                        className="block px-4 py-3 text-sm text-gray-700 transition-colors hover:bg-[var(--primary-light)] hover:text-[var(--primary-dark)] focus:bg-[var(--primary-light)] focus:text-[var(--primary-dark)] focus:outline-none"
                       >
                         {service.name}
                       </Link>
@@ -143,7 +143,7 @@ export default function Header() {
                       <Link
                         href="/services"
                         role="menuitem"
-                        className="block px-4 py-3 text-sm font-semibold text-[#1B9AD2] transition-colors hover:bg-[#E8F5FC] focus:bg-[#E8F5FC] focus:outline-none"
+                        className="block px-4 py-3 text-sm font-semibold text-[var(--primary)] transition-colors hover:bg-[var(--primary-light)] focus:bg-[var(--primary-light)] focus:outline-none"
                       >
                         Voir toutes les expertises →
                       </Link>
@@ -176,17 +176,17 @@ export default function Header() {
                   ref={searchInputRef}
                   type="search"
                   placeholder="Rechercher..."
-                  className={`mr-2 w-48 rounded-full border px-4 py-1.5 text-sm outline-none transition-all focus:ring-2 focus:ring-[#1B9AD2] lg:w-56 ${
+                  className={`mr-2 w-48 rounded-full border px-4 py-1.5 text-sm outline-none transition-all focus:ring-2 focus:ring-[var(--primary)] lg:w-56 ${
                     isTransparent && isDarkBg
                       ? "border-white/30 bg-white/10 text-white placeholder-white/50 focus:border-white/60"
-                      : "border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-400 focus:border-[#1B9AD2]"
+                      : "border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-400 focus:border-[var(--primary)]"
                   }`}
                 />
               )}
               <button
                 onClick={() => setSearchOpen((prev) => !prev)}
                 aria-label="Rechercher"
-                className={`p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B9AD2] ${iconColor}`}
+                className={`p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${iconColor}`}
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
@@ -197,7 +197,7 @@ export default function Header() {
             {/* Sélecteur de langue */}
             <button
               aria-label="Changer de langue"
-              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B9AD2] ${
+              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${
                 isTransparent && isDarkBg
                   ? "border-white/30 text-white/80 hover:border-white/60 hover:text-white"
                   : "border-gray-300 text-gray-600 hover:border-gray-400 hover:text-gray-900"
@@ -215,10 +215,10 @@ export default function Header() {
             {/* CTA principal */}
             <Link
               href="/contact"
-              className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B9AD2] focus-visible:ring-offset-2 ${
+              className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 ${
                 isTransparent && isDarkBg
-                  ? "bg-white text-[#0D6EA1] hover:bg-gray-100"
-                  : "tk-btn bg-gradient-to-r from-[#0D6EA1] to-[#1B9AD2] text-white hover:opacity-90"
+                  ? "bg-white text-[var(--primary-dark)] hover:bg-gray-100"
+                  : "tk-btn bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] text-white hover:opacity-90"
               }`}
             >
               Parlons de votre projet
@@ -230,7 +230,7 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            className={`p-2 text-2xl md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B9AD2] ${
+            className={`p-2 text-2xl md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${
               isTransparent ? "text-white" : "text-gray-900"
             }`}
           >
@@ -247,7 +247,7 @@ export default function Header() {
                 <div className="mb-2 text-sm font-semibold text-gray-900">Services</div>
                 <div className="ml-4 space-y-2">
                   {services.map((service) => (
-                    <Link key={service.href} href={service.href} className="block text-sm text-gray-600 hover:text-[#1B9AD2]">
+                    <Link key={service.href} href={service.href} className="block text-sm text-gray-600 hover:text-[var(--primary)]">
                       • {service.name}
                     </Link>
                   ))}
@@ -262,11 +262,11 @@ export default function Header() {
                 <input
                   type="search"
                   placeholder="Rechercher..."
-                  className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-[#1B9AD2]"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-[var(--primary)]"
                 />
               </div>
 
-              <Link href="/contact" className="w-fit rounded-lg bg-gradient-to-r from-[#0D6EA1] to-[#1B9AD2] px-5 py-2.5 text-sm font-semibold text-white">
+              <Link href="/contact" className="w-fit rounded-lg bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-white">
                 Parlons de votre projet
               </Link>
             </nav>

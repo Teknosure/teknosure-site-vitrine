@@ -62,14 +62,14 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Globe className="mt-0.5 h-5 w-5 shrink-0 text-[#1B9AD2]" />
+                <Globe className="mt-0.5 h-5 w-5 shrink-0 text-[var(--primary)]" />
                 <span className="text-sm">
                   123 boulevard Tech, quartier Tech, 75001<br />
                   Paris, France
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 shrink-0 text-[#1B9AD2]" />
+                <Phone className="h-5 w-5 shrink-0 text-[var(--primary)]" />
                 <a 
                   href="tel:+33123456789"
                   className="text-sm transition-colors hover:text-white"

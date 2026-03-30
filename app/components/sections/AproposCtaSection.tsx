@@ -9,7 +9,7 @@ const atouts = [
 
 export default function AproposCtaSection() {
   return (
-    <section className="relative overflow-hidden bg-linear-to-br from-[#0D6EA1] via-[#1487BB] to-[#1B9AD2] py-24">
+    <section className="relative overflow-hidden bg-linear-to-br from-[var(--primary-dark)] via-[var(--primary-mid)] to-[var(--primary)] py-24">
       {/* Cercles décoratifs */}
       <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/5" />
       <div className="pointer-events-none absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-cyan-400/10" />
@@ -29,13 +29,13 @@ export default function AproposCtaSection() {
               </span>{" "}
               votre transformation ?
             </h2>
-            <p className="mb-8 text-lg text-[#B8DFF2]">
+            <p className="mb-8 text-lg text-[var(--primary-border)]">
               Parlons de vos enjeux. Sans jargon, sans pression — juste une conversation
               entre experts pour identifier les meilleures pistes.
             </p>
 
             {/* Atouts */}
-            <ul className="mb-10 flex flex-col gap-3 text-sm text-[#B8DFF2]">
+            <ul className="mb-10 flex flex-col gap-3 text-sm text-[var(--primary-border)]">
               {atouts.map((a) => (
                 <li key={a} className="flex items-center gap-3">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-300">
@@ -52,7 +52,7 @@ export default function AproposCtaSection() {
             <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
               <Link
                 href="/contact"
-                className="rounded-full bg-white px-7 py-3 text-sm font-bold text-[#0D6EA1] shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="rounded-full bg-white px-7 py-3 text-sm font-bold text-[var(--primary-dark)] shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Prendre contact
               </Link>
@@ -73,7 +73,7 @@ export default function AproposCtaSection() {
               </svg>
             </div>
             <h3 className="mb-3 text-lg font-bold text-white">Notre valeur ajoutée</h3>
-            <p className="mb-6 text-sm leading-relaxed text-[#B8DFF2]">
+            <p className="mb-6 text-sm leading-relaxed text-[var(--primary-border)]">
               Des solutions boostées par l&apos;IA, conçues pour accélérer vos opérations,
               renforcer la qualité du delivery, et s&apos;adapter aux réalités de chaque
               entreprise — grâce à des partenariats technologiques de haut niveau.

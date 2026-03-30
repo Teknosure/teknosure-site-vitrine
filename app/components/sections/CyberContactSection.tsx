@@ -117,7 +117,7 @@ export default function CyberContactSection() {
               </p>
               <button
                 onClick={() => setSent(false)}
-                className="mt-2 text-sm font-medium text-[#1B9AD2] hover:underline"
+                className="mt-2 text-sm font-medium text-[var(--primary)] hover:underline"
               >
                 Envoyer un autre message
               </button>
@@ -143,7 +143,7 @@ export default function CyberContactSection() {
                     placeholder="Prénom *"
                     value={form.prenom}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]"
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]"
                   />
                 </div>
                 <div>
@@ -156,7 +156,7 @@ export default function CyberContactSection() {
                     placeholder="Nom *"
                     value={form.nom}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]"
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]"
                   />
                 </div>
               </div>
@@ -173,7 +173,7 @@ export default function CyberContactSection() {
                     placeholder="Email *"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]"
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]"
                   />
                 </div>
                 <div>
@@ -185,7 +185,7 @@ export default function CyberContactSection() {
                     placeholder="Téléphone"
                     value={form.telephone}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]"
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]"
                   />
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function CyberContactSection() {
                   placeholder="Entreprise *"
                   value={form.entreprise}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]"
+                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]"
                 />
               </div>
 
@@ -214,7 +214,7 @@ export default function CyberContactSection() {
                   required
                   value={form.sujet}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC] disabled:text-gray-400"
+                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)] disabled:text-gray-400"
                 >
                   <option value="" disabled>Sujet de votre demande *</option>
                   {subjects.map((s) => (
@@ -234,21 +234,21 @@ export default function CyberContactSection() {
                   placeholder="Décrivez votre projet ou vos besoins... *"
                   value={form.message}
                   onChange={handleChange}
-                  className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]"
+                  className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]"
                 />
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
-                className="mt-1 w-full rounded-lg bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] py-3 text-sm font-bold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[#1B9AD2] focus-visible:ring-offset-2"
+                className="mt-1 w-full rounded-lg bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] py-3 text-sm font-bold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2"
               >
                 Demander mon audit gratuit
               </button>
 
               <p className="text-center text-xs text-gray-400">
                 En soumettant ce formulaire, vous acceptez notre{" "}
-                <a href="/legal" className="text-[#1B9AD2] hover:underline">
+                <a href="/legal" className="text-[var(--primary)] hover:underline">
                   politique de confidentialité
                 </a>.
               </p>

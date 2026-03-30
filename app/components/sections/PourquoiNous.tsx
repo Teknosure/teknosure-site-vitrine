@@ -63,7 +63,7 @@ export default function PourquoiNous() {
 
           {/* ── Colonne gauche : différenciateurs ───────────────────────── */}
           <div>
-            <span className="mb-4 inline-block rounded-full border border-[#1B9AD2]/30 bg-[#E8F5FC]0/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-400">
+            <span className="mb-4 inline-block rounded-full border border-[var(--primary)]/30 bg-[var(--primary-light)]0/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-400">
               Ce qui nous distingue
             </span>
             <h2 className="mb-4 text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
@@ -83,7 +83,7 @@ export default function PourquoiNous() {
                 <div key={item.titre} className="group flex gap-5">
                   {/* Icône + trait vertical */}
                   <div className="flex flex-col items-center">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#1B9AD2]/40 bg-[#E8F5FC]0/10 text-blue-400 transition-colors group-hover:border-blue-400 group-hover:bg-[#E8F5FC]0/20">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--primary)]/40 bg-[var(--primary-light)]0/10 text-blue-400 transition-colors group-hover:border-blue-400 group-hover:bg-[var(--primary-light)]0/20">
                       {item.icon}
                     </div>
                     <div className="mt-2 w-px flex-1 bg-gray-700 last:hidden" />
@@ -93,7 +93,7 @@ export default function PourquoiNous() {
                   <div className="pb-7">
                     <div className="mb-1 flex flex-wrap items-center gap-3">
                       <h3 className="text-base font-bold text-white">{item.titre}</h3>
-                      <span className="rounded-full bg-[#E8F5FC]0/15 px-2.5 py-0.5 text-xs font-semibold text-blue-400">
+                      <span className="rounded-full bg-[var(--primary-light)]0/15 px-2.5 py-0.5 text-xs font-semibold text-blue-400">
                         {item.badge}
                       </span>
                     </div>
@@ -122,7 +122,7 @@ export default function PourquoiNous() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl border border-gray-700/60 bg-gray-800/50 p-7 backdrop-blur transition-all hover:border-[#1B9AD2]/30 hover:bg-gray-800"
+                  className="rounded-2xl border border-gray-700/60 bg-gray-800/50 p-7 backdrop-blur transition-all hover:border-[var(--primary)]/30 hover:bg-gray-800"
                 >
                   <p className="mb-1 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-4xl font-extrabold text-transparent">
                     {stat.value}
@@ -133,7 +133,7 @@ export default function PourquoiNous() {
             </div>
 
             {/* Citation / manifeste */}
-            <div className="rounded-2xl border border-[#1B9AD2]/20 bg-linear-to-br from-[#0D6EA1]/20 to-[#1B9AD2]/10 p-8">
+            <div className="rounded-2xl border border-[var(--primary)]/20 bg-linear-to-br from-[var(--primary-dark)]/20 to-[var(--primary)]/10 p-8">
               <svg className="mb-4 h-8 w-8 text-blue-400/60" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
@@ -143,7 +143,7 @@ export default function PourquoiNous() {
                 vous nous confiez la continuité de votre business.&quot;
               </p>
               <div className="flex items-center gap-3">
-                <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-[#1B9AD2]/30">
+                <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-[var(--primary)]/30">
                   <Image
                     src="/images/image-hamad.png"
                     alt="Hamad WITTI — CEO Teknosure"
@@ -162,7 +162,7 @@ export default function PourquoiNous() {
             {/* Mini CTA */}
             <Link
               href="/contact"
-              className="flex items-center justify-between rounded-2xl border border-gray-700 bg-gray-800/50 px-7 py-5 transition-all hover:border-[#1B9AD2]/40 hover:bg-gray-800"
+              className="flex items-center justify-between rounded-2xl border border-gray-700 bg-gray-800/50 px-7 py-5 transition-all hover:border-[var(--primary)]/40 hover:bg-gray-800"
             >
               <div>
                 <p className="font-bold text-white">Prêt à travailler avec nous ?</p>

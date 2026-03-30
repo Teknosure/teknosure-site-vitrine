@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
+/* ══════════════════════════════════════════════════════════════════════
+   THÈME ACTIF — Changer les valeurs ici pour basculer de charte
+   ➜ Charte Teknosure  : #1B9AD2 / #0D6EA1 / #E8F5FC / #1487BB / #B8DFF2
+   ➜ Charte Originale  : #2563eb / #1d4ed8 / #eff6ff / #3b82f6 / #bfdbfe
+   ══════════════════════════════════════════════════════════════════════ */
 :root {
   --background: #ffffff;
   --foreground: #1A1A2E;
 
-  /* ── Charte Teknosure ───────────────────────────────────────────── */
-  --tk-blue:        #1B9AD2;   /* Bleu principal logo */
-  --tk-blue-dark:   #0D6EA1;   /* Bleu foncé logo */
-  --tk-blue-light:  #E8F5FC;   /* Bleu très clair (fonds) */
-  --tk-blue-mid:    #1487BB;   /* Intermédiaire pour dégradés */
-  --tk-dark:        #1A1A2E;   /* Texte foncé */
+  /* ── Couleur primaire (changer ici pour changer de thème) ─────────── */
+  --primary:        #1B9AD2;   /* Couleur principale — boutons, icônes, liens */
+  --primary-dark:   #0D6EA1;   /* Couleur foncée — hover, dégradés début     */
+  --primary-light:  #E8F5FC;   /* Couleur très claire — fonds de badges       */
+  --primary-mid:    #1487BB;   /* Couleur intermédiaire — dégradés milieu     */
+  --primary-border: #B8DFF2;   /* Couleur bordure claire                      */
 }
 
 @theme inline {
@@ -18,12 +23,12 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Couleurs Teknosure accessibles via Tailwind : text-tk-blue, bg-tk-blue, etc. */
-  --color-tk-blue:        var(--tk-blue);
-  --color-tk-blue-dark:   var(--tk-blue-dark);
-  --color-tk-blue-light:  var(--tk-blue-light);
-  --color-tk-blue-mid:    var(--tk-blue-mid);
-  --color-tk-dark:        var(--tk-dark);
+  /* Couleurs du thème accessibles via Tailwind : text-primary, bg-primary, etc. */
+  --color-primary:        var(--primary);
+  --color-primary-dark:   var(--primary-dark);
+  --color-primary-light:  var(--primary-light);
+  --color-primary-mid:    var(--primary-mid);
+  --color-primary-border: var(--primary-border);
 }
 
 body {
@@ -32,33 +37,28 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ── Classes utilitaires Teknosure ──────────────────────────────────── */
+/* ── Classes utilitaires du thème ───────────────────────────────────── */
 
-/* Dégradé signature Teknosure */
-.tk-gradient {
-  background: linear-gradient(135deg, var(--tk-blue-dark) 0%, var(--tk-blue) 100%);
+/* Dégradé signature */
+.theme-gradient {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
 }
 
-.tk-gradient-text {
-  background: linear-gradient(135deg, var(--tk-blue-dark) 0%, var(--tk-blue) 100%);
+/* Texte dégradé */
+.theme-gradient-text {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Badge / pill Teknosure */
-.tk-badge {
-  background-color: var(--tk-blue-light);
-  color: var(--tk-blue-dark);
-}
-
-/* Bouton principal Teknosure */
-.tk-btn {
-  background: linear-gradient(135deg, var(--tk-blue-dark) 0%, var(--tk-blue) 100%);
+/* Bouton principal */
+.theme-btn {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
   color: white;
   transition: opacity 0.2s, transform 0.2s;
 }
-.tk-btn:hover {
+.theme-btn:hover {
   opacity: 0.92;
   transform: translateY(-1px);
 }

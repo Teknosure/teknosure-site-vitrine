@@ -282,7 +282,7 @@ export default function CyberOffresSection() {
         {/* Titre */}
         <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 sm:text-4xl">
           Nos offres{" "}
-          <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] bg-clip-text text-transparent">
             Cybersécurité
           </span>
         </h2>
@@ -303,7 +303,7 @@ export default function CyberOffresSection() {
                   aria-selected={isActive}
                   onClick={() => handleTabChange(i)}
                   className={`relative shrink-0 px-5 py-4 text-sm font-medium transition-colors duration-200 focus:outline-none ${
-                    isActive ? "text-[#1B9AD2]" : "text-gray-500 hover:text-gray-800"
+                    isActive ? "text-[var(--primary)]" : "text-gray-500 hover:text-gray-800"
                   }`}
                 >
                   {offre.label}
@@ -336,7 +336,7 @@ export default function CyberOffresSection() {
               aria-hidden="true"
               onClick={() => handleTabChange(prevIndex)}
             >
-              <h3 className="mb-4 text-lg font-bold text-[#1B9AD2] lg:text-xl">
+              <h3 className="mb-4 text-lg font-bold text-[var(--primary)] lg:text-xl">
                 {prev.title}
               </h3>
               <p className="mb-4 text-sm leading-relaxed text-gray-600 line-clamp-4">
@@ -345,7 +345,7 @@ export default function CyberOffresSection() {
               <div className="space-y-4">
                 {prev.services.map((s, i) => (
                   <div key={i}>
-                    <h4 className="mb-1 text-sm font-semibold text-[#1B9AD2]">{s.name}</h4>
+                    <h4 className="mb-1 text-sm font-semibold text-[var(--primary)]">{s.name}</h4>
                     <p className="line-clamp-2 text-sm text-gray-500">{s.description}</p>
                   </div>
                 ))}
@@ -358,7 +358,7 @@ export default function CyberOffresSection() {
 
                 {/* Colonne gauche */}
                 <div className="border-r border-gray-100 p-8 lg:p-10">
-                  <h3 className="mb-4 text-xl font-bold text-[#1B9AD2] lg:text-2xl">
+                  <h3 className="mb-4 text-xl font-bold text-[var(--primary)] lg:text-2xl">
                     {current.title}
                   </h3>
                   <p className="mb-6 text-sm leading-relaxed text-gray-600">
@@ -367,7 +367,7 @@ export default function CyberOffresSection() {
                   <ul className="mb-8 space-y-3">
                     {current.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#E8F5FC]0" />
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--primary-light)]0" />
                         {item}
                       </li>
                     ))}
@@ -381,7 +381,7 @@ export default function CyberOffresSection() {
                         {current.partners.map((p) => (
                           <span
                             key={p}
-                            className="rounded-full border border-[#B8DFF2] bg-[#E8F5FC] px-3 py-1 text-xs font-medium text-[#0D6EA1]"
+                            className="rounded-full border border-[var(--primary-border)] bg-[var(--primary-light)] px-3 py-1 text-xs font-medium text-[var(--primary-dark)]"
                           >
                             {p}
                           </span>
@@ -399,7 +399,7 @@ export default function CyberOffresSection() {
                   <div className="space-y-8">
                     {current.services.map((s, i) => (
                       <div key={i}>
-                        <h4 className="mb-2 text-sm font-semibold text-[#1B9AD2]">
+                        <h4 className="mb-2 text-sm font-semibold text-[var(--primary)]">
                           {s.name}
                         </h4>
                         <p className="text-sm leading-relaxed text-gray-500">
@@ -419,7 +419,7 @@ export default function CyberOffresSection() {
               aria-hidden="true"
               onClick={() => handleTabChange(nextIndex)}
             >
-              <h3 className="mb-4 text-xl font-bold text-[#1B9AD2] lg:text-2xl">
+              <h3 className="mb-4 text-xl font-bold text-[var(--primary)] lg:text-2xl">
                 {next.title}
               </h3>
               <p className="mb-6 text-sm leading-relaxed text-gray-600">
@@ -428,7 +428,7 @@ export default function CyberOffresSection() {
               <div className="space-y-6">
                 {next.services.map((s, i) => (
                   <div key={i}>
-                    <h4 className="mb-1 text-sm font-semibold text-[#1B9AD2]">
+                    <h4 className="mb-1 text-sm font-semibold text-[var(--primary)]">
                       {s.name}
                     </h4>
                     <p className="line-clamp-3 text-sm text-gray-500">

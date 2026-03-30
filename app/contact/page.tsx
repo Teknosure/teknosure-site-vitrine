@@ -22,7 +22,7 @@ const faq = [
 
 const expertises = [
   { label: "Cybersécurité", href: "/services/cybersecurite", color: "bg-red-50 text-red-600 border-red-100" },
-  { label: "Infrastructure & Cloud", href: "/services/cloud", color: "bg-[#E8F5FC] text-[#1B9AD2] border-[#B8DFF2]" },
+  { label: "Infrastructure & Cloud", href: "/services/cloud", color: "bg-[var(--primary-light)] text-[var(--primary)] border-[var(--primary-border)]" },
   { label: "Infogérance", href: "/services/infogerance", color: "bg-emerald-50 text-emerald-600 border-emerald-100" },
   { label: "Ingénierie logicielle", href: "/services/ingenierie", color: "bg-violet-50 text-violet-600 border-violet-100" },
 ];
@@ -32,7 +32,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white">
 
       {/* ── Mini hero ─────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#0D6EA1] via-[#1487BB] to-[#1B9AD2] pt-32 pb-20">
+      <section className="relative overflow-hidden bg-linear-to-br from-[var(--primary-dark)] via-[var(--primary-mid)] to-[var(--primary)] pt-32 pb-20">
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5" />
         <div className="pointer-events-none absolute -bottom-12 left-1/3 h-56 w-56 rounded-full bg-cyan-400/10" />
 
@@ -47,7 +47,7 @@ export default function ContactPage() {
               une vraie conversation
             </span>
           </h1>
-          <p className="mx-auto max-w-xl text-lg text-[#B8DFF2]">
+          <p className="mx-auto max-w-xl text-lg text-[var(--primary-border)]">
             Pas de formulaire robotique, pas de template générique.
             Décrivez-nous votre situation — nous vous répondons avec une vraie proposition.
           </p>
@@ -75,7 +75,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
 
           <div className="mb-12 text-center">
-            <span className="mb-3 inline-block rounded-full bg-[#E8F5FC] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
+            <span className="mb-3 inline-block rounded-full bg-[var(--primary-light)] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
               FAQ
             </span>
             <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
@@ -87,7 +87,7 @@ export default function ContactPage() {
             {faq.map((item) => (
               <div
                 key={item.q}
-                className="rounded-2xl border border-gray-100 bg-gray-50 p-6 transition-all hover:border-[#B8DFF2] hover:shadow-sm"
+                className="rounded-2xl border border-gray-100 bg-gray-50 p-6 transition-all hover:border-[var(--primary-border)] hover:shadow-sm"
               >
                 <p className="mb-2 text-sm font-bold text-gray-900">{item.q}</p>
                 <p className="text-sm leading-relaxed text-gray-500">{item.a}</p>

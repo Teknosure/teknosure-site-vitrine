@@ -44,12 +44,12 @@ export default function AProposPage() {
 
             {/* Gauche — titre fixe */}
             <div className="lg:w-2/5 lg:sticky lg:top-28">
-              <span className="mb-3 inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-600">
+              <span className="mb-3 inline-block rounded-full bg-[#E8F5FC] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
                 Notre approche
               </span>
               <h2 className="mb-6 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
                 Une méthode centrée sur{" "}
-                <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
                   vos résultats
                 </span>
               </h2>
@@ -64,9 +64,9 @@ export default function AProposPage() {
               {approche.map((item) => (
                 <div
                   key={item.step}
-                  className="group flex gap-6 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-100 hover:shadow-md"
+                  className="group flex gap-6 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#B8DFF2] hover:shadow-md"
                 >
-                  <span className="shrink-0 text-4xl font-black text-gray-100 transition-colors group-hover:text-blue-100">
+                  <span className="shrink-0 text-4xl font-black text-gray-100 transition-colors group-hover:text-[#B8DFF2]">
                     {item.step}
                   </span>
                   <div>

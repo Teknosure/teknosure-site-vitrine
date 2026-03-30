@@ -38,7 +38,7 @@ export default function PartnersSection() {
           {track.map((partner, i) => (
             <div
               key={i}
-              className="group flex h-14 w-40 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white px-4 shadow-sm transition-all hover:border-blue-200 hover:shadow-md"
+              className="group flex h-14 w-40 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white px-4 shadow-sm transition-all hover:border-[#B8DFF2] hover:shadow-md"
               title={partner.name}
             >
               {partner.logo ? (

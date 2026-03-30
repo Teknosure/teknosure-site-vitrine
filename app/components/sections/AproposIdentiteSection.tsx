@@ -37,7 +37,7 @@ export default function AproposIdentiteSection() {
   return (
     <>
       {/* ── Bloc hero "Notre histoire" ────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-linear-to-br from-blue-700 via-blue-600 to-cyan-500 py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#0D6EA1] via-[#1487BB] to-[#1B9AD2] py-24">
         {/* Cercles décoratifs */}
         <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-white/5" />
         <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-cyan-400/10" />
@@ -53,7 +53,7 @@ export default function AproposIdentiteSection() {
               <h1 className="mb-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
                 Notre histoire
               </h1>
-              <p className="max-w-lg text-lg leading-relaxed text-blue-100 lg:text-xl">
+              <p className="max-w-lg text-lg leading-relaxed text-[#B8DFF2] lg:text-xl">
                 Une ESN nouvelle génération, animée par une équipe passionnée,
                 où l&apos;ingéniosité humaine rencontre la technologie de pointe
                 pour créer des services adaptés, résilients et accessibles.
@@ -87,8 +87,8 @@ export default function AproposIdentiteSection() {
                 />
               </div>
               {/* Badge flottant */}
-              <div className="absolute -bottom-4 -left-4 rounded-xl border border-blue-200 bg-white px-5 py-3 shadow-lg">
-                <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Fondée en 2022</p>
+              <div className="absolute -bottom-4 -left-4 rounded-xl border border-[#B8DFF2] bg-white px-5 py-3 shadow-lg">
+                <p className="text-xs font-semibold uppercase tracking-wide text-[#1B9AD2]">Fondée en 2022</p>
                 <p className="text-sm font-bold text-gray-900">Paris, France</p>
               </div>
             </div>
@@ -104,12 +104,12 @@ export default function AproposIdentiteSection() {
             {pilliers.map((p) => (
               <div
                 key={p.title}
-                className="group flex flex-col items-center gap-4 rounded-2xl border border-gray-100 p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-md"
+                className="group flex flex-col items-center gap-4 rounded-2xl border border-gray-100 p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#B8DFF2] hover:shadow-md"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#E8F5FC] text-[#1B9AD2] transition-colors group-hover:bg-[#0D6EA1] group-hover:text-white">
                   {p.icon}
                 </div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-blue-600">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-[#1B9AD2]">
                   {p.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-gray-500">{p.description}</p>

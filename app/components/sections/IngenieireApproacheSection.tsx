@@ -65,12 +65,12 @@ export default function IngenieireApproacheSection() {
 
           {/* Droite — titre + étapes */}
           <div className="flex flex-1 flex-col justify-center">
-            <span className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-600">
+            <span className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
               Notre méthode
             </span>
             <h2 className="mb-3 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl">
               Votre projet livré{" "}
-              <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
                 sans mauvaise surprise.
               </span>
             </h2>
@@ -82,8 +82,8 @@ export default function IngenieireApproacheSection() {
 
             {/* Différenciateurs */}
             <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <div className="flex items-start gap-3 rounded-xl border border-blue-100 bg-blue-50 p-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-blue-600 to-cyan-500 text-white shadow-sm">
+              <div className="flex items-start gap-3 rounded-xl border border-[#B8DFF2] bg-[#E8F5FC] p-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-[#0D6EA1] to-[#1B9AD2] text-white shadow-sm">
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -116,7 +116,7 @@ export default function IngenieireApproacheSection() {
                 <li key={etape.num} className="group flex items-start gap-4">
                   {/* Numéro + ligne de connexion */}
                   <div className="flex flex-col items-center">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-blue-600 to-cyan-500 text-sm font-bold text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-[#0D6EA1] to-[#1B9AD2] text-sm font-bold text-white shadow-md transition-transform duration-300 group-hover:scale-110">
                       {etape.num}
                     </div>
                     {index < etapes.length - 1 && (
@@ -125,7 +125,7 @@ export default function IngenieireApproacheSection() {
                   </div>
                   {/* Contenu */}
                   <div className="pb-2">
-                    <h3 className="mb-1 text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <h3 className="mb-1 text-sm font-bold text-gray-900 group-hover:text-[#1B9AD2] transition-colors">
                       {etape.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-gray-500">

@@ -14,9 +14,9 @@ const realisations = [
     client: "FI2C MD",
     sector: "Formation & Ingénierie",
     initials: "FI",
-    accentGradient: "from-blue-600 to-cyan-500",
-    badgeBg: "bg-blue-50",
-    badgeText: "text-blue-700",
+    accentGradient: "from-[#0D6EA1] to-[#1B9AD2]",
+    badgeBg: "bg-[#E8F5FC]",
+    badgeText: "text-[#0D6EA1]",
     domaine: "Infogérance",
     domaineColor: "bg-emerald-50 text-emerald-700",
     title: "Infogérance complète du système d'information",
@@ -35,9 +35,9 @@ const realisations = [
     client: "FI2C MD",
     sector: "Formation & Ingénierie",
     initials: "FI",
-    accentGradient: "from-blue-600 to-cyan-500",
-    badgeBg: "bg-blue-50",
-    badgeText: "text-blue-700",
+    accentGradient: "from-[#0D6EA1] to-[#1B9AD2]",
+    badgeBg: "bg-[#E8F5FC]",
+    badgeText: "text-[#0D6EA1]",
     domaine: "Cybersécurité",
     domaineColor: "bg-red-50 text-red-700",
     title: "Sécurisation de l'infrastructure réseau",
@@ -229,7 +229,7 @@ export default function RealisationsPage() {
               onClick={() => setActiveFilter(d)}
               className={`shrink-0 rounded-full px-5 py-2 text-sm font-semibold transition-all ${
                 activeFilter === d
-                  ? "bg-linear-to-r from-blue-600 to-cyan-500 text-white shadow-md"
+                  ? "bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] text-white shadow-md"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
@@ -284,12 +284,12 @@ export default function RealisationsPage() {
                         <article
                           key={r.id}
                           className={`group relative flex flex-col rounded-2xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
-                            r.highlight ? "border-blue-200 ring-1 ring-blue-100" : "border-gray-200 hover:border-blue-200"
+                            r.highlight ? "border-[#B8DFF2] ring-1 ring-[#E8F5FC]" : "border-gray-200 hover:border-[#B8DFF2]"
                           }`}
                         >
                           {/* Badge "Projet phare" */}
                           {r.highlight && (
-                            <span className="absolute right-4 top-4 rounded-full bg-linear-to-r from-blue-600 to-cyan-500 px-3 py-0.5 text-xs font-semibold text-white shadow">
+                            <span className="absolute right-4 top-4 rounded-full bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] px-3 py-0.5 text-xs font-semibold text-white shadow">
                               ★ Projet phare
                             </span>
                           )}
@@ -300,7 +300,7 @@ export default function RealisationsPage() {
                           </span>
 
                           {/* Titre */}
-                          <h3 className="mb-3 text-base font-bold text-gray-900 transition-colors group-hover:text-blue-600">
+                          <h3 className="mb-3 text-base font-bold text-gray-900 transition-colors group-hover:text-[#1B9AD2]">
                             {r.title}
                           </h3>
 
@@ -325,7 +325,7 @@ export default function RealisationsPage() {
                           <div className="mb-5 grid grid-cols-2 gap-3 rounded-xl bg-gray-50 p-4">
                             {r.results.map((res) => (
                               <div key={res.label}>
-                                <p className="text-lg font-extrabold text-blue-600">{res.value}</p>
+                                <p className="text-lg font-extrabold text-[#1B9AD2]">{res.value}</p>
                                 <p className="text-xs text-gray-400">{res.label}</p>
                               </div>
                             ))}
@@ -334,7 +334,7 @@ export default function RealisationsPage() {
                           {/* Lien */}
                           <Link
                             href={r.serviceHref}
-                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition-all hover:gap-3"
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1B9AD2] transition-all hover:gap-3"
                           >
                             Voir le service associé
                             <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
@@ -355,21 +355,21 @@ export default function RealisationsPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-linear-to-br from-blue-700 via-blue-600 to-cyan-500 py-20">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#0D6EA1] via-[#1487BB] to-[#1B9AD2] py-20">
         <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/5" />
 
         <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
           <h2 className="mb-4 text-3xl font-extrabold text-white sm:text-4xl">
             Votre projet sera notre prochaine réalisation
           </h2>
-          <p className="mb-8 text-lg text-blue-100">
+          <p className="mb-8 text-lg text-[#B8DFF2]">
             Que vous ayez un projet précis ou juste une idée,
             parlons-en — l&apos;estimation initiale est offerte.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-blue-700 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              className="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#0D6EA1] shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               Démarrer un projet
             </Link>

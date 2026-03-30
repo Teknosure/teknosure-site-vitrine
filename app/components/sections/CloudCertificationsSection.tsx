@@ -15,7 +15,7 @@ export default function CloudCertificationsSection() {
 
           {/* Gauche — texte + stats */}
           <div className="flex flex-1 flex-col justify-center">
-            <span className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-600">
+            <span className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
               Expertise reconnue
             </span>
             <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">
@@ -31,7 +31,7 @@ export default function CloudCertificationsSection() {
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat) => (
                 <div key={stat.label} className="group">
-                  <p className="text-4xl font-extrabold text-blue-600 transition-colors group-hover:text-cyan-500">
+                  <p className="text-4xl font-extrabold text-[#1B9AD2] transition-colors group-hover:text-cyan-500">
                     {stat.value}
                   </p>
                   <p className="mt-1 text-sm text-gray-500">{stat.label}</p>
@@ -46,8 +46,8 @@ export default function CloudCertificationsSection() {
               {/* Icônes déco */}
               <div className="flex flex-col items-center gap-6">
                 {/* Badge central */}
-                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-blue-100">
-                  <svg className="h-12 w-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg ring-4 ring-[#E8F5FC]">
+                  <svg className="h-12 w-12 text-[#1B9AD2]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
@@ -64,7 +64,7 @@ export default function CloudCertificationsSection() {
                     </div>
                   ))}
                 </div>
-                <p className="text-center text-sm font-medium text-blue-700">
+                <p className="text-center text-sm font-medium text-[#0D6EA1]">
                   Certifications officielles sur les 3 clouds majeurs
                 </p>
               </div>

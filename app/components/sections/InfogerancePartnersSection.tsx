@@ -41,7 +41,7 @@ const partners = [
     initials: "MS",
     color: "#00A4EF",
     badge: "Microsoft Partner",
-    badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
+    badgeColor: "bg-[#E8F5FC] text-[#0D6EA1] border-[#B8DFF2]",
     description:
       "Partenariat couvrant Microsoft 365, Azure Active Directory, Intune et Defender. Nous gérons et sécurisons votre écosystème Microsoft au quotidien.",
     tags: ["Microsoft 365", "Azure AD", "Intune", "Defender"],
@@ -109,12 +109,12 @@ export default function InfogerancePartnersSection() {
         {/* Header */}
         <div className="mb-16 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <span className="mb-3 inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-600">
+            <span className="mb-3 inline-block rounded-full bg-[#E8F5FC] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
               Écosystème technologique
             </span>
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
               Nos partenaires <br />
-              <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
                 technologiques
               </span>
             </h2>
@@ -130,7 +130,7 @@ export default function InfogerancePartnersSection() {
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
+              className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#B8DFF2] hover:shadow-md"
             >
               {/* Logo + badge */}
               <div className="mb-6 flex items-start justify-between">
@@ -179,7 +179,7 @@ export default function InfogerancePartnersSection() {
               <div className="mt-auto grid grid-cols-2 gap-4 border-t border-gray-100 pt-5">
                 {partner.stats.map((s) => (
                   <div key={s.label}>
-                    <p className="text-xl font-extrabold text-blue-600">{s.value}</p>
+                    <p className="text-xl font-extrabold text-[#1B9AD2]">{s.value}</p>
                     <p className="text-xs text-gray-400">{s.label}</p>
                   </div>
                 ))}
@@ -189,11 +189,11 @@ export default function InfogerancePartnersSection() {
         </div>
 
         {/* Bottom banner */}
-        <div className="mt-12 rounded-2xl bg-linear-to-r from-blue-600 to-cyan-500 p-8 text-center text-white">
+        <div className="mt-12 rounded-2xl bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] p-8 text-center text-white">
           <p className="text-lg font-semibold">
             Un partenariat technologique solide, au service de votre continuité.
           </p>
-          <p className="mt-1 text-sm text-blue-100">
+          <p className="mt-1 text-sm text-[#B8DFF2]">
             Nos certifications et partenariats nous permettent de vous proposer des solutions éprouvées,
             rapidement opérationnelles et pleinement supportées.
           </p>

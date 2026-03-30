@@ -16,17 +16,17 @@ export default function HeroSection() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="max-w-2xl">
           {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#B8DFF2] bg-[#E8F5FC] px-4 py-2 text-sm font-medium text-[#0D6EA1]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1B9AD2] opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#E8F5FC]0"></span>
             </span>
             Cabinet de conseil et de conseil informatique de premier plan
           </div>
 
           {/* Titre */}
           <h1 className="mb-6 text-5xl font-bold leading-tight lg:text-6xl">
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
               Intelligence numérique
             </span>
             <br />

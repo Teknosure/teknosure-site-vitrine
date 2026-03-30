@@ -66,7 +66,7 @@ export default function IngenieireCasSection() {
 
         {/* En-tête */}
         <div className="mb-16 flex flex-col items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
             Cas clients
           </span>
           <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl">
@@ -102,14 +102,14 @@ export default function IngenieireCasSection() {
                 {group.projets.map((projet) => (
                   <article
                     key={projet.id}
-                    className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+                    className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#B8DFF2] hover:shadow-lg"
                   >
                     {/* Badge catégorie */}
                     <span className={`mb-4 inline-flex w-fit rounded-full px-3 py-1 text-xs font-semibold ${group.badgeColor}`}>
                       {projet.category}
                     </span>
 
-                    <h4 className="mb-3 text-base font-bold text-gray-900 transition-colors group-hover:text-blue-600">
+                    <h4 className="mb-3 text-base font-bold text-gray-900 transition-colors group-hover:text-[#1B9AD2]">
                       {projet.title}
                     </h4>
                     <p className="mb-6 flex-1 text-sm leading-relaxed text-gray-500">
@@ -130,7 +130,7 @@ export default function IngenieireCasSection() {
 
                     <Link
                       href="/etudes-de-cas"
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition-all hover:gap-3"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1B9AD2] transition-all hover:gap-3"
                     >
                       Voir l&apos;étude de cas
                       <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -149,7 +149,7 @@ export default function IngenieireCasSection() {
         <div className="mt-14 flex justify-center">
           <Link
             href="/etudes-de-cas"
-            className="inline-flex items-center gap-2 rounded-full border border-blue-500 px-8 py-3 text-sm font-semibold text-blue-600 transition-all hover:bg-blue-50"
+            className="inline-flex items-center gap-2 rounded-full border border-[#1B9AD2] px-8 py-3 text-sm font-semibold text-[#1B9AD2] transition-all hover:bg-[#E8F5FC]"
           >
             Voir toutes nos réalisations
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

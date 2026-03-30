@@ -9,7 +9,7 @@ const partners = [
     logoFilter: "invert(40%) sepia(80%) saturate(400%) hue-rotate(185deg)",
     logoSize: 100,
     badge: "Partenaire Cloud",
-    badgeColor: "bg-blue-600 text-white",
+    badgeColor: "bg-[#1B9AD2] text-white",
     description:
       "Notre expertise Google Cloud nous permet d'accompagner vos projets de migration, d'infrastructure et d'analyse de données sur l'une des plateformes les plus innovantes au monde.",
     tags: ["Compute Engine", "GKE", "BigQuery", "Cloud Run"],
@@ -56,7 +56,7 @@ export default function CloudPartnersSection() {
 
         {/* En-tête */}
         <div className="mb-14 flex flex-col items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
             Écosystème
           </span>
           <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl">
@@ -73,7 +73,7 @@ export default function CloudPartnersSection() {
           {partners.map((partner) => (
             <article
               key={partner.name}
-              className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+              className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#B8DFF2] hover:shadow-lg"
             >
               {/* Logo */}
               <div className="mb-5 flex h-14 items-center justify-start">
@@ -109,14 +109,14 @@ export default function CloudPartnersSection() {
 
               {/* Stat */}
               <div className="mb-5 border-t border-gray-100 pt-5">
-                <p className="text-2xl font-extrabold text-blue-600">{partner.stat}</p>
+                <p className="text-2xl font-extrabold text-[#1B9AD2]">{partner.stat}</p>
                 <p className="text-xs text-gray-400">{partner.statLabel}</p>
               </div>
 
               {/* Lien */}
               <Link
                 href={partner.href}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition-all hover:gap-3"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1B9AD2] transition-all hover:gap-3"
               >
                 En savoir plus
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -131,7 +131,7 @@ export default function CloudPartnersSection() {
         <div className="mt-12 flex justify-center">
           <Link
             href="/a-propos"
-            className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-500 hover:shadow-lg"
+            className="inline-flex items-center gap-2 rounded-full bg-[#1B9AD2] px-8 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#E8F5FC]0 hover:shadow-lg"
           >
             Découvrir tous nos partenariats
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

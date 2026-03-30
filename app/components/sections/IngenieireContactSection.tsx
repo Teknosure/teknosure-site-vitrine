@@ -58,8 +58,8 @@ export default function IngenieireContactSection() {
           {/* Badge */}
           <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-blue-400/40 bg-white/10 px-4 py-1.5 backdrop-blur-sm">
             <span className="relative flex h-2 w-2 shrink-0">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-400" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1B9AD2] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#1B9AD2]" />
             </span>
             <span className="text-xs font-semibold uppercase tracking-widest text-blue-200">
               Démarrons ensemble
@@ -113,7 +113,7 @@ export default function IngenieireContactSection() {
               </p>
               <button
                 onClick={() => setSent(false)}
-                className="mt-2 text-sm font-medium text-blue-600 hover:underline"
+                className="mt-2 text-sm font-medium text-[#1B9AD2] hover:underline"
               >
                 Envoyer un autre message
               </button>
@@ -132,12 +132,12 @@ export default function IngenieireContactSection() {
                 <div>
                   <label htmlFor="ing-prenom" className="sr-only">Prénom</label>
                   <input id="ing-prenom" name="prenom" type="text" required placeholder="Prénom *" value={form.prenom} onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
                 </div>
                 <div>
                   <label htmlFor="ing-nom" className="sr-only">Nom</label>
                   <input id="ing-nom" name="nom" type="text" required placeholder="Nom *" value={form.nom} onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
                 </div>
               </div>
 
@@ -146,12 +146,12 @@ export default function IngenieireContactSection() {
                 <div>
                   <label htmlFor="ing-email" className="sr-only">Email</label>
                   <input id="ing-email" name="email" type="email" required placeholder="Email *" value={form.email} onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
                 </div>
                 <div>
                   <label htmlFor="ing-telephone" className="sr-only">Téléphone</label>
                   <input id="ing-telephone" name="telephone" type="tel" placeholder="Téléphone" value={form.telephone} onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
+                    className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
                 </div>
               </div>
 
@@ -159,14 +159,14 @@ export default function IngenieireContactSection() {
               <div>
                 <label htmlFor="ing-entreprise" className="sr-only">Entreprise</label>
                 <input id="ing-entreprise" name="entreprise" type="text" required placeholder="Entreprise *" value={form.entreprise} onChange={handleChange}
-                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
+                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
               </div>
 
               {/* Sujet */}
               <div>
                 <label htmlFor="ing-sujet" className="sr-only">Type de projet</label>
                 <select id="ing-sujet" name="sujet" required value={form.sujet} onChange={handleChange}
-                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100">
+                  className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]">
                   <option value="" disabled>Type de projet *</option>
                   {subjects.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
@@ -176,17 +176,17 @@ export default function IngenieireContactSection() {
               <div>
                 <label htmlFor="ing-message" className="sr-only">Description</label>
                 <textarea id="ing-message" name="message" rows={4} required placeholder="Décrivez votre projet, vos contraintes, votre délai souhaité... *" value={form.message} onChange={handleChange}
-                  className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100" />
+                  className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[#1B9AD2] focus:ring-2 focus:ring-[#E8F5FC]" />
               </div>
 
               <button type="submit"
-                className="mt-1 w-full rounded-lg bg-linear-to-r from-blue-600 to-cyan-500 py-3 text-sm font-bold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                className="mt-1 w-full rounded-lg bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] py-3 text-sm font-bold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[#1B9AD2] focus-visible:ring-offset-2">
                 Démarrer mon projet
               </button>
 
               <p className="text-center text-xs text-gray-400">
                 En soumettant ce formulaire, vous acceptez notre{" "}
-                <a href="/legal" className="text-blue-500 hover:underline">politique de confidentialité</a>.
+                <a href="/legal" className="text-[#1B9AD2] hover:underline">politique de confidentialité</a>.
               </p>
             </form>
           )}

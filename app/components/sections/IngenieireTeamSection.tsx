@@ -38,12 +38,12 @@ export default function IngenieireTeamSection() {
 
         {/* En-tête */}
         <div className="mb-16 flex flex-col items-center gap-3 text-center">
-          <span className="inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-600">
+          <span className="inline-block rounded-full bg-[#E8F5FC] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
             L'équipe
           </span>
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
             Ceux qui{" "}
-            <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
               construisent vos projets
             </span>
           </h2>
@@ -58,11 +58,11 @@ export default function IngenieireTeamSection() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="group flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
+              className="group flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#B8DFF2] hover:shadow-md"
             >
               {/* Avatar */}
               <div className="relative mb-6">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-linear-to-br from-blue-600 to-cyan-400 text-2xl font-bold text-white shadow-lg ring-4 ring-white transition-all duration-300 group-hover:ring-blue-100">
+                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-linear-to-br from-[#0D6EA1] to-cyan-400 text-2xl font-bold text-white shadow-lg ring-4 ring-white transition-all duration-300 group-hover:ring-[#E8F5FC]">
                   {member.initials}
                 </div>
                 <Link
@@ -78,7 +78,7 @@ export default function IngenieireTeamSection() {
 
               {/* Infos */}
               <h3 className="text-base font-bold text-gray-900">{member.name}</h3>
-              <p className="mt-1 text-sm font-medium text-blue-600">{member.role}</p>
+              <p className="mt-1 text-sm font-medium text-[#1B9AD2]">{member.role}</p>
 
               {/* Séparateur */}
               <span className="my-5 block h-px w-10 rounded-full bg-linear-to-r from-blue-400 to-cyan-400" />
@@ -88,7 +88,7 @@ export default function IngenieireTeamSection() {
                 {member.expertise.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 transition-colors group-hover:bg-blue-50 group-hover:text-blue-700"
+                    className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 transition-colors group-hover:bg-[#E8F5FC] group-hover:text-[#0D6EA1]"
                   >
                     {tag}
                   </span>

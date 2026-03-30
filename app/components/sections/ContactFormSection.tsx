@@ -49,10 +49,38 @@ const infos = [
 ];
 
 const atouts = [
-  { emoji: "⚡", text: "Réponse sous 24h" },
-  { emoji: "🎯", text: "Audit initial offert" },
-  { emoji: "🤝", text: "Sans engagement" },
-  { emoji: "🔒", text: "Données confidentielles" },
+  {
+    icon: (
+      <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      </svg>
+    ),
+    text: "Réponse sous 24h",
+  },
+  {
+    icon: (
+      <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+    ),
+    text: "Audit initial offert",
+  },
+  {
+    icon: (
+      <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+      </svg>
+    ),
+    text: "Sans engagement",
+  },
+  {
+    icon: (
+      <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+      </svg>
+    ),
+    text: "Données confidentielles",
+  },
 ];
 
 export default function ContactFormSection() {
@@ -109,7 +137,7 @@ export default function ContactFormSection() {
   const inputClass = (name: string) =>
     `w-full rounded-xl border px-4 py-3 text-sm text-gray-900 outline-none transition-all placeholder:text-gray-400 ${
       focused === name
-        ? "border-blue-500 bg-white ring-3 ring-blue-100"
+        ? "border-[#1B9AD2] bg-white ring-3 ring-[#E8F5FC]"
         : "border-gray-200 bg-gray-50 hover:border-gray-300"
     }`;
 
@@ -123,12 +151,12 @@ export default function ContactFormSection() {
 
             {/* Titre */}
             <div>
-              <span className="mb-3 inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-600">
+              <span className="mb-3 inline-block rounded-full bg-[#E8F5FC] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
                 Contact
               </span>
               <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
                 Parlons de{" "}
-                <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
                   votre projet
                 </span>
               </h1>
@@ -144,9 +172,9 @@ export default function ContactFormSection() {
                 <Link
                   key={info.label}
                   href={info.href}
-                  className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md"
+                  className="group flex items-center gap-4 rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#B8DFF2] hover:shadow-md"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#E8F5FC] text-[#1B9AD2] transition-colors group-hover:bg-[#0D6EA1] group-hover:text-white">
                     {info.icon}
                   </div>
                   <div>
@@ -158,14 +186,16 @@ export default function ContactFormSection() {
             </div>
 
             {/* Atouts */}
-            <div className="rounded-2xl bg-linear-to-br from-blue-600 to-cyan-500 p-6 text-white">
-              <p className="mb-4 text-sm font-bold uppercase tracking-wide text-blue-100">
+            <div className="rounded-2xl bg-linear-to-br from-[#0D6EA1] to-[#1B9AD2] p-6 text-white">
+              <p className="mb-4 text-sm font-bold uppercase tracking-wide text-[#B8DFF2]">
                 Pourquoi nous contacter ?
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {atouts.map((a) => (
                   <div key={a.text} className="flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2.5">
-                    <span className="text-lg">{a.emoji}</span>
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
+                      {a.icon}
+                    </span>
                     <span className="text-xs font-medium">{a.text}</span>
                   </div>
                 ))}
@@ -201,7 +231,7 @@ export default function ContactFormSection() {
                   </div>
                   <button
                     onClick={() => { setSent(false); setError(null); setForm({ prenom: "", nom: "", email: "", telephone: "", entreprise: "", service: "", message: "" }); }}
-                    className="rounded-full bg-linear-to-r from-blue-600 to-cyan-500 px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    className="rounded-full bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
                     Envoyer un autre message
                   </button>
@@ -352,11 +382,11 @@ export default function ContactFormSection() {
 
                   {/* Consentement */}
                   <label className="flex cursor-pointer items-start gap-3 text-xs text-gray-500">
-                    <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded accent-blue-600" />
+                    <input type="checkbox" required className="mt-0.5 h-4 w-4 shrink-0 rounded accent-[#1B9AD2]" />
                     <span>
                       J&apos;accepte que mes données soient utilisées pour traiter ma demande,
                       conformément à la{" "}
-                      <Link href="/mentions-legales" className="font-medium text-blue-600 hover:underline">
+                      <Link href="/mentions-legales" className="font-medium text-[#1B9AD2] hover:underline">
                         politique de confidentialité
                       </Link>{" "}
                       de Teknosure.
@@ -367,7 +397,7 @@ export default function ContactFormSection() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-blue-600 to-cyan-500 py-4 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                    className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] py-4 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B9AD2] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                   >
                     {loading ? (
                       <>

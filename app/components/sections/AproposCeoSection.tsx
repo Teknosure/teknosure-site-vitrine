@@ -11,7 +11,7 @@ export default function AproposCeoSection() {
   return (
     <section className="relative overflow-hidden bg-gray-900 py-24 text-white">
       {/* Cercles décoratifs */}
-      <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-600/10" />
+      <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#1B9AD2]/10" />
       <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-cyan-500/5" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -20,7 +20,7 @@ export default function AproposCeoSection() {
           {/* ── Photo ────────────────────────────────────────────────────── */}
           <div className="relative shrink-0">
             {/* Anneau décoratif externe */}
-            <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-blue-600/30 to-cyan-500/20 blur-sm" />
+            <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[#0D6EA1]/30 to-[#1B9AD2]/20 blur-sm" />
 
             {/* Conteneur image */}
             <div className="relative h-[420px] w-72 overflow-hidden rounded-2xl ring-1 ring-white/10 lg:h-[480px] lg:w-80">
@@ -58,7 +58,7 @@ export default function AproposCeoSection() {
 
           {/* ── Discours ─────────────────────────────────────────────────── */}
           <div className="flex flex-col justify-center">
-            <span className="mb-4 inline-block rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-400">
+            <span className="mb-4 inline-block rounded-full border border-[#1B9AD2]/30 bg-[#E8F5FC]0/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-400">
               La vision du fondateur
             </span>
 
@@ -101,7 +101,7 @@ export default function AproposCeoSection() {
             <ul className="mb-8 flex flex-col gap-3">
               {keyPoints.map((point) => (
                 <li key={point} className="flex items-start gap-3 text-sm text-gray-400">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#E8F5FC]0/20 text-blue-400">
                     <svg className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>

@@ -6,7 +6,7 @@ const categories = [
     techs: [
       { name: "AWS",         logo: "/images/tech/amazonaws.svg",     bg: "bg-amber-50",   filter: "invert(55%) sepia(90%) saturate(500%) hue-rotate(20deg)" },
       { name: "Azure",       logo: "/images/tech/microsoftazure.svg",bg: "bg-sky-50",     filter: "invert(35%) sepia(80%) saturate(600%) hue-rotate(185deg)" },
-      { name: "Google Cloud",logo: "/images/tech/googlecloud.svg",   bg: "bg-blue-50",    filter: "invert(40%) sepia(80%) saturate(400%) hue-rotate(185deg)" },
+      { name: "Google Cloud",logo: "/images/tech/googlecloud.svg",   bg: "bg-[#E8F5FC]",    filter: "invert(40%) sepia(80%) saturate(400%) hue-rotate(185deg)" },
     ],
   },
   {
@@ -19,8 +19,8 @@ const categories = [
   {
     label: "Conteneurs & Orchestration",
     techs: [
-      { name: "Docker",      logo: "/images/tech/docker.svg",        bg: "bg-blue-50",    filter: "invert(40%) sepia(90%) saturate(400%) hue-rotate(185deg)" },
-      { name: "Kubernetes",  logo: "/images/tech/kubernetes.svg",    bg: "bg-blue-50",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(200deg)" },
+      { name: "Docker",      logo: "/images/tech/docker.svg",        bg: "bg-[#E8F5FC]",    filter: "invert(40%) sepia(90%) saturate(400%) hue-rotate(185deg)" },
+      { name: "Kubernetes",  logo: "/images/tech/kubernetes.svg",    bg: "bg-[#E8F5FC]",    filter: "invert(30%) sepia(90%) saturate(600%) hue-rotate(200deg)" },
     ],
   },
   {
@@ -39,7 +39,7 @@ export default function CloudTechSection() {
     <section className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-14 flex flex-col items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">Stack technique</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">Stack technique</span>
           <h2 className="text-center text-3xl font-bold text-gray-900 sm:text-4xl">Technologies</h2>
           <p className="mt-2 max-w-2xl text-center text-sm leading-relaxed text-gray-500">
             Nos ingénieurs cloud maîtrisent les outils leaders du marché pour concevoir, déployer et opérer vos infrastructures.

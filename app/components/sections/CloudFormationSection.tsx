@@ -7,12 +7,12 @@ export default function CloudFormationSection() {
   return (
     <section className="bg-gray-50 py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="overflow-hidden rounded-2xl border border-blue-100 bg-linear-to-br from-blue-50 via-white to-cyan-50 shadow-sm">
+        <div className="overflow-hidden rounded-2xl border border-[#B8DFF2] bg-linear-to-br from-blue-50 via-white to-cyan-50 shadow-sm">
           <div className="flex flex-col items-center gap-10 p-10 lg:flex-row lg:items-stretch lg:gap-16">
 
             {/* Gauche — texte */}
             <div className="flex flex-1 flex-col justify-center">
-              <span className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-600">
+              <span className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
                 Montée en compétences
               </span>
               <h2 className="mb-4 text-2xl font-bold text-gray-900 sm:text-3xl">
@@ -29,7 +29,7 @@ export default function CloudFormationSection() {
                 {topics.map((topic) => (
                   <span
                     key={topic}
-                    className="rounded-full border border-blue-200 bg-white px-3 py-1 text-xs font-semibold text-blue-700 shadow-sm"
+                    className="rounded-full border border-[#B8DFF2] bg-white px-3 py-1 text-xs font-semibold text-[#0D6EA1] shadow-sm"
                   >
                     {topic}
                   </span>
@@ -38,7 +38,7 @@ export default function CloudFormationSection() {
 
               <Link
                 href="/contact"
-                className="inline-flex w-fit items-center gap-2 rounded-full bg-blue-600 px-7 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-blue-500 hover:shadow-lg"
+                className="inline-flex w-fit items-center gap-2 rounded-full bg-[#1B9AD2] px-7 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-[#E8F5FC]0 hover:shadow-lg"
               >
                 Découvrir nos formations
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

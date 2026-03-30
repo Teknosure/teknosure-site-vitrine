@@ -25,9 +25,9 @@ const domaines = [
     description: "Migration cloud, architecture multi-cloud, supervision d'infrastructure et gestion des coûts.",
     href: "/services/cloud",
     color: "from-blue-500 to-cyan-400",
-    bgLight: "bg-blue-50",
-    textColor: "text-blue-600",
-    borderHover: "hover:border-blue-200",
+    bgLight: "bg-[#E8F5FC]",
+    textColor: "text-[#1B9AD2]",
+    borderHover: "hover:border-[#B8DFF2]",
   },
   {
     icon: (
@@ -66,12 +66,12 @@ export default function AproposExpertiseSection() {
 
         {/* Header */}
         <div className="mb-14 flex flex-col items-center gap-3 text-center">
-          <span className="inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-600">
+          <span className="inline-block rounded-full bg-[#E8F5FC] px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#1B9AD2]">
             Nos domaines d&apos;expertise
           </span>
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
             Ce que nous{" "}
-            <span className="bg-linear-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#0D6EA1] to-[#1B9AD2] bg-clip-text text-transparent">
               maîtrisons
             </span>
           </h2>

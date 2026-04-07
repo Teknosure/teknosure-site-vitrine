@@ -24,12 +24,40 @@ const points = [
 export default function IAContactSection() {
   const [form, setForm] = useState({ prenom: "", nom: "", email: "", entreprise: "", sujet: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSent(true); };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          prenom: form.prenom,
+          nom: form.nom,
+          email: form.email,
+          telephone: "",
+          entreprise: form.entreprise,
+          service: form.sujet,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) { setError(data.error || "Une erreur est survenue."); return; }
+      setSent(true);
+    } catch {
+      setError("Impossible d'envoyer le message. Vérifiez votre connexion.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const inputBase = "w-full rounded-xl border px-4 py-3 text-sm text-gray-900 outline-none transition-all placeholder:text-gray-400 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/30";
 
@@ -148,9 +176,10 @@ export default function IAContactSection() {
                 <textarea name="message" required rows={4} placeholder="Décrivez votre processus à automatiser ou votre cas d'usage..." value={form.message} onChange={handleChange} onFocus={() => setFocused("message")} onBlur={() => setFocused(null)} className={`${inputBase} resize-none`} />
               </div>
 
-              <button type="submit" className="mt-1 w-full rounded-xl bg-linear-to-r from-amber-500 to-yellow-400 py-3.5 text-sm font-bold text-gray-900 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400">
-                Lancer mon projet IA →
+              <button type="submit" disabled={loading} className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-amber-500 to-yellow-400 py-3.5 text-sm font-bold text-gray-900 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400">
+                {loading ? (<><svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Envoi en cours...</>) : "Lancer mon projet IA →"}
               </button>
+              {error && <p className="text-center text-xs text-red-400">{error}</p>}
             </form>
           )}
         </div>

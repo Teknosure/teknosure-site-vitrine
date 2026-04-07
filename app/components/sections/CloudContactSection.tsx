@@ -16,11 +16,39 @@ const subjects = [
 export default function CloudContactSection() {
   const [form, setForm] = useState({ prenom: "", nom: "", email: "", telephone: "", entreprise: "", sujet: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSent(true); };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          prenom: form.prenom,
+          nom: form.nom,
+          email: form.email,
+          telephone: form.telephone,
+          entreprise: form.entreprise,
+          service: form.sujet,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) { setError(data.error || "Une erreur est survenue."); return; }
+      setSent(true);
+    } catch {
+      setError("Impossible d'envoyer le message. Vérifiez votre connexion.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="relative min-h-[820px] overflow-hidden">
@@ -121,9 +149,10 @@ export default function CloudContactSection() {
                 <textarea id="cloud-message" name="message" rows={4} required placeholder="Décrivez votre infrastructure actuelle et vos objectifs... *" value={form.message} onChange={handleChange} className="w-full resize-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]" />
               </div>
 
-              <button type="submit" className="mt-1 w-full rounded-lg bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] py-3 text-sm font-bold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2">
-                Demander mon audit cloud gratuit
+              <button type="submit" disabled={loading} className="mt-1 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] py-3 text-sm font-bold text-white shadow-md transition-all hover:opacity-90 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2">
+                {loading ? (<><svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Envoi en cours...</>) : "Demander mon audit cloud gratuit"}
               </button>
+              {error && <p className="text-center text-xs text-red-400">{error}</p>}
               <p className="text-center text-xs text-gray-400">
                 En soumettant ce formulaire, vous acceptez notre <a href="/legal" className="text-[var(--primary)] hover:underline">politique de confidentialité</a>.
               </p>

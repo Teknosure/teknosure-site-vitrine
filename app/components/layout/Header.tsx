@@ -12,7 +12,7 @@ export default function Header() {
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const pagesWithHero = ["/etudes-de-cas", "/a-propos", "/contact"];
+  const pagesWithHero = ["/etudes-de-cas", "/a-propos", "/contact", "/tpe-pme"];
 
   const shouldBeTransparent =
     pathname === "/" ||
@@ -141,6 +141,9 @@ export default function Header() {
               )}
             </div>
 
+            <Link href="/tpe-pme" className={`text-base font-medium transition-colors ${textColor} ${textHoverColor}`}>
+              TPE/PME
+            </Link>
             <Link href="/a-propos" className={`text-base font-medium transition-colors ${textColor} ${textHoverColor}`}>
               À propos
             </Link>
@@ -217,6 +220,7 @@ export default function Header() {
                 </div>
               </div>
               <Link href="/a-propos" className="text-sm font-medium text-gray-600">À propos</Link>
+              <Link href="/tpe-pme" className="text-sm font-medium text-gray-600">TPE/PME</Link>
               <Link href="/etudes-de-cas" className="text-sm font-medium text-gray-600">Études de cas</Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600">Contact</Link>
 

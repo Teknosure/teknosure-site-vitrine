@@ -8,12 +8,9 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const searchRef = useRef<HTMLDivElement>(null);
-  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const pagesWithHero = ["/etudes-de-cas", "/a-propos", "/contact"];
 
@@ -46,9 +43,6 @@ export default function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setServicesDropdownOpen(false);
       }
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
-        setSearchOpen(false);
-      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -57,13 +51,7 @@ export default function Header() {
   useEffect(() => {
     setServicesDropdownOpen(false);
     setMobileMenuOpen(false);
-    setSearchOpen(false);
   }, [pathname]);
-
-  // Focus automatique sur l'input quand la recherche s'ouvre
-  useEffect(() => {
-    if (searchOpen) searchInputRef.current?.focus();
-  }, [searchOpen]);
 
   const isTransparent = !isScrolled && shouldBeTransparent;
 
@@ -166,33 +154,8 @@ export default function Header() {
 
           </div>
 
-          {/* Droite : recherche + langue + CTA */}
+          {/* Droite : langue + CTA */}
           <div className="hidden items-center gap-3 md:flex">
-
-            {/* Barre de recherche extensible */}
-            <div ref={searchRef} className="relative flex items-center">
-              {searchOpen && (
-                <input
-                  ref={searchInputRef}
-                  type="search"
-                  placeholder="Rechercher..."
-                  className={`mr-2 w-48 rounded-full border px-4 py-1.5 text-sm outline-none transition-all focus:ring-2 focus:ring-[var(--primary)] lg:w-56 ${
-                    isTransparent && isDarkBg
-                      ? "border-white/30 bg-white/10 text-white placeholder-white/50 focus:border-white/60"
-                      : "border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-400 focus:border-[var(--primary)]"
-                  }`}
-                />
-              )}
-              <button
-                onClick={() => setSearchOpen((prev) => !prev)}
-                aria-label="Rechercher"
-                className={`p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${iconColor}`}
-              >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-                </svg>
-              </button>
-            </div>
 
             {/* Sélecteur de langue */}
             <button
@@ -256,15 +219,6 @@ export default function Header() {
               <Link href="/a-propos" className="text-sm font-medium text-gray-600">À propos</Link>
               <Link href="/etudes-de-cas" className="text-sm font-medium text-gray-600">Études de cas</Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600">Contact</Link>
-
-              {/* Recherche mobile */}
-              <div className="relative">
-                <input
-                  type="search"
-                  placeholder="Rechercher..."
-                  className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-[var(--primary)]"
-                />
-              </div>
 
               <Link href="/contact" className="w-fit rounded-lg bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-white">
                 Parlons de votre projet

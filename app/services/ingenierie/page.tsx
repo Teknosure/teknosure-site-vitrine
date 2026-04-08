@@ -3,7 +3,6 @@ import IngenieireServicesSection from "@/app/components/sections/IngenieireServi
 import IngenieiereTechSection from "@/app/components/sections/IngenieiereTechSection";
 import IngenieireCasSection from "@/app/components/sections/IngenieireCasSection";
 import IngenieireApproacheSection from "@/app/components/sections/IngenieireApproacheSection";
-import IngenieireTeamSection from "@/app/components/sections/IngenieireTeamSection";
 import IngenieireContactSection from "@/app/components/sections/IngenieireContactSection";
 
 // ── Statistiques "Les défis du développement logiciel" ───────────────────────
@@ -90,9 +89,6 @@ export default function IngenieriePage() {
 
       {/* ── Section Notre approche ───────────────────────────────────────── */}
       <IngenieireApproacheSection />
-
-      {/* ── Section Équipe ────────────────────────────────────────────────── */}
-      <IngenieireTeamSection />
 
       {/* ── Section Contact ───────────────────────────────────────────────── */}
       <IngenieireContactSection />

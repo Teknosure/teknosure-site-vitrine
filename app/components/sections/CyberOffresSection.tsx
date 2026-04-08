@@ -18,242 +18,158 @@ interface Offre {
 
 const offres: Offre[] = [
   {
-    label: "Audit & Diagnostic",
-    title: "Audit & Diagnostic de sécurité",
+    label: "Identifier",
+    title: "IDENTIFIER — Audit, Diagnostic & Cartographie",
     description:
-      "Nous dressons un état des lieux complet de votre posture de cybersécurité. Avant de déployer quoi que ce soit, nous cartographions vos risques réels pour vous proposer un plan d'action clair, priorisé et adapté à votre contexte.",
+      "Connaissez-vous vraiment votre exposition cyber ? Commencez par savoir. Nous cartographions vos actifs, risques et vulnérabilités pour vous fournir un plan d'action clair, priorisé et adapté à votre contexte.",
     items: [
-      "Évaluation de la posture de sécurité actuelle",
-      "Identification des failles et vulnérabilités",
-      "Rapport détaillé avec plan d'action priorisé",
+      "Audit & diagnostic cyber",
+      "Scan de vulnérabilités",
+      "Cartographie des actifs",
+      "Analyse de risques EBIOS",
     ],
     services: [
       {
-        name: "Analyse de surface d'attaque",
+        name: "Diagnostic Cyber Express",
         description:
-          "Cartographie exhaustive de vos actifs exposés (réseaux, applications, identités) et évaluation du niveau de risque associé à chaque composant.",
+          "Score de sécurité en 48h. Scan externe, analyse M365/Google, DMARC/SPF/DKIM, top 10 failles. À partir de 490 € — délai 48h.",
       },
       {
-        name: "Tests de vulnérabilités",
+        name: "Audit 72 Points M365/Google",
         description:
-          "Scans automatisés et revues manuelles de vos systèmes pour identifier les CVE connues, les mauvaises configurations et les failles logiques.",
+          "Grille de 72 points de contrôle : IAM, messagerie, endpoints, partages, conformité, logs. À partir de 900 € — délai 72h.",
       },
       {
-        name: "Rapport & feuille de route",
+        name: "Pentest Light & Analyse EBIOS",
         description:
-          "Livraison d'un rapport exécutif et technique avec des recommandations priorisées, des quick wins et un plan de remédiation à 90 jours.",
+          "Test d'intrusion externe et web avec rapport CVSS, PoC, scoring OWASP. Cartographie des risques métier, scénarios d'attaque, plan de traitement prioritaire.",
       },
     ],
-    partners: ["Qualys", "Tenable", "Nessus"],
+    partners: ["Qualys", "Tenable", "Nessus", "EBIOS RM"],
   },
   {
-    label: "Protection Endpoints",
-    title: "Protection des endpoints",
+    label: "Protéger",
+    title: "PROTÉGER — Sécurité Périmétrique, Cloud & Endpoints",
     description:
-      "Vos postes de travail sont la première cible des attaquants. Nous déployons des solutions EDR de nouvelle génération pour détecter, bloquer et répondre aux menaces avant qu'elles ne se propagent.",
+      "Déployez les bons contrôles pour réduire la surface d'attaque. Nous mettons en place les contrôles techniques et organisationnels pour limiter l'impact des incidents et protéger chaque point d'entrée de votre SI.",
     items: [
-      "Déploiement EDR (SentinelOne, CrowdStrike, Trend Micro)",
-      "Protection anti-ransomware avancée",
-      "Détection comportementale et réponse automatisée",
+      "Firewall UTM & VPN (Fortinet, Palo Alto, Check Point)",
+      "Protection Endpoints EDR (SentinelOne, Bitdefender, ESET)",
+      "Sécurité Cloud M365/Google — audit 72 points, MFA, DLP",
+      "IAM / PAM / Zero Trust",
+      "Filtrage Web & DNS — Barracuda, Cisco Umbrella",
+      "PKI & Chiffrement des données sensibles",
     ],
     services: [
       {
-        name: "Déploiement EDR managé",
+        name: "Firewall UTM & Segmentation réseau",
         description:
-          "Installation, configuration et supervision d'agents EDR sur l'ensemble de votre parc. Nous assurons la gestion des alertes et la mise à jour des politiques.",
+          "Fortinet, Palo Alto, Check Point, Cisco. Filtrage applicatif, IPS/IDS, VPN site-à-site, segmentation réseau. Déploiement en 1–2 jours.",
       },
       {
-        name: "Lutte anti-ransomware",
+        name: "Protection Endpoints EDR",
         description:
-          "Activation des modules de protection contre les ransomwares : rollback automatique, isolation réseau des postes compromis, politiques de sauvegarde.",
+          "SentinelOne, Bitdefender, ESET — Détection comportementale, blocage zero-day, réponse automatisée. 5 à 12 €/poste/mois, continu.",
       },
       {
-        name: "Threat Hunting",
+        name: "IAM / PAM / Zero Trust & Sécurité Cloud",
         description:
-          "Recherche proactive de menaces dormantes dans votre parc, basée sur des IOC et des techniques d'analyse comportementale avancée.",
+          "Gestion identités et accès à privilèges, RBAC, accès conditionnel Azure AD, authentification Zero Trust. Durcissement Exchange/Gmail, MFA obligatoire, DLP, anti-phishing avancé.",
       },
     ],
-    partners: ["SentinelOne", "CrowdStrike", "Trend Micro"],
+    partners: ["Fortinet", "Palo Alto", "SentinelOne", "Cisco Umbrella", "Barracuda"],
   },
   {
-    label: "Accès & Réseau",
-    title: "Sécurisation des accès et du réseau",
+    label: "Détecter",
+    title: "DÉTECTER — SOC Managé, XDR & SIEM",
     description:
-      "Avec la généralisation du télétravail et des architectures hybrides, la sécurisation des accès est devenue critique. Nous concevons et déployons des architectures Zero Trust pour protéger chaque point d'entrée.",
+      "Surveiller en continu pour réagir avant qu'il ne soit trop tard. Notre SOC managé offre une surveillance 24/7/365 avec corrélation d'événements (SIEM), threat intelligence et réponse automatisée — sans recruter d'équipe sécurité interne.",
     items: [
-      "Pare-feu nouvelle génération (NGFW)",
-      "Segmentation réseau et microsegmentation",
-      "Authentification multi-facteurs (MFA)",
-      "VPN sécurisés et accès Zero Trust",
+      "SOC / XDR 24/7 — monitoring continu, enrichissement threat intel",
+      "SIEM Managé — corrélation des logs, règles de détection personnalisées",
+      "Threat Hunting Proactif — recherche active APT, analyse IOC/IOA",
+      "Vulnerability Management — scoring CVSS, priorisation par risque métier",
     ],
     services: [
       {
-        name: "Architecture Zero Trust",
+        name: "SOC / XDR 24/7",
         description:
-          "Conception et déploiement d'un modèle Zero Trust : vérification systématique de chaque accès, principe du moindre privilège, segmentation fine des ressources.",
+          "Déploiement agents XDR, monitoring continu, enrichissement threat intel, contact direct en cas de menace. Dashboard mensuel. 8 à 15 €/poste/mois.",
       },
       {
-        name: "NGFW & Segmentation",
+        name: "SIEM Managé",
         description:
-          "Déploiement de pare-feu nouvelle génération avec inspection applicative profonde (DPI), segmentation des zones réseau et règles de filtrage avancées.",
+          "Collecte et corrélation des logs, règles de détection personnalisées, alertes priorisées, reporting conformité. Abonnement mensuel.",
       },
       {
-        name: "IAM & MFA",
+        name: "Threat Hunting & Vulnerability Management",
         description:
-          "Mise en place de solutions de gestion des identités et des accès, déploiement du MFA sur toutes vos applications critiques et portails d'accès.",
+          "Recherche active de menaces persistantes (APT), analyse IOC/IOA, rapport de chasse. Scan continu des vulnérabilités, scoring CVSS, suivi de remédiation. 3 à 8 €/actif/mois.",
       },
     ],
-    partners: ["Palo Alto Networks", "Cisco", "Fortinet"],
+    partners: ["Microsoft Sentinel", "Elastic", "Splunk", "CrowdStrike"],
   },
   {
-    label: "Email & Cloud",
-    title: "Protection email & cloud",
+    label: "Répondre",
+    title: "RÉPONDRE — Incident Response & Gestion de Crise",
     description:
-      "Le phishing reste le vecteur d'attaque numéro un. Nous sécurisons vos flux email et vos environnements cloud (Microsoft 365, Google Workspace) contre les menaces les plus sophistiquées.",
+      "Containment, investigation et remédiation dans les meilleurs délais. En cas d'incident, notre équipe intervient immédiatement : détection < 15 min, notification < 30 min, containment < 1h, rapport complet < 24h.",
     items: [
-      "Anti-phishing et anti-spam avancés",
-      "Sécurisation Microsoft 365 / Google Workspace",
-      "CSPM — Cloud Security Posture Management",
-      "DLP — Prévention des fuites de données",
+      "Détection & Alerte — notification immédiate, classification P1→P4",
+      "Containment — isolation des systèmes, blocage des flux malveillants",
+      "Investigation Forensic — logs, mémoire, disque, reconstruction de la chaîne d'attaque",
+      "Éradication — suppression malware, patch des vulnérabilités, nettoyage",
+      "Rapport & Leçons — chronologie, impact métier, recommandations correctives",
     ],
     services: [
       {
-        name: "Protection email avancée",
+        name: "Incident Response (IR)",
         description:
-          "Déploiement de passerelles email sécurisées avec filtrage multi-couches, analyse sandbox des pièces jointes et détection des attaques BEC.",
+          "Ouverture war room dédié, isolation du ou des systèmes compromis, classification selon gravité (P1→P4). Blocage des flux malveillants, préservation des preuves numériques.",
       },
       {
-        name: "Sécurisation M365 & GWS",
+        name: "Investigation Forensic",
         description:
-          "Hardening de vos tenants cloud : configuration des politiques de sécurité, activation des fonctions avancées, revue des permissions.",
+          "Analyse des traces (logs, mémoire, disque), reconstruction de la chaîne d'attaque, identification du patient zéro. Rapport d'incident complet, chronologie, impact métier.",
       },
       {
-        name: "Cloud Security Posture",
+        name: "Éradication & Communication de crise",
         description:
-          "Surveillance continue de la configuration de vos ressources cloud pour détecter les dérives, les ressources exposées et les non-conformités.",
+          "Suppression du malware et des accès persistants, patch des vulnérabilités exploitées, nettoyage des systèmes. Recommandations correctives et amélioration du plan de réponse.",
       },
     ],
-    partners: ["Barracuda", "Microsoft", "Google"],
+    partners: ["CrowdStrike", "SentinelOne", "Mandiant", "CERT-FR"],
   },
   {
-    label: "SOC 24/7",
-    title: "SOC managé 24/7",
+    label: "Récupérer",
+    title: "RÉCUPÉRER — Backup, PRA & Continuité Métier",
     description:
-      "Notre Centre des Opérations de Sécurité surveille votre infrastructure en permanence. Nos analystes détectent et neutralisent les menaces en temps réel, 24h/24, 7j/7.",
+      "Garantir la reprise rapide de votre activité après tout incident. Nous restaurons vos capacités et services avec des RTO et RPO contractuels, des tests réguliers et un accompagnement post-incident complet.",
     items: [
-      "Surveillance continue des systèmes (24/7/365)",
-      "Détection des menaces en temps réel",
-      "Réponse aux incidents et confinement",
-      "Rapports mensuels et revues trimestrielles",
+      "Backup-as-a-Service — postes, serveurs, M365, Google Workspace",
+      "PRA Cloud Automatisé — réplication Azure/AWS, RTO & RPO contractuels",
+      "Backup Serveurs & NAS — snapshots journaliers, air-gap anti-ransomware",
+      "PCA métier — documentation, exercices de simulation",
+      "Reprise Post-Ransomware — cellule d'urgence dédiée",
     ],
     services: [
       {
-        name: "SIEM & Corrélation d'événements",
+        name: "Backup-as-a-Service & PRA Cloud",
         description:
-          "Agrégation et corrélation de vos logs dans un SIEM centralisé. Nos analystes supervisent les alertes et qualifient les incidents selon leur criticité.",
+          "Sauvegarde cloud automatique des postes, serveurs, M365 et Google Workspace. Rétention flexible, tests de restauration inclus. Plan de reprise automatisé, réplication Azure/AWS, RTO < 4h. 3 à 8 €/user/mois.",
       },
       {
-        name: "Réponse aux incidents (IR)",
+        name: "Backup Serveurs & NAS + PCA Métier",
         description:
-          "Procédures de réponse aux incidents définies et testées : isolation des systèmes compromis, analyse forensique, remédiation et retour à la normale.",
+          "Snapshots journaliers, sauvegarde hors-site chiffrée, air-gap contre ransomware (Acronis, Veeam). Documentation du PCA métier, scénarios de crise, procédures de bascule, formation des équipes. 2 500 à 5 000 €.",
       },
       {
-        name: "Reporting & amélioration continue",
+        name: "Reprise Post-Ransomware & RETEX",
         description:
-          "Rapports mensuels d'activité, indicateurs clés de sécurité (KPI/KRI) et recommandations d'amélioration continues basées sur les incidents observés.",
+          "Cellule d'urgence dédiée, restauration sécurisée depuis sauvegardes saines, validation intégrité, remise en production. Retour d'expérience structuré, mise à jour des procédures, renforcement des contrôles.",
       },
     ],
-    partners: ["Elastic", "Microsoft Sentinel", "Splunk"],
-  },
-  {
-    label: "RSSI Externalisé",
-    title: "RSSI à temps partagé",
-    description:
-      "Bénéficiez de l'expertise d'un RSSI senior sans les contraintes d'un recrutement à temps plein. Nous pilotons votre stratégie cyber à vos côtés.",
-    items: [
-      "Responsable Sécurité externalisé (quelques jours/mois)",
-      "Pilotage de la stratégie cybersécurité",
-      "Interface avec la direction et le COMEX",
-      "Suivi des projets et des budgets sécurité",
-    ],
-    services: [
-      {
-        name: "Stratégie & Gouvernance",
-        description:
-          "Élaboration ou mise à jour de votre politique de sécurité, définition de la roadmap cyber sur 12 à 36 mois, alignement avec les objectifs métier.",
-      },
-      {
-        name: "Pilotage des risques",
-        description:
-          "Mise en place d'un processus de gestion des risques cyber : cartographie, évaluation, traitement et suivi des risques résiduels.",
-      },
-      {
-        name: "Conformité & reporting direction",
-        description:
-          "Préparation des reportings COMEX/CA sur la posture de sécurité, suivi des obligations légales et relation avec les auditeurs.",
-      },
-    ],
-    partners: ["ANSSI", "CLUSIF", "ISC²"],
-  },
-  {
-    label: "Conformité",
-    title: "Conformité & gouvernance",
-    description:
-      "Les exigences réglementaires se multiplient. Nous vous accompagnons dans votre mise en conformité NIS2, DORA, ISO 27001 et RGPD, de l'analyse des écarts jusqu'à la certification.",
-    items: [
-      "Mise en conformité NIS2",
-      "Mise en conformité DORA (secteur financier)",
-      "ISO 27001 — Certification et maintien",
-      "RGPD — Protection des données personnelles",
-    ],
-    services: [
-      {
-        name: "Analyse des écarts (Gap Analysis)",
-        description:
-          "Évaluation de votre niveau de maturité par rapport aux exigences du référentiel cible. Identification des actions à mener et estimation de l'effort.",
-      },
-      {
-        name: "Mise en œuvre et documentation",
-        description:
-          "Rédaction des politiques, procédures et preuves nécessaires à l'audit. Accompagnement à la mise en place des mesures techniques et organisationnelles.",
-      },
-      {
-        name: "Audit et certification",
-        description:
-          "Préparation aux audits de certification, accompagnement lors des audits, gestion des non-conformités et plan de traitement des écarts.",
-      },
-    ],
-    partners: ["Bureau Veritas", "LSTI", "BSI Group"],
-  },
-  {
-    label: "Formation",
-    title: "Sensibilisation & formation",
-    description:
-      "Le facteur humain reste la principale faille. Nos programmes de sensibilisation créent une véritable culture de la cybersécurité au sein de vos équipes.",
-    items: [
-      "Formation des collaborateurs aux risques cyber",
-      "Campagnes de phishing simulé",
-      "Ateliers pratiques et e-learning",
-      "Bonnes pratiques et réflexes sécurité",
-    ],
-    services: [
-      {
-        name: "Programmes de sensibilisation",
-        description:
-          "Modules de formation adaptés à tous les profils : risques cyber, hygiène numérique, gestion des mots de passe, incidents à signaler.",
-      },
-      {
-        name: "Phishing simulé",
-        description:
-          "Campagnes de faux phishing pour mesurer la vigilance de vos équipes, identifier les profils à risque et adapter les formations en conséquence.",
-      },
-      {
-        name: "Tableaux de bord & suivi",
-        description:
-          "Mesure de l'évolution du niveau de sensibilisation dans le temps et reporting des résultats aux campagnes de phishing.",
-      },
-    ],
-    partners: ["KnowBe4", "Proofpoint", "Terranova"],
+    partners: ["Acronis", "Veeam", "Azure Backup", "AWS Backup"],
   },
 ];
 
@@ -280,17 +196,25 @@ export default function CyberOffresSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Titre */}
-        <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 sm:text-4xl">
-          Nos offres{" "}
-          <span className="bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] bg-clip-text text-transparent">
-            Cybersécurité
-          </span>
-        </h2>
+        <div className="mb-10 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--primary)]">
+            Cadre NIST Cybersecurity Framework
+          </p>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            Notre Approche —{" "}
+            <span className="bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] bg-clip-text text-transparent">
+              Cadre NIST Cybersecurity Framework
+            </span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base text-gray-500">
+            5 fonctions fondamentales pour une protection complète et cohérente de votre SI.
+          </p>
+        </div>
 
         {/* Barre d'onglets */}
         <div className="overflow-x-auto">
           <div
-            className="flex min-w-max"
+            className="flex min-w-max justify-center mx-auto"
             role="tablist"
             aria-label="Offres cybersécurité"
           >

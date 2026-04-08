@@ -1,7 +1,6 @@
 import FullscreenHero from "@/app/components/hero/FullscreenHero";
 import CyberOffresSection from "@/app/components/sections/CyberOffresSection";
 import CyberExpertsSection from "@/app/components/sections/CyberExpertsSection";
-import CyberTeamSection from "@/app/components/sections/CyberTeamSection";
 import CyberContactSection from "@/app/components/sections/CyberContactSection";
 
 // ── Statistiques "Les défis d'aujourd'hui" ───────────────────────────────────
@@ -83,9 +82,6 @@ export default function CybersecuritePage() {
 
       {/* ── Section Nos paroles d'experts ───────────────────────────────── */}
       <CyberExpertsSection />
-
-      {/* ── Section La Cellule Cyberdéfense ─────────────────────────────── */}
-      <CyberTeamSection />
 
       {/* ── Section Contact ───────────────────────────────────────────────── */}
       <CyberContactSection />

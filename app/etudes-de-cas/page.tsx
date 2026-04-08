@@ -8,183 +8,121 @@ import FullscreenHero from "@/app/components/hero/FullscreenHero";
    Données des réalisations
 ──────────────────────────────────────────────────────────────────────────── */
 const realisations = [
-  /* ── FI2C MD ─────────────────────────────────────────────────────────── */
   {
     id: 1,
-    client: "FI2C MD",
-    sector: "Formation & Ingénierie",
-    initials: "FI",
+    client: "Secteur Formation & Ingénierie",
+    sector: "PME",
+    initials: "IT",
     accentGradient: "from-[var(--primary-dark)] to-[var(--primary)]",
     badgeBg: "bg-[var(--primary-light)]",
     badgeText: "text-[var(--primary-dark)]",
     domaine: "Infogérance",
     domaineColor: "bg-emerald-50 text-emerald-700",
-    title: "Infogérance complète du système d'information",
-    description:
-      "Prise en charge totale du SI de FI2C MD : supervision proactive 24/7, gestion du parc matériel, support utilisateurs, maintenance préventive et corrective. Mise en place de tableaux de bord de monitoring en temps réel.",
-    tags: ["Support IT", "Monitoring", "Helpdesk", "Gestion de parc", "Datadog"],
-    results: [
-      { label: "Disponibilité SI", value: "99.9%" },
-      { label: "Temps de résolution", value: "<2h" },
-    ],
+    title: "Gestion externalisée du SI",
+    result: "Disponibilité SI > 99,9 %",
     serviceHref: "/services/infogerance",
-    highlight: true,
   },
   {
     id: 2,
-    client: "FI2C MD",
-    sector: "Formation & Ingénierie",
-    initials: "FI",
+    client: "Secteur Formation & Ingénierie",
+    sector: "PME",
+    initials: "IT",
     accentGradient: "from-[var(--primary-dark)] to-[var(--primary)]",
     badgeBg: "bg-[var(--primary-light)]",
     badgeText: "text-[var(--primary-dark)]",
     domaine: "Cybersécurité",
     domaineColor: "bg-red-50 text-red-700",
     title: "Sécurisation de l'infrastructure réseau",
-    description:
-      "Audit de sécurité complet, déploiement de pare-feu nouvelle génération Fortinet, segmentation réseau, mise en place d'une politique de mots de passe et d'une authentification multi-facteurs (MFA) pour l'ensemble des collaborateurs.",
-    tags: ["Fortinet", "MFA", "VLAN", "Audit", "Firewall"],
-    results: [
-      { label: "Vulnérabilités corrigées", value: "100%" },
-      { label: "Périmètre sécurisé", value: "Intégral" },
-    ],
+    result: "Périmètre sécurisé intégralement",
     serviceHref: "/services/cybersecurite",
-    highlight: false,
   },
-
-  /* ── Distrtherm Services ─────────────────────────────────────────────── */
   {
     id: 3,
-    client: "Distrtherm Services",
-    sector: "Distribution thermique & Génie climatique",
-    initials: "DS",
+    client: "Secteur Distribution B2B",
+    sector: "PME",
+    initials: "DC",
     accentGradient: "from-orange-500 to-amber-400",
     badgeBg: "bg-orange-50",
     badgeText: "text-orange-700",
     domaine: "Ingénierie logicielle",
     domaineColor: "bg-violet-50 text-violet-700",
-    title: "Site vitrine",
-    description:
-      "Création d'un site vitrine moderne, rapide et optimisé SEO présentant les offres, expertises et actualités de Distrtherm Services. Design responsive, performances Core Web Vitals optimisées.",
-    tags: ["Next.js", "Tailwind CSS", "CMS", "SEO"],
-    results: [
-      { label: "Score Lighthouse", value: "98/100" },
-      { label: "Temps de chargement", value: "<1s" },
-    ],
+    title: "Site vitrine & référencement",
+    result: "Score performance > 98/100",
     serviceHref: "/services/ingenierie",
-    highlight: false,
   },
   {
     id: 4,
-    client: "Distrtherm Services",
-    sector: "Distribution thermique & Génie climatique",
-    initials: "DS",
+    client: "Secteur Distribution B2B",
+    sector: "PME",
+    initials: "DC",
     accentGradient: "from-orange-500 to-amber-400",
     badgeBg: "bg-orange-50",
     badgeText: "text-orange-700",
     domaine: "Ingénierie logicielle",
     domaineColor: "bg-violet-50 text-violet-700",
-    title: "Application e-commerce B2B/B2C",
-    description:
-      "Boutique en ligne complète avec catalogue produits, configurateur de devis en ligne, tunnel de paiement sécurisé Stripe, gestion des commandes et espace client personnalisé.",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Auth"],
-    results: [
-      { label: "Commandes traitées", value: "500+/mois" },
-      { label: "Taux de conversion", value: "+34%" },
-    ],
+    title: "Plateforme e-commerce",
+    result: "Taux de conversion + 34 %",
     serviceHref: "/services/ingenierie",
-    highlight: true,
   },
   {
     id: 5,
-    client: "Distrtherm Services",
-    sector: "Distribution thermique & Génie climatique",
-    initials: "DS",
+    client: "Secteur Distribution B2B",
+    sector: "PME",
+    initials: "DC",
     accentGradient: "from-orange-500 to-amber-400",
     badgeBg: "bg-orange-50",
     badgeText: "text-orange-700",
     domaine: "Ingénierie logicielle",
     domaineColor: "bg-violet-50 text-violet-700",
-    title: "Dashboard & Application mobile techniciens",
-    description:
-      "Tableau de bord centralisé pour piloter les ventes, stocks et interventions en temps réel. Application mobile dédiée aux techniciens terrain pour la planification, le suivi des interventions et la remontée d'informations.",
-    tags: ["React", "React Native", "Node.js", "WebSocket"],
-    results: [
-      { label: "Techniciens équipés", value: "20+" },
-      { label: "Gain de productivité", value: "+40%" },
-    ],
+    title: "Application mobile & dashboard métier",
+    result: "Productivité terrain + 40 %",
     serviceHref: "/services/ingenierie",
-    highlight: false,
   },
-
-  /* ── Conformitas ─────────────────────────────────────────────────────── */
   {
     id: 6,
-    client: "Distrtherm Services",
-    sector: "Distribution thermique & Génie climatique",
-    initials: "DS",
+    client: "Secteur Distribution B2B",
+    sector: "PME",
+    initials: "DC",
     accentGradient: "from-orange-500 to-amber-400",
     badgeBg: "bg-orange-50",
     badgeText: "text-orange-700",
     domaine: "Ingénierie logicielle",
     domaineColor: "bg-violet-50 text-violet-700",
-    title: "CRM & gestion de stocks avec Odoo",
-    description:
-      "Déploiement et personnalisation d'Odoo pour la gestion des stocks, des approvisionnements et de la relation client. Paramétrage des modules Inventory, Purchase, CRM et intégration avec l'e-commerce existant pour une vision 360° en temps réel.",
-    tags: ["Odoo", "Python", "PostgreSQL", "ERP", "CRM"],
-    results: [
-      { label: "Ruptures de stock", value: "-80%" },
-      { label: "Délai de traitement", value: "-50%" },
-    ],
+    title: "ERP & gestion des stocks",
+    result: "Ruptures de stock − 80 %",
     serviceHref: "/services/ingenierie",
-    highlight: false,
-  },
-  {
-    id: 8,
-    client: "Conformitas",
-    sector: "Conformité réglementaire & CEE",
-    initials: "CO",
-    accentGradient: "from-violet-600 to-blue-500",
-    badgeBg: "bg-violet-50",
-    badgeText: "text-violet-700",
-    domaine: "Ingénierie logicielle",
-    domaineColor: "bg-violet-50 text-violet-700",
-    title: "Application mobile Conformitas",
-    description:
-      "Développement d'une application mobile cross-platform permettant aux inspecteurs de gérer leurs missions terrain : consultation des dossiers, saisie des constats, signature électronique et synchronisation automatique avec le back-office.",
-    tags: ["React Native", "TypeScript", "Node.js", "API REST"],
-    results: [
-      { label: "Inspecteurs équipés", value: "30+" },
-      { label: "Temps de saisie", value: "-65%" },
-    ],
-    serviceHref: "/services/ingenierie",
-    highlight: false,
   },
   {
     id: 7,
-    client: "Conformitas",
-    sector: "Conformité réglementaire & CEE",
-    initials: "CO",
+    client: "Secteur Conformité réglementaire",
+    sector: "PME",
+    initials: "CR",
     accentGradient: "from-violet-600 to-blue-500",
     badgeBg: "bg-violet-50",
     badgeText: "text-violet-700",
     domaine: "Ingénierie logicielle",
     domaineColor: "bg-violet-50 text-violet-700",
-    title: "Plateforme de gestion des inspections CEE",
-    description:
-      "Plateforme de gestion des Certificats d'Économies d'Énergie : planification des visites, validation terrain via application mobile, génération automatique des rapports CEE conformes aux exigences réglementaires.",
-    tags: ["React", "Python", "API REST", "Mobile"],
-    results: [
-      { label: "Inspections gérées", value: "1 200+/an" },
-      { label: "Délai de rapport", value: "-70%" },
-    ],
+    title: "Plateforme de gestion des missions",
+    result: "Délai de rapport − 70 %",
     serviceHref: "/services/ingenierie",
-    highlight: true,
+  },
+  {
+    id: 8,
+    client: "Secteur Conformité réglementaire",
+    sector: "PME",
+    initials: "CR",
+    accentGradient: "from-violet-600 to-blue-500",
+    badgeBg: "bg-violet-50",
+    badgeText: "text-violet-700",
+    domaine: "Ingénierie logicielle",
+    domaineColor: "bg-violet-50 text-violet-700",
+    title: "Application mobile terrain",
+    result: "Temps de saisie − 65 %",
+    serviceHref: "/services/ingenierie",
   },
 ];
 
 const domaines = ["Tous", "Infogérance", "Cybersécurité", "Ingénierie logicielle"];
-
 
 /* ─────────────────────────────────────────────────────────────────────────
    Composant
@@ -197,7 +135,6 @@ export default function RealisationsPage() {
       ? realisations
       : realisations.filter((r) => r.domaine === activeFilter);
 
-  /* Grouper par client dans l'ordre d'apparition */
   const clients = Array.from(new Set(filtered.map((r) => r.client)));
 
   return (
@@ -207,12 +144,12 @@ export default function RealisationsPage() {
       <FullscreenHero
         tagline="Teknosure — Projets livrés"
         titleAccent="Nos réalisations"
-        title="Ce que nous avons bâti"
-        subtitle="Des projets concrets, des résultats mesurables. Chaque réalisation reflète notre engagement pour la qualité, la performance et la durabilité — pour des clients exigeants."
+        title="Des projets, des résultats"
+        subtitle="Une sélection de missions menées pour nos clients — sans divulguer leur identité. Chaque réalisation illustre notre savoir-faire concret en cybersécurité, infogérance et ingénierie logicielle."
         primaryLabel="Démarrer un projet"
         primaryHref="/contact"
         secondaryLabel="Nos services"
-        secondaryHref="/services/cybersecurite"
+        secondaryHref="/services"
         imageSrc="/images/nos-realisation.jpg"
         overlayMode="dark"
       />
@@ -272,9 +209,8 @@ export default function RealisationsPage() {
                         <p className="text-xs text-gray-400">{meta.sector}</p>
                       </div>
                       <div className="ml-4 h-px flex-1 bg-gray-200" />
-                      {/* Nb projets */}
                       <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${meta.badgeBg} ${meta.badgeText}`}>
-                        {group.length} projet{group.length > 1 ? "s" : ""}
+                        {group.length} réalisation{group.length > 1 ? "s" : ""}
                       </span>
                     </div>
 
@@ -283,55 +219,25 @@ export default function RealisationsPage() {
                       {group.map((r) => (
                         <article
                           key={r.id}
-                          className={`group relative flex flex-col rounded-2xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
-                            r.highlight ? "border-[var(--primary-border)] ring-1 ring-[var(--primary-light)]" : "border-gray-200 hover:border-[var(--primary-border)]"
-                          }`}
+                          className="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-border)] hover:shadow-lg"
                         >
-                          {/* Badge "Projet phare" */}
-                          {r.highlight && (
-                            <span className="absolute right-4 top-4 rounded-full bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-3 py-0.5 text-xs font-semibold text-white shadow">
-                              ★ Projet phare
-                            </span>
-                          )}
-
                           {/* Domaine */}
                           <span className={`mb-4 inline-flex w-fit rounded-full px-3 py-1 text-xs font-semibold ${r.domaineColor}`}>
                             {r.domaine}
                           </span>
 
                           {/* Titre */}
-                          <h3 className="mb-3 text-base font-bold text-gray-900 transition-colors group-hover:text-[var(--primary)]">
+                          <h3 className="mb-6 flex-1 text-base font-bold text-gray-900 transition-colors group-hover:text-[var(--primary)]">
                             {r.title}
                           </h3>
 
-                          {/* Description */}
-                          <p className="mb-5 flex-1 text-sm leading-relaxed text-gray-500">
-                            {r.description}
-                          </p>
-
-                          {/* Tags techno */}
-                          <div className="mb-5 flex flex-wrap gap-2">
-                            {r.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-500"
-                              >
-                                {tag}
-                              </span>
-                            ))}
+                          {/* Résultat clé */}
+                          <div className="mb-6 rounded-xl bg-gray-50 px-5 py-4">
+                            <p className="text-lg font-extrabold text-[var(--primary)]">{r.result}</p>
+                            <p className="mt-0.5 text-xs text-gray-400">Résultat clé</p>
                           </div>
 
-                          {/* Résultats */}
-                          <div className="mb-5 grid grid-cols-2 gap-3 rounded-xl bg-gray-50 p-4">
-                            {r.results.map((res) => (
-                              <div key={res.label}>
-                                <p className="text-lg font-extrabold text-[var(--primary)]">{res.value}</p>
-                                <p className="text-xs text-gray-400">{res.label}</p>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Lien */}
+                          {/* Lien service */}
                           <Link
                             href={r.serviceHref}
                             className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--primary)] transition-all hover:gap-3"

@@ -1,7 +1,6 @@
 import FullscreenHero from "@/app/components/hero/FullscreenHero";
 import InfogeranceServicesSection from "@/app/components/sections/InfogeranceServicesSection";
 import InfogerancePartnersSection from "@/app/components/sections/InfogerancePartnersSection";
-import InfogeranceTeamSection from "@/app/components/sections/InfogeranceTeamSection";
 import InfogeranceContactSection from "@/app/components/sections/InfogeranceContactSection";
 
 const defis = [
@@ -67,9 +66,6 @@ export default function InfogerancePage() {
 
       {/* ── Partenaires ──────────────────────────────────────────────────── */}
       <InfogerancePartnersSection />
-
-      {/* ── Équipe ───────────────────────────────────────────────────────── */}
-      <InfogeranceTeamSection />
 
       {/* ── Contact ──────────────────────────────────────────────────────── */}
       <InfogeranceContactSection />

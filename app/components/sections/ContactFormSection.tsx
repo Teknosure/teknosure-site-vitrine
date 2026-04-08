@@ -190,7 +190,7 @@ export default function ContactFormSection() {
               <p className="mb-4 text-sm font-bold uppercase tracking-wide text-[var(--primary-border)]">
                 Pourquoi nous contacter ?
               </p>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {atouts.map((a) => (
                   <div key={a.text} className="flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2.5">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">

@@ -4,11 +4,11 @@ export default function CTASection() {
   return (
     <section className="bg-gray-50 px-6 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="rounded-3xl bg-gradient-to-r from-[var(--primary-dark)] to-blue-700 px-8 py-16 text-center text-white lg:px-16 lg:py-20">
-          <h2 className="mb-6 text-4xl font-bold lg:text-5xl">
+        <div className="rounded-3xl bg-gradient-to-r from-[var(--primary-dark)] to-blue-700 px-6 py-14 text-center text-white sm:px-10 lg:px-16 lg:py-20">
+          <h2 className="mb-6 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl xl:text-5xl">
             Prêt à transformer votre infrastructure informatique ?
           </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-blue-50">
+          <p className="mx-auto mb-8 max-w-2xl text-sm text-blue-50 sm:text-lg">
             Prenez rendez-vous pour une consultation gratuite avec nos architectes 
             seniors afin de discuter de vos besoins spécifiques.
           </p>

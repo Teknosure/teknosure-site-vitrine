@@ -50,7 +50,7 @@ export default function AproposIdentiteSection() {
               <span className="mb-4 inline-block rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/90 backdrop-blur-sm">
                 À propos de Teknosure
               </span>
-              <h1 className="mb-6 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="mb-6 text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl xl:text-6xl">
                 Notre histoire
               </h1>
               <p className="max-w-lg text-lg leading-relaxed text-[var(--primary-border)] lg:text-xl">

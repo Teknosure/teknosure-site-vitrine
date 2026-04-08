@@ -6,6 +6,16 @@ import CTASection from "@/app/components/sections/CTASection";
 
 const expertiseTabs: HeroTab[] = [
   {
+    label: "Notre mission",
+    href: "/",
+    tagline: "Cabinet de conseil informatique de premier plan",
+    titleAccent: "Intelligence numérique",
+    title: "sécurisée et évolutive",
+    subtitle:
+      "Teknosure offre aux entreprises des solutions de cybersécurité de pointe, une infrastructure cloud performante et des logiciels sur mesure.",
+    imageSrc: "/images/hero-bg.png",
+  },
+  {
     label: "Cybersécurité",
     href: "/services/cybersecurite",
     tagline: "Protection & Conformité",
@@ -13,7 +23,7 @@ const expertiseTabs: HeroTab[] = [
     title: "et conformité numérique",
     subtitle:
       "Détection avancée des menaces, tests d'intrusion et audits ISO 27001 / RGPD pour sécuriser votre périmètre numérique.",
-    imageSrc: "/images/cyber2.jpg",
+    imageSrc: "/images/cyber3.jpg",
   },
   {
     label: "IA et automatisation",
@@ -51,10 +61,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <FullscreenHero
-        tagline="Cabinet de conseil informatique de premier plan"
-        titleAccent="Intelligence numérique"
-        title="sécurisée et évolutive"
-        subtitle="Teknosure offre aux entreprises des solutions de cybersécurité de pointe, une infrastructure cloud performante et des logiciels sur mesure."
+        title="Intelligence numérique"
         primaryLabel="Obtenir une consultation"
         primaryHref="/contact"
         secondaryLabel="Nos expertises"

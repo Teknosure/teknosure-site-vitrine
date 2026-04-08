@@ -15,15 +15,15 @@ export default function AproposCeoSection() {
       <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-cyan-500/5" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-14 lg:flex-row lg:items-start lg:gap-20">
+        <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-start lg:gap-20">
 
           {/* ── Photo ────────────────────────────────────────────────────── */}
-          <div className="relative shrink-0">
+          <div className="relative mx-auto shrink-0 lg:mx-0">
             {/* Anneau décoratif externe */}
             <div className="absolute -inset-3 rounded-3xl bg-linear-to-br from-[var(--primary-dark)]/30 to-[var(--primary)]/20 blur-sm" />
 
             {/* Conteneur image */}
-            <div className="relative h-[420px] w-72 overflow-hidden rounded-2xl ring-1 ring-white/10 lg:h-[480px] lg:w-80">
+            <div className="relative h-72 w-56 overflow-hidden rounded-2xl ring-1 ring-white/10 sm:h-96 sm:w-72 lg:h-[480px] lg:w-80">
               <Image
                 src="/images/image-hamad.png"
                 alt="Hamad WITTI — CEO Teknosure"
@@ -62,7 +62,7 @@ export default function AproposCeoSection() {
               La vision du fondateur
             </span>
 
-            <h2 className="mb-8 text-3xl font-extrabold leading-tight sm:text-4xl lg:text-4xl xl:text-5xl">
+            <h2 className="mb-8 text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl xl:text-5xl">
               Teknosure, c&apos;est{" "}
               <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 l&apos;ESN que j&apos;aurais voulu avoir

@@ -76,10 +76,10 @@ export default function IAContactSection() {
       <div className="absolute inset-0 bg-linear-to-r from-gray-900/95 via-gray-900/75 to-gray-900/40" />
 
       {/* Contenu */}
-      <div className="relative z-10 mx-auto flex min-h-[780px] max-w-7xl flex-col items-center gap-12 px-6 py-24 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
+      <div className="relative z-10 mx-auto flex min-h-[780px] max-w-7xl flex-col gap-12 px-5 py-20 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
 
-        {/* Gauche */}
-        <div className="flex-1 text-white">
+        {/* Gauche — masqué sur mobile */}
+        <div className="hidden flex-1 text-white lg:flex lg:flex-col">
           {/* Badge */}
           <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-amber-400/40 bg-black/30 px-4 py-1.5 backdrop-blur-sm">
             <span className="relative flex h-2 w-2 shrink-0">
@@ -119,7 +119,7 @@ export default function IAContactSection() {
         </div>
 
         {/* Formulaire */}
-        <div className="w-full max-w-md shrink-0 rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md lg:w-[440px]">
+        <div className="w-full shrink-0 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md sm:p-8 lg:w-[440px]">
           {sent ? (
             <div className="flex flex-col items-center gap-4 py-10 text-center text-white">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-400/20">
@@ -137,7 +137,7 @@ export default function IAContactSection() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
               <h3 className="mb-1 text-lg font-bold text-white">Démarrons votre projet IA</h3>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div className="flex flex-col gap-1">
                   <label className="text-xs font-semibold text-white/70">Prénom *</label>
                   <input name="prenom" type="text" required placeholder="Jean" value={form.prenom} onChange={handleChange} onFocus={() => setFocused("prenom")} onBlur={() => setFocused(null)} className={inputBase} />

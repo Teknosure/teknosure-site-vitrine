@@ -55,10 +55,10 @@ export default function InfogeranceContactSection() {
       <Image src="/images/dev-team.jpg" alt="Infogérance Teknosure" fill className="object-cover object-center" sizes="100vw" priority />
       <div className="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/70 to-slate-900/25" />
 
-      <div className="relative z-10 mx-auto flex min-h-[820px] max-w-7xl flex-col items-center gap-12 px-6 py-24 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
+      <div className="relative z-10 mx-auto flex min-h-[820px] max-w-7xl flex-col gap-12 px-5 py-20 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
 
-        {/* Gauche */}
-        <div className="flex-1 text-white">
+        {/* Gauche — masquée sur mobile */}
+        <div className="hidden flex-1 text-white lg:flex lg:flex-col">
           <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-blue-400/40 bg-white/10 px-4 py-1.5 backdrop-blur-sm">
             <span className="relative flex h-2 w-2 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--primary)] opacity-75" />
@@ -99,7 +99,7 @@ export default function InfogeranceContactSection() {
         </div>
 
         {/* Droite — formulaire */}
-        <div className="w-full max-w-lg shrink-0 rounded-2xl bg-white/95 p-8 shadow-2xl backdrop-blur-md lg:w-[480px]">
+        <div className="w-full shrink-0 rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-md sm:p-8 lg:w-[480px]">
           {sent ? (
             <div className="flex flex-col items-center gap-4 py-10 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-blue-500 to-cyan-400 text-white shadow-lg">
@@ -114,7 +114,7 @@ export default function InfogeranceContactSection() {
               <h3 className="mb-1 text-xl font-bold text-gray-900">Confiez-nous votre IT</h3>
               <p className="mb-2 text-xs text-gray-400">Les champs <span className="text-red-500">*</span> sont obligatoires.</p>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div>
                   <label htmlFor="it-prenom" className="sr-only">Prénom</label>
                   <input id="it-prenom" name="prenom" type="text" required placeholder="Prénom *" value={form.prenom} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]" />
@@ -125,7 +125,7 @@ export default function InfogeranceContactSection() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div>
                   <label htmlFor="it-email" className="sr-only">Email</label>
                   <input id="it-email" name="email" type="email" required placeholder="Email *" value={form.email} onChange={handleChange} className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 outline-none transition focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary-light)]" />

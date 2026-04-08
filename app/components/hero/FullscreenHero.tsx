@@ -13,6 +13,7 @@ export interface HeroTab {
   tagline?: string;
   titleAccent?: string;
   title?: string;
+  titleBreak?: boolean;
   subtitle?: string;
 }
 
@@ -96,10 +97,33 @@ export default function FullscreenHero({
   const currentTagline = active?.tagline ?? tagline;
   const currentTitleAccent = active?.titleAccent ?? titleAccent;
   const currentTitle = active?.title ?? title;
+  const currentTitleBreak = active?.titleBreak ?? false;
   const currentSubtitle = active?.subtitle ?? subtitle;
 
+  /* ── Typewriter sur titleAccent ─────────────────────────────────────── */
+  const [typedAccent, setTypedAccent] = useState(currentTitleAccent ?? "");
+  const typewriterRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const target = currentTitleAccent ?? "";
+    setTypedAccent("");
+    let i = 0;
+    const tick = () => {
+      i++;
+      setTypedAccent(target.slice(0, i));
+      if (i < target.length) {
+        typewriterRef.current = setTimeout(tick, 45);
+      }
+    };
+    // Petit délai avant de commencer (laisse le fade-up se lancer d'abord)
+    typewriterRef.current = setTimeout(tick, 120);
+    return () => {
+      if (typewriterRef.current) clearTimeout(typewriterRef.current);
+    };
+  }, [activeTab, currentTitleAccent]);
+
   return (
-    <section className="relative h-screen min-h-[720px] overflow-hidden">
+    <section className="relative flex h-screen min-h-[720px] flex-col overflow-hidden pb-20 sm:pb-24 lg:pb-28">
 
       {/* ── Images — toutes pré-chargées, crossfade via opacité ────────── */}
       {hasTabs ? (
@@ -143,21 +167,17 @@ export default function FullscreenHero({
         style={{ zIndex: 2 }}
       />
 
-      {/* ── Contenu texte + CTAs ─────────────────────────────────────────── */}
+      {/* ── Contenu texte + CTAs — centré verticalement dans l'espace disponible ── */}
       <div
-        className={`absolute inset-x-0 px-6 lg:px-10 xl:px-16 ${
-          hasTabs
-            ? "bottom-64 sm:bottom-72 lg:bottom-80 xl:bottom-96"
-            : "bottom-20 lg:bottom-24 xl:bottom-32"
-        }`}
+        className="relative flex flex-1 items-center px-5 sm:px-6 lg:px-10 xl:px-16"
         style={{ zIndex: 10 }}
       >
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto w-full max-w-7xl">
 
           {currentTagline && (
             <p
               key={`tagline-${activeTab}`}
-              className={`mb-3 animate-fade-in text-sm font-medium uppercase tracking-widest ${
+              className={`animate-hero-tagline mb-3 text-sm font-medium uppercase tracking-widest ${
                 isDark ? "text-gray-400" : "text-gray-500"
               }`}
             >
@@ -167,13 +187,23 @@ export default function FullscreenHero({
 
           <h1
             key={`title-${activeTab}`}
-            className={`mb-5 max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl ${
+            className={`animate-hero-title mb-5 max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl xl:text-6xl ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
             {currentTitleAccent && (
               <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                {currentTitleAccent}{" "}
+                {typedAccent}
+                <span
+                  className="inline-block w-[3px] translate-y-1 rounded-sm bg-cyan-400"
+                  style={{
+                    height: "0.85em",
+                    marginLeft: "2px",
+                    opacity: typedAccent.length < (currentTitleAccent?.length ?? 0) ? 1 : 0,
+                    transition: "opacity 0.15s",
+                  }}
+                />
+                {" "}
               </span>
             )}
             <span className="whitespace-nowrap">{currentTitle}</span>
@@ -182,7 +212,7 @@ export default function FullscreenHero({
           {currentSubtitle && (
             <p
               key={`subtitle-${activeTab}`}
-              className={`mb-8 max-w-2xl text-lg leading-relaxed ${
+              className={`animate-hero-subtitle mb-8 max-w-2xl text-sm leading-relaxed sm:text-base lg:text-lg ${
                 isDark ? "text-gray-300" : "text-gray-600"
               }`}
             >
@@ -190,10 +220,10 @@ export default function FullscreenHero({
             </p>
           )}
 
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div key={`cta-${activeTab}`} className="animate-hero-cta flex flex-col gap-3 sm:flex-row sm:gap-4">
             <Link
               href={primaryHref}
-              className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-8 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/30 transition-all hover:from-blue-500 hover:to-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-all hover:from-blue-500 hover:to-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-8 sm:py-3.5 sm:text-base"
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -202,7 +232,7 @@ export default function FullscreenHero({
             </Link>
             <Link
               href={secondaryHref}
-              className={`inline-flex items-center gap-2 rounded-full border-2 px-8 py-3.5 font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent ${
+              className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-6 py-3 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-8 sm:py-3.5 sm:text-base ${
                 isDark
                   ? "border-white/50 text-white hover:border-white hover:bg-white/10"
                   : "border-gray-400 text-gray-700 hover:border-gray-600 hover:bg-gray-50"
@@ -217,14 +247,14 @@ export default function FullscreenHero({
         </div>
       </div>
 
-      {/* ── Barre d'onglets ──────────────────────────────────────────────── */}
+      {/* ── Barre d'onglets — toujours en bas ───────────────────────────── */}
       {hasTabs && (
         <div
-          className="absolute bottom-24 left-0 right-0 bg-transparent"
+          className="relative w-full bg-transparent"
           style={{ zIndex: 10 }}
         >
           <div
-            className="flex w-full overflow-x-auto"
+            className="flex w-full overflow-x-auto scrollbar-none"
             role="tablist"
             aria-label="Nos expertises"
           >
@@ -236,7 +266,7 @@ export default function FullscreenHero({
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => handleTabClick(index)}
-                  className={`relative flex-1 shrink-0 px-6 py-5 text-sm font-semibold transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 lg:text-base ${
+                  className={`relative shrink-0 px-4 py-4 text-xs font-semibold transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 sm:flex-1 sm:px-6 sm:py-5 sm:text-sm lg:text-base ${
                     isActive ? "text-white" : "text-white/50 hover:text-white/80"
                   }`}
                 >

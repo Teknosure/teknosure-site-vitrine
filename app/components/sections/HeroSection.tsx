@@ -25,7 +25,7 @@ export default function HeroSection() {
           </div>
 
           {/* Titre */}
-          <h1 className="mb-6 text-5xl font-bold leading-tight lg:text-6xl">
+          <h1 className="mb-6 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl xl:text-6xl">
             <span className="bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] bg-clip-text text-transparent">
               Intelligence numérique
             </span>
@@ -34,7 +34,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Description */}
-          <p className="mb-10 max-w-2xl text-xl leading-relaxed text-gray-600">
+          <p className="mb-10 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-xl">
             Teknosure offre aux entreprises des solutions de cybersécurité de pointe, 
             une infrastructure cloud performante et des logiciels sur mesure. 
             Nous bâtissons les fondations de votre avenir numérique.

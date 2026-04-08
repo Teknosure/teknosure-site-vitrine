@@ -152,10 +152,10 @@ export default function ServicesSection() {
         </div>
 
         {/* Bande CTA */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-5 rounded-2xl bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-8 py-8 text-white sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-5 rounded-2xl bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-6 py-8 text-white sm:flex-row sm:px-8">
           <div>
-            <p className="text-lg font-bold">Un projet spécifique ? Un besoin sur mesure ?</p>
-            <p className="mt-1 text-sm text-[var(--primary-border)]">
+            <p className="text-base font-bold sm:text-lg">Un projet spécifique ? Un besoin sur mesure ?</p>
+            <p className="mt-1 text-xs text-[var(--primary-border)] sm:text-sm">
               Nous construisons des solutions adaptées à vos contraintes et à vos ambitions.
             </p>
           </div>

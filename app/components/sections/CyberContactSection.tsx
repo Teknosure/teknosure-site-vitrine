@@ -75,10 +75,10 @@ export default function CyberContactSection() {
       <div className="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/70 to-slate-900/30" />
 
       {/* Contenu */}
-      <div className="relative z-10 mx-auto flex min-h-[820px] max-w-7xl flex-col items-center gap-12 px-6 py-24 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
+      <div className="relative z-10 mx-auto flex min-h-[820px] max-w-7xl flex-col gap-12 px-5 py-20 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
 
-        {/* Gauche : accroche */}
-        <div className="flex-1 text-white">
+        {/* Gauche : accroche — masquée sur mobile */}
+        <div className="hidden flex-1 text-white lg:flex lg:flex-col">
           {/* Badge animé — style terminal cyber */}
           <div className="mb-4 inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-cyan-500/50 bg-black/40 px-4 py-1.5 backdrop-blur-sm" style={{ position: "relative" }}>
             {/* Scan line qui traverse le badge */}
@@ -128,7 +128,7 @@ export default function CyberContactSection() {
         </div>
 
         {/* Droite : formulaire card */}
-        <div className="w-full max-w-lg shrink-0 rounded-2xl bg-white/95 p-8 shadow-2xl backdrop-blur-md lg:w-[480px]">
+        <div className="w-full shrink-0 rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-md sm:p-8 lg:w-[480px]">
           {sent ? (
             <div className="flex flex-col items-center gap-4 py-10 text-center">
               <span className="flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-blue-500 to-cyan-400 text-white shadow-lg">
@@ -157,7 +157,7 @@ export default function CyberContactSection() {
               </p>
 
               {/* Prénom + Nom */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div>
                   <label htmlFor="prenom" className="sr-only">Prénom</label>
                   <input
@@ -187,7 +187,7 @@ export default function CyberContactSection() {
               </div>
 
               {/* Email + Téléphone */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div>
                   <label htmlFor="email" className="sr-only">Email</label>
                   <input

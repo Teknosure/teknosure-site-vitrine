@@ -57,7 +57,7 @@ const stats = [
 
 export default function PourquoiNous() {
   return (
-    <section className="bg-gray-900 px-6 py-24 text-white lg:px-8">
+    <section className="bg-gray-900 px-5 py-16 text-white sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-12">
 
@@ -66,7 +66,7 @@ export default function PourquoiNous() {
             <span className="mb-4 inline-block rounded-full border border-[var(--primary)]/30 bg-[var(--primary-light)]0/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-400">
               Ce qui nous distingue
             </span>
-            <h2 className="mb-4 text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
+            <h2 className="mb-4 text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl xl:text-5xl">
               Pourquoi choisir{" "}
               <span className="bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 Teknosure ?
@@ -122,9 +122,9 @@ export default function PourquoiNous() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl border border-gray-700/60 bg-gray-800/50 p-7 backdrop-blur transition-all hover:border-[var(--primary)]/30 hover:bg-gray-800"
+                  className="rounded-2xl border border-gray-700/60 bg-gray-800/50 p-5 backdrop-blur transition-all hover:border-[var(--primary)]/30 hover:bg-gray-800 sm:p-7"
                 >
-                  <p className="mb-1 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-4xl font-extrabold text-transparent">
+                  <p className="mb-1 bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-2xl font-extrabold text-transparent sm:text-4xl">
                     {stat.value}
                   </p>
                   <p className="text-sm text-gray-400">{stat.label}</p>

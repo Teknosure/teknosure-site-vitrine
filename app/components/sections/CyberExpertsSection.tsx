@@ -36,12 +36,12 @@ export default function CyberExpertsSection() {
 
           {/* Article featured */}
           <article className="group flex flex-col overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
-            <div className="relative h-56 w-full overflow-hidden sm:h-64 lg:h-72 xl:h-80">
+            <div className="relative h-56 w-full overflow-hidden bg-gray-100 sm:h-64 lg:h-72 xl:h-80">
               <Image
                 src={featured.image}
                 alt={featured.title}
                 fill
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                className="object-contain object-center"
                 sizes="(max-width: 1280px) 100vw, 50vw"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/50 to-transparent" />
@@ -63,7 +63,9 @@ export default function CyberExpertsSection() {
                 {featured.excerpt}
               </p>
               <Link
-                href={`/blog/${featured.slug}`}
+                href={featured.externalUrl ?? `/blog/${featured.slug}`}
+                target={featured.externalUrl ? "_blank" : undefined}
+                rel={featured.externalUrl ? "noopener noreferrer" : undefined}
                 className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--primary)] transition-all hover:bg-[var(--primary-light)]"
               >
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -113,7 +115,9 @@ export default function CyberExpertsSection() {
                     {article.excerpt}
                   </p>
                   <Link
-                    href={`/blog/${article.slug}`}
+                    href={article.externalUrl ?? `/blog/${article.slug}`}
+                    target={article.externalUrl ? "_blank" : undefined}
+                    rel={article.externalUrl ? "noopener noreferrer" : undefined}
                     className="mt-1 inline-flex w-fit items-center gap-1.5 rounded-full border border-[var(--primary)] px-3 py-1 text-xs font-semibold text-[var(--primary)] transition-all hover:bg-[var(--primary-light)]"
                   >
                     <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { articles, getArticleBySlug } from "../data";
@@ -23,6 +23,11 @@ export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (!article) notFound();
+
+  // Si l'article pointe vers un lien externe, on redirige directement
+  if (article.externalUrl) {
+    redirect(article.externalUrl);
+  }
 
   const related = articles.filter((a) => a.slug !== slug).slice(0, 2);
 
@@ -120,12 +125,12 @@ export default async function ArticlePage({ params }: Props) {
       <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
 
         {/* Image */}
-        <div className="relative mb-10 h-64 overflow-hidden rounded-2xl shadow-md sm:h-80">
+        <div className="relative mb-10 h-64 overflow-hidden rounded-2xl bg-gray-100 shadow-md sm:h-80">
           <Image
             src={article.image}
             alt={article.title}
             fill
-            className="object-cover"
+            className="object-contain object-center"
             priority
           />
         </div>

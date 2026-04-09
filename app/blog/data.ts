@@ -8,44 +8,22 @@ export type Article = {
   image: string;
   featured: boolean;
   content: string; // HTML ou Markdown-like JSX string
+  externalUrl?: string; // Si défini, le bouton "En savoir plus" redirige vers cette URL externe
 };
 
 export const articles: Article[] = [
   {
     slug: "dilemme-ciso-proteger-anticiper",
-    category: "Stratégie",
+    category: "Interview",
     readTime: "5 min",
-    date: "2 avril 2026",
-    title: "Le dilemme du CISO : protéger aujourd'hui, anticiper demain",
+    date: "13 février 2026",
+    title: "Hamad Witti Moussa au CyberShow 2026 : deepfakes, IA et protection 360°",
     excerpt:
-      "Chaque jour, le CISO jongle entre pression des dirigeants, menaces qui évoluent plus vite que les budgets, et responsabilité de protéger des millions de données sensibles.",
-    image: "/images/cybersecurite-image.jpg",
+      "23 ans d'expérience terrain, une ESN « Next Gen » et un message clair : les cyberattaques dopées à l'IA ne laissent plus de traces. Au CyberShow Paris 2026, Hamad Witti Moussa a livré sa vision d'une cybersécurité globale — de la gouvernance au SOC 24/7 — pour que les TPE et PME accèdent au même niveau de protection que les grands comptes du CAC 40.",
+    image: "/images/image-hamad.png",
     featured: true,
-    content: `
-Le rôle de CISO (Chief Information Security Officer) est l'un des plus exigeants de l'entreprise moderne. Entre les injonctions contradictoires des directions métier, la pression budgétaire, et des menaces qui évoluent à une vitesse sans précédent, le CISO doit sans cesse arbitrer entre protection immédiate et vision à long terme.
-
-## Une pression constante sur deux fronts
-
-D'un côté, les équipes métier veulent aller vite : lancer de nouvelles applications, adopter des outils cloud, intégrer des services tiers. De l'autre, chaque nouvelle surface applicative est une nouvelle surface d'attaque potentielle.
-
-Le CISO doit dire "oui, mais" là où tout le monde attend un "oui tout de suite". C'est là que la communication devient une compétence aussi critique que la technique.
-
-## L'incident comme révélateur
-
-Un soir, l'alerte tombe : tentative d'intrusion détectée sur un endpoint non supervisé. Vous avez 15 minutes pour comprendre le vecteur, isoler le système, alerter les bonnes personnes et décider si vous activez le plan de réponse aux incidents.
-
-C'est dans ces moments que la préparation fait toute la différence. Une organisation qui a testé ses procédures, formé ses équipes et segmenté son réseau réagit de manière structurée. Une organisation qui ne l'a pas fait improvise — et l'improvisation coûte cher.
-
-## Anticiper plutôt que subir
-
-La clé : ne pas attendre l'incident pour réfléchir. Cartographier les actifs critiques, identifier les scénarios de menace les plus probables pour votre secteur, et tester régulièrement vos défenses.
-
-Les frameworks comme **NIST CSF**, **ISO 27001** ou **EBIOS RM** ne sont pas que des obligations réglementaires — ce sont des outils de structuration de la pensée sécurité.
-
-## Ce que Teknosure apporte
-
-Teknosure accompagne les CISO et DSI dans la construction d'une posture de sécurité durable : audit, SOC managé, réponse à incidents et formation des équipes. Nous intervenons aussi bien en amont (prévention) qu'en réaction (remédiation).
-    `.trim(),
+    externalUrl: "https://www.veillemag.com/Rencontre-avec-Hamad-Witti-Moussa-de-Teknosure-au-CyberShow-de-la-Cybersecurite-2026_a7034.html",
+    content: ``.trim(),
   },
   {
     slug: "eti-pme-exposees-pas-condamnees",

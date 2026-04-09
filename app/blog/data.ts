@@ -7,8 +7,8 @@ export type Article = {
   excerpt: string;
   image: string;
   featured: boolean;
-  content: string; // HTML ou Markdown-like JSX string
-  externalUrl?: string; // Si défini, le bouton "En savoir plus" redirige vers cette URL externe
+  content: string;
+  externalUrl?: string;
 };
 
 export const articles: Article[] = [
@@ -20,10 +20,11 @@ export const articles: Article[] = [
     title: "Hamad Witti Moussa au CyberShow 2026 : deepfakes, IA et protection 360°",
     excerpt:
       "23 ans d'expérience terrain, une ESN « Next Gen » et un message clair : les cyberattaques dopées à l'IA ne laissent plus de traces. Au CyberShow Paris 2026, Hamad Witti Moussa a livré sa vision d'une cybersécurité globale — de la gouvernance au SOC 24/7 — pour que les TPE et PME accèdent au même niveau de protection que les grands comptes du CAC 40.",
-    image: "/images/image-hamad.png",
+    image: "/images/blog/cybershow-2026.png",
     featured: true,
-    externalUrl: "https://www.veillemag.com/Rencontre-avec-Hamad-Witti-Moussa-de-Teknosure-au-CyberShow-de-la-Cybersecurite-2026_a7034.html",
-    content: ``.trim(),
+    externalUrl:
+      "https://www.veillemag.com/Rencontre-avec-Hamad-Witti-Moussa-de-Teknosure-au-CyberShow-de-la-Cybersecurite-2026_a7034.html",
+    content: "",
   },
   {
     slug: "eti-pme-exposees-pas-condamnees",
@@ -33,10 +34,9 @@ export const articles: Article[] = [
     title: "Cybersécurité : les ETI sont exposées, mais pas condamnées",
     excerpt:
       "Les entreprises de taille intermédiaire sont devenues des cibles prioritaires. Sans les ressources des grands groupes, elles peuvent pourtant bâtir une posture solide avec les bons leviers.",
-    image: "/images/cybersecurite-image.jpg",
+    image: "/images/blog/blog-cyberattaque.jpg",
     featured: false,
-    content: `
-Les ETI et PME représentent aujourd'hui plus de **60 % des victimes de cyberattaques** en France, selon les rapports annuels de l'ANSSI. Pourtant, beaucoup d'entre elles continuent de penser que les hackers s'attaquent uniquement aux grandes entreprises.
+    content: `Les ETI et PME représentent aujourd'hui plus de **60 % des victimes de cyberattaques** en France, selon les rapports annuels de l'ANSSI. Pourtant, beaucoup d'entre elles continuent de penser que les hackers s'attaquent uniquement aux grandes entreprises.
 
 ## Pourquoi les ETI sont dans le viseur
 
@@ -58,8 +58,7 @@ La bonne nouvelle : une posture solide ne nécessite pas un budget de grand grou
 
 ## L'approche Teknosure pour les ETI
 
-Nous proposons des offres calibrées pour les ETI et PME : audit initial offert, déploiement rapide, contrat d'infogérance sécurité avec SLA adaptés à votre organisation. Pas de sur-dimensionnement, pas de coûts cachés.
-    `.trim(),
+Nous proposons des offres calibrées pour les ETI et PME : audit initial offert, déploiement rapide, contrat d'infogérance sécurité avec SLA adaptés à votre organisation. Pas de sur-dimensionnement, pas de coûts cachés.`,
   },
   {
     slug: "ia-generative-opportunite-ou-surface-attaque",
@@ -69,10 +68,9 @@ Nous proposons des offres calibrées pour les ETI et PME : audit initial offert,
     title: "IA générative : opportunité ou nouvelle surface d'attaque ?",
     excerpt:
       "L'adoption massive des outils IA en entreprise crée de nouveaux vecteurs d'exposition : fuite de données, prompt injection, shadow IT. Comment encadrer sans brider l'innovation ?",
-    image: "/images/cybersecurite-image.jpg",
+    image: "/images/blog/blog-gen-ia.jpg",
     featured: false,
-    content: `
-En quelques mois, ChatGPT, Copilot et leurs concurrents sont devenus des outils du quotidien dans les entreprises. Des développeurs qui automatisent leurs revues de code, des commerciaux qui rédigent leurs emails, des juristes qui analysent des contrats — l'IA générative est partout.
+    content: `En quelques mois, ChatGPT, Copilot et leurs concurrents sont devenus des outils du quotidien dans les entreprises. Des développeurs qui automatisent leurs revues de code, des commerciaux qui rédigent leurs emails, des juristes qui analysent des contrats — l'IA générative est partout.
 
 ## Les nouveaux risques concrets
 
@@ -99,8 +97,7 @@ La réponse n'est pas l'interdiction — elle serait contournée. C'est la **gou
 
 ## L'approche Teknosure
 
-Nous accompagnons les DSI dans la définition de leur politique IA : cartographie des usages existants, rédaction de la charte d'utilisation, et déploiement de solutions IA sécurisées en environnement maîtrisé.
-    `.trim(),
+Nous accompagnons les DSI dans la définition de leur politique IA : cartographie des usages existants, rédaction de la charte d'utilisation, et déploiement de solutions IA sécurisées en environnement maîtrisé.`,
   },
   {
     slug: "nis2-directive-dsi",
@@ -110,10 +107,9 @@ Nous accompagnons les DSI dans la définition de leur politique IA : cartographi
     title: "NIS2 : ce que la directive change concrètement pour votre DSI",
     excerpt:
       "Entrée en vigueur en 2024, NIS2 élargit les obligations de cybersécurité à des milliers d'entités françaises. Ce que vous devez mettre en place dès maintenant.",
-    image: "/images/cybersecurite-image.jpg",
+    image: "/images/blog/NIS2.jpg",
     featured: false,
-    content: `
-La directive NIS2 (Network and Information Security 2) est entrée en vigueur en octobre 2024. Elle remplace et élargit considérablement la directive NIS1 de 2016, et concerne désormais des milliers d'entités françaises supplémentaires.
+    content: `La directive NIS2 (Network and Information Security 2) est entrée en vigueur en octobre 2024. Elle remplace et élargit considérablement la directive NIS1 de 2016, et concerne désormais des milliers d'entités françaises supplémentaires.
 
 ## Qui est concerné ?
 
@@ -150,8 +146,7 @@ En France, l'ANSSI estime que **15 000 à 20 000 entités** entrent dans le pér
 3. **Auditer votre niveau de maturité actuel** par rapport aux exigences
 4. **Définir un plan de mise en conformité** priorisé
 
-Teknosure propose un accompagnement NIS2 complet : diagnostic initial, feuille de route, mise en œuvre technique et documentation réglementaire.
-    `.trim(),
+Teknosure propose un accompagnement NIS2 complet : diagnostic initial, feuille de route, mise en œuvre technique et documentation réglementaire.`,
   },
 ];
 

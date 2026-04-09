@@ -20,7 +20,7 @@ export const articles: Article[] = [
     title: "Hamad Witti Moussa au CyberShow 2026 : deepfakes, IA et protection 360°",
     excerpt:
       "23 ans d'expérience terrain, une ESN « Next Gen » et un message clair : les cyberattaques dopées à l'IA ne laissent plus de traces. Au CyberShow Paris 2026, Hamad Witti Moussa a livré sa vision d'une cybersécurité globale — de la gouvernance au SOC 24/7 — pour que les TPE et PME accèdent au même niveau de protection que les grands comptes du CAC 40.",
-    image: "/images/blog/cybershow-2026.png",
+    image: "/images/blog/cybershow-2026.jpeg",
     featured: true,
     externalUrl:
       "https://www.veillemag.com/Rencontre-avec-Hamad-Witti-Moussa-de-Teknosure-au-CyberShow-de-la-Cybersecurite-2026_a7034.html",

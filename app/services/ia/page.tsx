@@ -4,6 +4,18 @@ import IATechSection from "@/app/components/sections/IATechSection";
 import IAUseCasesSection from "@/app/components/sections/IAUseCasesSection";
 import IAContactSection from "@/app/components/sections/IAContactSection";
 
+export const metadata = {
+  title: "Intelligence Artificielle & Automatisation",
+  description:
+    "Intégration IA générative, automatisation des processus, chatbots et solutions d'analyse de données. Teknosure déploie l'IA en environnement sécurisé pour votre entreprise.",
+  keywords: ["intelligence artificielle", "IA générative", "automatisation", "chatbot", "LLM", "machine learning", "data science"],
+  openGraph: {
+    title: "Intelligence Artificielle & Automatisation — Teknosure",
+    description: "Déployez l'IA en entreprise de manière sécurisée. LLM, chatbots, automatisation, analyse de données.",
+    url: "https://www.teknosure.com/services/ia",
+  },
+};
+
 const defis = [
   {
     stat: "85%",

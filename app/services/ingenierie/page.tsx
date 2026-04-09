@@ -3,6 +3,18 @@ import IngenieireServicesSection from "@/app/components/sections/IngenieireServi
 import IngenieiereTechSection from "@/app/components/sections/IngenieiereTechSection";
 import IngenieireCasSection from "@/app/components/sections/IngenieireCasSection";
 import IngenieireApproacheSection from "@/app/components/sections/IngenieireApproacheSection";
+
+export const metadata = {
+  title: "Ingénierie Logicielle & Développement Sur Mesure",
+  description:
+    "Applications web, mobiles et API sur mesure. Teknosure conçoit et développe vos logiciels métier avec des technologies modernes et des équipes expertes.",
+  keywords: ["ingénierie logicielle", "développement sur mesure", "application web", "API", "React", "Next.js", "logiciel métier"],
+  openGraph: {
+    title: "Ingénierie Logicielle & Développement Sur Mesure — Teknosure",
+    description: "Applications web, mobiles et API sur mesure. Développement agile avec des technologies modernes.",
+    url: "https://www.teknosure.com/services/ingenierie",
+  },
+};
 import IngenieireContactSection from "@/app/components/sections/IngenieireContactSection";
 
 // ── Statistiques "Les défis du développement logiciel" ───────────────────────

@@ -3,6 +3,18 @@ import TPEPMEOffresSection from "@/app/components/sections/TPEPMEOffresSection";
 import TPEPMEAtoutsSection from "@/app/components/sections/TPEPMEAtoutsSection";
 import TPEPMEContactSection from "@/app/components/sections/TPEPMEContactSection";
 
+export const metadata = {
+  title: "Solutions IT pour TPE & PME — Packs Accessibles",
+  description:
+    "Teknosure propose des packs IT sur mesure pour les TPE et PME : cybersécurité, cloud, infogérance et ingénierie au prix des grandes entreprises. Audit initial offert.",
+  keywords: ["IT TPE PME", "cybersécurité PME", "cloud PME", "infogérance TPE", "solutions informatiques petites entreprises"],
+  openGraph: {
+    title: "Solutions IT pour TPE & PME — Teknosure",
+    description: "Packs IT accessibles pour TPE et PME. Cybersécurité, cloud, infogérance. Même niveau que les grands comptes.",
+    url: "https://www.teknosure.com/tpe-pme",
+  },
+};
+
 const defis = [
   {
     stat: "60%",
@@ -20,12 +32,6 @@ const defis = [
       "les PME qui externalisent leur IT réduisent en moyenne de moitié leurs coûts informatiques tout en améliorant leur performance.",
   },
 ];
-
-export const metadata = {
-  title: "Offres TPE / PME — Teknosure",
-  description:
-    "Teknosure accompagne les TPE et PME avec des offres IT packagées : infogérance, cybersécurité, cloud, développement sur mesure. Partenaire informatique fiable pour les petites et moyennes entreprises.",
-};
 
 export default function TPEPMEPage() {
   return (

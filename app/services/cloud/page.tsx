@@ -4,6 +4,18 @@ import CloudPartnersSection from "@/app/components/sections/CloudPartnersSection
 import CloudCertificationsSection from "@/app/components/sections/CloudCertificationsSection";
 import CloudContactSection from "@/app/components/sections/CloudContactSection";
 
+export const metadata = {
+  title: "Infrastructure & Cloud Managé",
+  description:
+    "Migration et gestion cloud AWS, Azure, Google Cloud. Infogérance, monitoring 24/7, optimisation FinOps. Teknosure modernise votre infrastructure IT.",
+  keywords: ["cloud managé", "AWS", "Azure", "Google Cloud", "migration cloud", "FinOps", "infrastructure IT"],
+  openGraph: {
+    title: "Infrastructure & Cloud Managé — Teknosure",
+    description: "Migration cloud, monitoring 24/7, FinOps. Solutions AWS, Azure, GCP pour PME et ETI.",
+    url: "https://www.teknosure.com/services/cloud",
+  },
+};
+
 const defis = [
   {
     stat: "68%",

@@ -3,6 +3,18 @@ import AproposExpertiseSection from "@/app/components/sections/AproposExpertiseS
 import AproposCeoSection from "@/app/components/sections/AproposCeoSection";
 import AproposCtaSection from "@/app/components/sections/AproposCtaSection";
 
+export const metadata = {
+  title: "À Propos — Notre Mission & Notre Équipe",
+  description:
+    "Teknosure est une ESN « Next Gen » fondée par des experts avec plus de 23 ans d'expérience. Découvrez notre mission, nos valeurs et notre équipe basée à Taverny.",
+  keywords: ["à propos Teknosure", "ESN française", "équipe cybersécurité", "Hamad Witti Moussa", "cabinet IT France"],
+  openGraph: {
+    title: "À Propos de Teknosure — Mission & Équipe",
+    description: "ESN Next Gen fondée par des experts avec 23 ans d'expérience. Mission : démocratiser la cybersécurité pour les PME.",
+    url: "https://www.teknosure.com/a-propos",
+  },
+};
+
 const approche = [
   {
     step: "01",

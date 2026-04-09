@@ -5,6 +5,13 @@
    ➜ Charte Teknosure  : #1B9AD2 / #0D6EA1 / #E8F5FC / #1487BB / #B8DFF2
    ➜ Charte Originale  : #2563eb / #1d4ed8 / #eff6ff / #3b82f6 / #bfdbfe
    ══════════════════════════════════════════════════════════════════════ */
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #1A1A2E;

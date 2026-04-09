@@ -3,6 +3,18 @@ import CyberOffresSection from "@/app/components/sections/CyberOffresSection";
 import CyberExpertsSection from "@/app/components/sections/CyberExpertsSection";
 import CyberContactSection from "@/app/components/sections/CyberContactSection";
 
+export const metadata = {
+  title: "Cybersécurité & Conformité Numérique",
+  description:
+    "Audit, SOC 24/7, détection deepfakes, conformité ISO 27001, NIS2 et RGPD. Teknosure protège votre périmètre numérique avec des solutions adaptées aux PME et ETI.",
+  keywords: ["cybersécurité", "SOC 24/7", "audit sécurité", "ISO 27001", "NIS2", "deepfakes", "pentest", "RGPD"],
+  openGraph: {
+    title: "Cybersécurité & Conformité Numérique — Teknosure",
+    description: "Protection avancée de votre SI. SOC 24/7, détection deepfakes, conformité NIS2. Audit gratuit.",
+    url: "https://www.teknosure.com/services/cybersecurite",
+  },
+};
+
 // ── Statistiques "Les défis d'aujourd'hui" ───────────────────────────────────
 const defis = [
   {

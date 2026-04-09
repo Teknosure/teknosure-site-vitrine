@@ -3,6 +3,18 @@ import InfogeranceServicesSection from "@/app/components/sections/InfogeranceSer
 import InfogerancePartnersSection from "@/app/components/sections/InfogerancePartnersSection";
 import InfogeranceContactSection from "@/app/components/sections/InfogeranceContactSection";
 
+export const metadata = {
+  title: "Infogérance & Supervision IT",
+  description:
+    "Infogérance sur mesure pour PME et ETI : supervision 24/7, maintenance préventive, helpdesk, gestion des postes et serveurs. Teknosure prend en charge votre SI.",
+  keywords: ["infogérance", "supervision IT", "helpdesk", "maintenance informatique", "PME", "ETI", "outsourcing IT"],
+  openGraph: {
+    title: "Infogérance & Supervision IT — Teknosure",
+    description: "Infogérance complète pour PME et ETI. Supervision 24/7, maintenance, helpdesk. Devis gratuit.",
+    url: "https://www.teknosure.com/services/infogerance",
+  },
+};
+
 const defis = [
   {
     stat: "60%",

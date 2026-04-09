@@ -206,7 +206,7 @@ export default function FullscreenHero({
                 {" "}
               </span>
             )}
-            <span className="whitespace-nowrap">{currentTitle}</span>
+            <span className="break-words">{currentTitle}</span>
           </h1>
 
           {currentSubtitle && (

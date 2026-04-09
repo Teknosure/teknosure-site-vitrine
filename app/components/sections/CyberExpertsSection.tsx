@@ -1,52 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const articles = [
-  {
-    id: 1,
-    category: "Stratégie",
-    readTime: "5 min",
-    title: "Le dilemme du CISO : protéger aujourd'hui, anticiper demain",
-    excerpt:
-      "Chaque jour, le CISO jongle entre pression des dirigeants, menaces qui évoluent plus vite que les budgets, et responsabilité de protéger des millions de données sensibles. Un soir, l'alerte tombe : tentative d'intrusion détectée. Vous avez 15 minutes pour agir. C'est dans ces moments que la préparation fait toute la différence.",
-    image: "/images/cybersecurite-image.jpg",
-    featured: true,
-    href: "#",
-  },
-  {
-    id: 2,
-    category: "ETI & PME",
-    readTime: "4 min",
-    title: "Cybersécurité : les ETI sont exposées, mais pas condamnées",
-    excerpt:
-      "Les entreprises de taille intermédiaire sont devenues des cibles prioritaires. Sans les ressources des grands groupes, elles peuvent pourtant bâtir une posture solide avec les bons leviers.",
-    image: "/images/cybersecurite-image.jpg",
-    featured: false,
-    href: "#",
-  },
-  {
-    id: 3,
-    category: "IA & Sécurité",
-    readTime: "6 min",
-    title: "IA générative : opportunité ou nouvelle surface d'attaque ?",
-    excerpt:
-      "L'adoption massive des outils IA en entreprise crée de nouveaux vecteurs d'exposition : fuite de données, prompt injection, shadow IT. Comment encadrer sans brider l'innovation ?",
-    image: "/images/cybersecurite-image.jpg",
-    featured: false,
-    href: "#",
-  },
-  {
-    id: 4,
-    category: "Conformité",
-    readTime: "5 min",
-    title: "NIS2 : ce que la directive change concrètement pour votre DSI",
-    excerpt:
-      "Entrée en vigueur en 2024, NIS2 élargit les obligations de cybersécurité à des milliers d'entités françaises. Ce que vous devez mettre en place dès maintenant pour être en conformité.",
-    image: "/images/cybersecurite-image.jpg",
-    featured: false,
-    href: "#",
-  },
-];
+import { articles } from "@/app/blog/data";
 
 const featured = articles.find((a) => a.featured)!;
 const secondary = articles.filter((a) => !a.featured);
@@ -67,7 +21,7 @@ export default function CyberExpertsSection() {
             </h2>
           </div>
           <Link
-            href="#"
+            href="/blog"
             className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:from-blue-500 hover:to-cyan-400"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -109,7 +63,7 @@ export default function CyberExpertsSection() {
                 {featured.excerpt}
               </p>
               <Link
-                href={featured.href}
+                href={`/blog/${featured.slug}`}
                 className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--primary)] transition-all hover:bg-[var(--primary-light)]"
               >
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -124,7 +78,7 @@ export default function CyberExpertsSection() {
           <div className="flex flex-col divide-y divide-gray-300">
             {secondary.map((article) => (
               <article
-                key={article.id}
+                key={article.slug}
                 className="group flex items-start gap-4 py-5 first:pt-0 last:pb-0"
               >
                 {/* Image miniature responsive */}
@@ -159,7 +113,7 @@ export default function CyberExpertsSection() {
                     {article.excerpt}
                   </p>
                   <Link
-                    href={article.href}
+                    href={`/blog/${article.slug}`}
                     className="mt-1 inline-flex w-fit items-center gap-1.5 rounded-full border border-[var(--primary)] px-3 py-1 text-xs font-semibold text-[var(--primary)] transition-all hover:bg-[var(--primary-light)]"
                   >
                     <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

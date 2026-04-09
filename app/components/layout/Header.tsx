@@ -32,11 +32,56 @@ export default function Header() {
     pagesWithHero.includes(pathname ?? "");
 
   const services = [
-    { name: "Cybersécurité", href: "/services/cybersecurite" },
-    { name: "Infrastructure & Cloud", href: "/services/cloud" },
-    { name: "Infogérance & Services Managés", href: "/services/infogerance" },
-    { name: "Ingénierie logicielle", href: "/services/ingenierie" },
-    { name: "IA et automatisation", href: "/services/ia" },
+    {
+      name: "Cybersécurité & conformité",
+      desc: "Audit, pentest, SOC managé",
+      href: "/services/cybersecurite",
+      icon: (
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+      ),
+      color: "text-red-500",
+      bg: "bg-red-50",
+    },
+    {
+      name: "Infrastructure & Cloud",
+      desc: "Migration, hébergement, hybride",
+      href: "/services/cloud",
+      icon: (
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
+      ),
+      color: "text-sky-500",
+      bg: "bg-sky-50",
+    },
+    {
+      name: "Infogérance & Services Managés",
+      desc: "Support IT externalisé 24/7",
+      href: "/services/infogerance",
+      icon: (
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+      ),
+      color: "text-orange-500",
+      bg: "bg-orange-50",
+    },
+    {
+      name: "Ingénierie logicielle",
+      desc: "Apps web & mobile sur mesure",
+      href: "/services/ingenierie",
+      icon: (
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+      ),
+      color: "text-violet-500",
+      bg: "bg-violet-50",
+    },
+    {
+      name: "IA et automatisation",
+      desc: "Agents IA, RPA, analyse prédictive",
+      href: "/services/ia",
+      icon: (
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+      ),
+      color: "text-emerald-500",
+      bg: "bg-emerald-50",
+    },
   ];
 
   const offresTPEPME = [
@@ -140,7 +185,7 @@ export default function Header() {
               alt="Teknosure"
               width={220}
               height={56}
-              className="h-10 w-auto object-contain transition-all duration-300 sm:h-14"
+              className="h-12 w-auto object-contain transition-all duration-300 sm:h-16"
               priority
             />
           </Link>
@@ -169,27 +214,35 @@ export default function Header() {
               </button>
 
               {servicesDropdownOpen && (
-                <div role="menu" className="absolute left-0 top-full z-50 w-64 pt-2">
-                  <div className="rounded-xl border border-gray-200 bg-white py-2 shadow-xl">
-                    {services.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        role="menuitem"
-                        className="block px-4 py-3 text-sm text-gray-700 transition-colors hover:bg-[var(--primary-light)] hover:text-[var(--primary-dark)] focus:bg-[var(--primary-light)] focus:text-[var(--primary-dark)] focus:outline-none"
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
-                    <div className="mt-2 border-t border-gray-100 pt-2">
-                      <Link
-                        href="/services"
-                        role="menuitem"
-                        className="block px-4 py-3 text-sm font-semibold text-[var(--primary)] transition-colors hover:bg-[var(--primary-light)] focus:bg-[var(--primary-light)] focus:outline-none"
-                      >
-                        Voir toutes les expertises →
-                      </Link>
+                <div role="menu" className="absolute left-0 top-full z-50 w-[480px] pt-3">
+                  <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl">
+
+                    {/* Header du dropdown */}
+                    <div className="bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] px-5 py-4">
+                      <p className="text-xs font-bold uppercase tracking-widest text-white/70">Teknosure</p>
+                      <p className="mt-0.5 text-base font-bold text-white">Nos domaines d'expertise</p>
                     </div>
+
+                    {/* Grille des expertises */}
+                    <div className="grid grid-cols-2 gap-px bg-gray-100 p-px">
+                      {services.map((service) => (
+                        <Link
+                          key={service.href}
+                          href={service.href}
+                          role="menuitem"
+                          className="group flex items-start gap-3 bg-white px-4 py-3.5 transition-colors hover:bg-[var(--primary-light)] focus:bg-[var(--primary-light)] focus:outline-none"
+                        >
+                          <span className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${service.bg} ${service.color} transition-transform group-hover:scale-110`}>
+                            {service.icon}
+                          </span>
+                          <span>
+                            <span className="block text-sm font-semibold text-gray-800 group-hover:text-[var(--primary-dark)]">{service.name}</span>
+                            <span className="mt-0.5 block text-xs leading-snug text-gray-500">{service.desc}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+
                   </div>
                 </div>
               )}
@@ -241,21 +294,6 @@ export default function Header() {
                         </Link>
                       ))}
                     </div>
-
-                    {/* Bannière CTA */}
-                    <Link
-                      href="/tpe-pme"
-                      role="menuitem"
-                      className="flex items-center justify-between bg-gray-50 px-5 py-3.5 transition-colors hover:bg-[var(--primary-light)] focus:outline-none"
-                    >
-                      <span>
-                        <span className="block text-sm font-bold text-[var(--primary-dark)]">Voir nos packs TPE/PME</span>
-                        <span className="text-xs text-gray-500">Pack Sérénité · Pack Croissance · Pack Digital+</span>
-                      </span>
-                      <svg className="h-5 w-5 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
 
                   </div>
                 </div>
@@ -340,24 +378,24 @@ export default function Header() {
               </Link>
 
               {/* Bloc Expertise */}
-              <div className="rounded-lg bg-gray-50 px-4 py-3">
-                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-gray-400">Expertise</p>
-                <div className="grid grid-cols-1 gap-0.5 sm:grid-cols-2">
+              <div className="overflow-hidden rounded-xl border border-gray-200">
+                <div className="bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] px-4 py-2.5">
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/70">Teknosure</p>
+                  <p className="text-sm font-bold text-white">Nos domaines d'expertise</p>
+                </div>
+                <div className="grid grid-cols-1 gap-px bg-gray-100 sm:grid-cols-2">
                   {services.map((service) => (
                     <Link
                       key={service.href}
                       href={service.href}
-                      className="rounded-md px-3 py-2 text-sm text-gray-600 transition-colors hover:bg-white hover:text-[var(--primary)]"
+                      className="flex items-center gap-3 bg-white px-3 py-2.5 text-sm transition-colors hover:bg-[var(--primary-light)]"
                     >
-                      {service.name}
+                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${service.bg} ${service.color}`}>
+                        {service.icon}
+                      </span>
+                      <span className="font-medium text-gray-700">{service.name}</span>
                     </Link>
                   ))}
-                  <Link
-                    href="/services"
-                    className="rounded-md px-3 py-2 text-sm font-semibold text-[var(--primary)] transition-colors hover:bg-white sm:col-span-2"
-                  >
-                    Toutes les expertises →
-                  </Link>
                 </div>
               </div>
 
@@ -381,15 +419,6 @@ export default function Header() {
                     </Link>
                   ))}
                 </div>
-                <Link
-                  href="/tpe-pme"
-                  className="flex items-center justify-between bg-gray-50 px-4 py-3 text-sm font-bold text-[var(--primary-dark)] transition-colors hover:bg-[var(--primary-light)]"
-                >
-                  Voir tous les packs TPE/PME
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
               </div>
 
               <Link href="/a-propos" className="flex items-center rounded-lg px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-gray-900">

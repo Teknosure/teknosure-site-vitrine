@@ -42,12 +42,12 @@ export default function BlogPage() {
             rel={featured.externalUrl ? "noopener noreferrer" : undefined}
             className="group mb-10 flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg lg:flex-row"
           >
-            <div className="relative h-56 shrink-0 bg-gray-100 lg:h-auto lg:w-2/5">
+            <div className="relative h-56 shrink-0 lg:h-auto lg:w-2/5">
               <Image
                 src={featured.image}
                 alt={featured.title}
                 fill
-                className="object-contain object-center"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
               <span className="absolute left-4 top-4 rounded-full bg-[var(--primary)] px-3 py-1 text-xs font-bold text-white shadow">
                 À la une

@@ -36,12 +36,12 @@ export default function CyberExpertsSection() {
 
           {/* Article featured */}
           <article className="group flex flex-col overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
-            <div className="relative h-56 w-full overflow-hidden bg-gray-100 sm:h-64 lg:h-72 xl:h-80">
+            <div className="relative h-56 w-full overflow-hidden sm:h-64 lg:h-72 xl:h-80">
               <Image
                 src={featured.image}
                 alt={featured.title}
                 fill
-                className="object-contain object-center"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 1280px) 100vw, 50vw"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/50 to-transparent" />

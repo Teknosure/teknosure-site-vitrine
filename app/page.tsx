@@ -13,7 +13,7 @@ const expertiseTabs: HeroTab[] = [
     title: "sécurisée et évolutive",
     subtitle:
       "Teknosure offre aux entreprises des solutions de cybersécurité de pointe, une infrastructure cloud performante et des logiciels sur mesure.",
-    imageSrc: "/images/hero-bg.png",
+    imageSrc: "/images/hero2.jpg",
   },
   {
     label: "Cybersécurité",

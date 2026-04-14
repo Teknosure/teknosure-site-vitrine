@@ -9,16 +9,19 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [tpepmeDropdownOpen, setTpepmeDropdownOpen] = useState(false);
+  const [cyberDropdownOpen, setCyberDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lang, setLang] = useState<"FR" | "EN">("FR");
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const tpepmeDropdownRef = useRef<HTMLDivElement>(null);
+  const cyberDropdownRef = useRef<HTMLDivElement>(null);
 
   const pagesWithHero = [
     "/etudes-de-cas", "/a-propos", "/contact", "/tpe-pme",
     "/tpe-pme/cybersecurite", "/tpe-pme/cloud", "/tpe-pme/infogerance",
     "/tpe-pme/ingenierie", "/tpe-pme/ia",
+    "/eti/cybersecurite",
   ];
 
   const shouldBeTransparent =
@@ -32,16 +35,6 @@ export default function Header() {
     pagesWithHero.includes(pathname ?? "");
 
   const services = [
-    {
-      name: "Cybersécurité & conformité",
-      desc: "Audit, pentest, SOC managé",
-      href: "/services/cybersecurite",
-      icon: (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-      ),
-      color: "text-red-500",
-      bg: "bg-red-50",
-    },
     {
       name: "Infrastructure & Cloud",
       desc: "Migration, hébergement, hybride",
@@ -86,16 +79,6 @@ export default function Header() {
 
   const offresTPEPME = [
     {
-      name: "Offre Cybersécurité",
-      desc: "Protection & conformité RGPD",
-      href: "/tpe-pme/cybersecurite",
-      icon: (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-      ),
-      color: "text-red-500",
-      bg: "bg-red-50",
-    },
-    {
       name: "Offre Cloud & Infrastructure",
       desc: "Migration & hébergement sécurisé",
       href: "/tpe-pme/cloud",
@@ -137,6 +120,31 @@ export default function Header() {
     },
   ];
 
+  const cyberItems = [
+    {
+      name: "TPE / PME",
+      desc: "Packs fixes, RGPD, prix accessibles",
+      href: "/tpe-pme/cybersecurite",
+      badge: "🏢",
+      icon: (
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+      ),
+      color: "text-red-500",
+      bg: "bg-red-50",
+    },
+    {
+      name: "ETI / Grands comptes",
+      desc: "SOC 24/7, ISO 27001, NIS2, sur devis",
+      href: "/eti/cybersecurite",
+      badge: "🏭",
+      icon: (
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+      ),
+      color: "text-blue-600",
+      bg: "bg-blue-50",
+    },
+  ];
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -151,6 +159,9 @@ export default function Header() {
       if (tpepmeDropdownRef.current && !tpepmeDropdownRef.current.contains(e.target as Node)) {
         setTpepmeDropdownOpen(false);
       }
+      if (cyberDropdownRef.current && !cyberDropdownRef.current.contains(e.target as Node)) {
+        setCyberDropdownOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -159,6 +170,7 @@ export default function Header() {
   useEffect(() => {
     setServicesDropdownOpen(false);
     setTpepmeDropdownOpen(false);
+    setCyberDropdownOpen(false);
     setMobileMenuOpen(false);
   }, [pathname]);
 
@@ -204,7 +216,7 @@ export default function Header() {
                 aria-haspopup="true"
                 className={`flex items-center gap-1 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] xl:text-base ${textColor} ${textHoverColor}`}
               >
-                Expertise
+                Nos Expertises
                 <svg
                   className={`h-4 w-4 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""}`}
                   fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
@@ -290,6 +302,60 @@ export default function Header() {
                           <span>
                             <span className="block text-sm font-semibold text-gray-800 group-hover:text-[var(--primary-dark)]">{offre.name}</span>
                             <span className="mt-0.5 block text-xs leading-snug text-gray-500">{offre.desc}</span>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Dropdown Cybersécurité */}
+            <div className="relative" ref={cyberDropdownRef}>
+              <button
+                onClick={() => setCyberDropdownOpen((prev) => !prev)}
+                aria-expanded={cyberDropdownOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-1 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] xl:text-base ${textColor} ${textHoverColor}`}
+              >
+                Cybersécurité
+                <svg
+                  className={`h-4 w-4 transition-transform duration-200 ${cyberDropdownOpen ? "rotate-180" : ""}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {cyberDropdownOpen && (
+                <div role="menu" className="absolute left-0 top-full z-50 w-[360px] pt-3">
+                  <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl">
+
+                    {/* Header du dropdown */}
+                    <div className="bg-gradient-to-r from-red-700 to-red-500 px-5 py-4">
+                      <p className="text-xs font-bold uppercase tracking-widest text-white/70">Protection avancée</p>
+                      <p className="mt-0.5 text-base font-bold text-white">Cybersécurité</p>
+                    </div>
+
+                    {/* Items */}
+                    <div className="grid grid-cols-1 gap-px bg-gray-100 p-px">
+                      {cyberItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          role="menuitem"
+                          className="group flex items-start gap-3 bg-white px-4 py-3.5 transition-colors hover:bg-red-50 focus:bg-red-50 focus:outline-none"
+                        >
+                          <span className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.bg} ${item.color} transition-transform group-hover:scale-110`}>
+                            {item.icon}
+                          </span>
+                          <span>
+                            <span className="flex items-center gap-1.5 text-sm font-semibold text-gray-800 group-hover:text-red-700">
+                              <span>{item.badge}</span> {item.name}
+                            </span>
+                            <span className="mt-0.5 block text-xs leading-snug text-gray-500">{item.desc}</span>
                           </span>
                         </Link>
                       ))}
@@ -430,6 +496,30 @@ export default function Header() {
                         {offre.icon}
                       </span>
                       <span className="font-medium text-gray-700">{offre.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bloc Cybersécurité */}
+              <div className="overflow-hidden rounded-xl border border-red-200">
+                <div className="bg-gradient-to-r from-red-700 to-red-500 px-4 py-2.5">
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/70">Protection avancée</p>
+                  <p className="text-sm font-bold text-white">Cybersécurité</p>
+                </div>
+                <div className="grid grid-cols-1 gap-px bg-gray-100 sm:grid-cols-2">
+                  {cyberItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="flex items-center gap-3 bg-white px-3 py-2.5 text-sm transition-colors hover:bg-red-50"
+                    >
+                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${item.bg} ${item.color}`}>
+                        {item.icon}
+                      </span>
+                      <span className="font-medium text-gray-700">
+                        {item.badge} {item.name}
+                      </span>
                     </Link>
                   ))}
                 </div>

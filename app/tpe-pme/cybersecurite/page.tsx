@@ -52,49 +52,49 @@ const offresPackagees = [
   {
     num: "01",
     title: "Diagnostic Cyber Express",
-    price: "1 490 € – 2 490 €",
+    price: "À partir de 1 490 €",
     delay: "48h",
     desc: "Score de sécurité rapide. Scan externe, analyse M365/Google, DMARC/SPF/DKIM, top 10 failles.",
   },
   {
     num: "02",
     title: "Sécurité Cloud M365/Google",
-    price: "1 900 € – 3 500 €",
+    price: "À partir de 1 900 €",
     delay: "72h",
     desc: "Audit 72 points, durcissement, MFA obligatoire, DLP, Safe Links, anti-phishing avancé.",
   },
   {
     num: "03",
     title: "Pentest Light",
-    price: "2 500 € – 4 900 €",
+    price: "À partir de 2 500 €",
     delay: "1–3j",
     desc: "Test d'intrusion externe et web. Rapport CVSS, PoC, scoring OWASP, plan correctif.",
   },
   {
     num: "04",
     title: "SOC / XDR 24/7",
-    price: "8 – 15 €/poste/mois",
+    price: "À partir de 8 €/poste/mois",
     delay: "Continu",
     desc: "Surveillance 24/7, XDR, threat intelligence, alertes en temps réel, dashboard mensuel.",
   },
   {
     num: "05",
     title: "Conformité NIS2/DORA/RGPD",
-    price: "1 500 € – 3 000 €",
+    price: "À partir de 1 500 €",
     delay: "3–6 sem.",
     desc: "Gap analysis, documentation, mise en œuvre des mesures techniques et organisationnelles.",
   },
   {
     num: "06",
     title: "Sensibilisation Phishing",
-    price: "490 € – 1 200 €",
+    price: "À partir de 490 €",
     delay: "1 mois",
     desc: "Campagnes de phishing simulé, modules e-learning, tableaux de bord de vigilance.",
   },
   {
     num: "07",
     title: "Infogérance Cybersécurité",
-    price: "25 – 49 €/user/mois",
+    price: "À partir de 25 €/user/mois",
     delay: "Mensuel",
     desc: "MCO sécurité complet : patch management, supervision, reporting, support N1/N2/N3.",
   },
@@ -156,7 +156,7 @@ export default function OffreCybersecuritePage() {
         titleAccent="Protégez votre entreprise"
         title="contre les cybermenaces"
         subtitle="Antivirus managé, pare-feu, MFA, audits RGPD — une protection complète et abordable, gérée intégralement par nos experts."
-        primaryLabel="Demander un audit gratuit"
+        primaryLabel="Demander un devis"
         primaryHref="/contact"
         secondaryLabel="Voir tous nos packs"
         secondaryHref="/tpe-pme"
@@ -241,13 +241,6 @@ export default function OffreCybersecuritePage() {
             ))}
           </div>
 
-          {/* Bandeau audit offert */}
-          <div className="mt-10 rounded-2xl border border-red-100 bg-red-50 px-6 py-5 text-center">
-            <p className="text-sm font-semibold text-red-700">
-              🎁 <strong>Audit Flash OFFERT</strong> pour tout nouveau client — diagnostic initial sans engagement.
-            </p>
-          </div>
-
           {/* Packs combinés */}
           <div className="mt-16">
             <h3 className="mb-2 text-center text-2xl font-bold text-gray-900">Packs Combinés — Économisez jusqu'à 30 %</h3>
@@ -300,11 +293,11 @@ export default function OffreCybersecuritePage() {
         <div className="mx-auto max-w-3xl px-5 text-center sm:px-6">
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">Prêt à sécuriser votre entreprise ?</h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-gray-400">
-            Obtenez un audit de sécurité gratuit et sans engagement. Nos experts analysent votre situation en 48h.
+            Nos experts analysent votre situation et vous proposent un devis personnalisé sous 48h.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link href="/contact" className="rounded-full bg-gradient-to-r from-red-600 to-rose-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:opacity-90">
-              Demander un audit gratuit
+              Demander un devis
             </Link>
             <Link href="/tpe-pme" className="rounded-full border-2 border-white/30 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10">
               Voir tous nos packs

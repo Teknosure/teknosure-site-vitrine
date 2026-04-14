@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Teknosure",
   },
   description:
-    "Teknosure accompagne les TPE, PME et ETI avec des solutions de cybersécurité, infrastructure cloud, infogérance et ingénierie logicielle sur mesure. Audit gratuit et sans engagement.",
+    "Teknosure accompagne les TPE, PME et ETI avec des solutions de cybersécurité, infrastructure cloud, infogérance et ingénierie logicielle sur mesure.",
   keywords: [
     "cybersécurité",
     "cloud managé",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Teknosure",
     title: "Teknosure — Cybersécurité, Cloud & Ingénierie IT",
     description:
-      "Solutions IT sur mesure pour TPE, PME et ETI. Cybersécurité, cloud managé, infogérance, ingénierie. Audit initial offert.",
+      "Solutions IT sur mesure pour TPE, PME et ETI. Cybersécurité, cloud managé, infogérance, ingénierie.",
     images: [
       {
         url: "/images/og-image.jpg",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Teknosure — Cybersécurité, Cloud & Ingénierie IT",
     description:
-      "Solutions IT sur mesure pour TPE, PME et ETI. Audit initial offert.",
+      "Solutions IT sur mesure pour TPE, PME et ETI.",
     images: ["/images/og-image.jpg"],
   },
   robots: {

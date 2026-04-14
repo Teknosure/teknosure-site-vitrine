@@ -64,15 +64,14 @@ export default function TPEPMEContactSection() {
             </h2>
             <p className="mb-8 text-lg text-gray-600">
               Que vous ayez un besoin urgent ou un projet à mûrir, notre équipe
-              vous répond sous 24h et vous propose un audit gratuit de votre
-              infrastructure.
+              vous répond sous 24h et vous propose un devis personnalisé.
             </p>
 
             {/* Garanties */}
             <div className="space-y-4">
               {[
                 { icon: "⚡", label: "Réponse sous 24h ouvrées" },
-                { icon: "🔍", label: "Audit initial offert & sans engagement" },
+                { icon: "🔍", label: "Analyse de votre besoin & devis sous 48h" },
                 { icon: "🤝", label: "Devis personnalisé sous 48h" },
                 { icon: "🔒", label: "Confidentialité garantie" },
               ].map((item, i) => (

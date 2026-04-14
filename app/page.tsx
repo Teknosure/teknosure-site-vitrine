@@ -17,7 +17,7 @@ const expertiseTabs: HeroTab[] = [
   },
   {
     label: "Cybersécurité",
-    href: "/services/cybersecurite",
+    href: "/tpe-pme/cybersecurite",
     tagline: "Protection & Conformité",
     titleAccent: "Cybersécurité",
     title: "et conformité numérique",
@@ -27,7 +27,7 @@ const expertiseTabs: HeroTab[] = [
   },
   {
     label: "IA et automatisation",
-    href: "/services/ia",
+    href: "/tpe-pme/ia",
     tagline: "Intelligence artificielle",
     titleAccent: "Automatisez",
     title: "et augmentez votre performance",
@@ -37,7 +37,7 @@ const expertiseTabs: HeroTab[] = [
   },
   {
     label: "Cloud et Infogérance",
-    href: "/services/cloud",
+    href: "/tpe-pme/cloud",
     tagline: "Infrastructure & Cloud",
     titleAccent: "Migration cloud",
     title: "et infogérance managée",
@@ -47,7 +47,7 @@ const expertiseTabs: HeroTab[] = [
   },
   {
     label: "Ingénierie logicielle",
-    href: "/services/ingenierie",
+    href: "/tpe-pme/ingenierie",
     tagline: "Développement sur mesure",
     titleAccent: "Applications web & mobile",
     title: "sur architectures modernes",

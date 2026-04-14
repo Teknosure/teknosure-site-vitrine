@@ -148,7 +148,7 @@ export default async function ArticlePage({ params }: Props) {
         {/* CTA inline */}
         <div className="mt-12 rounded-2xl bg-linear-to-br from-[var(--primary-dark)] to-[var(--primary)] p-8 text-center">
           <p className="mb-2 text-lg font-bold text-white">Une question sur votre sécurité ?</p>
-          <p className="mb-5 text-sm text-white/80">Nos experts vous répondent — audit initial offert et sans engagement.</p>
+          <p className="mb-5 text-sm text-white/80">Nos experts vous répondent et vous proposent un devis personnalisé sous 48h.</p>
           <Link
             href="/contact"
             className="inline-block rounded-full bg-white px-7 py-2.5 text-sm font-bold text-[var(--primary-dark)] shadow transition-all hover:-translate-y-0.5 hover:shadow-lg"

@@ -166,7 +166,7 @@ export default function PourquoiNous() {
             >
               <div>
                 <p className="font-bold text-white">Prêt à travailler avec nous ?</p>
-                <p className="mt-0.5 text-sm text-gray-400">Audit initial offert, réponse sous 24h.</p>
+                <p className="mt-0.5 text-sm text-gray-400">Devis personnalisé, réponse sous 24h.</p>
               </div>
               <svg className="h-5 w-5 shrink-0 text-blue-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />

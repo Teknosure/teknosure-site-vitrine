@@ -10,7 +10,7 @@ export const metadata = {
   keywords: ["cybersécurité", "SOC 24/7", "audit sécurité", "ISO 27001", "NIS2", "deepfakes", "pentest", "RGPD"],
   openGraph: {
     title: "Cybersécurité & Conformité Numérique — Teknosure",
-    description: "Protection avancée de votre SI. SOC 24/7, détection deepfakes, conformité NIS2. Audit gratuit.",
+    description: "Protection avancée de votre SI. SOC 24/7, détection deepfakes, conformité NIS2.",
     url: "https://www.teknosure.com/services/cybersecurite",
   },
 };
@@ -45,7 +45,7 @@ export default function CybersecuritePage() {
         titleAccent="Cybersécurité"
         title="et conformité numérique"
         subtitle="Nous sécurisons votre périmètre numérique grâce à une détection avancée des menaces, des tests d'intrusion et des audits de conformité (ISO 27001, RGPD). Notre équipe garantit l'intégrité de vos données."
-        primaryLabel="Audit gratuit"
+        primaryLabel="Nous contacter"
         primaryHref="/contact"
         secondaryLabel="Nos solutions"
         secondaryHref="#solutions"

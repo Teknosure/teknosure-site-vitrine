@@ -6,7 +6,7 @@ import TPEPMEContactSection from "@/app/components/sections/TPEPMEContactSection
 export const metadata = {
   title: "Solutions IT pour TPE & PME — Packs Accessibles",
   description:
-    "Teknosure propose des packs IT sur mesure pour les TPE et PME : cybersécurité, cloud, infogérance et ingénierie au prix des grandes entreprises. Audit initial offert.",
+    "Teknosure propose des packs IT sur mesure pour les TPE et PME : cybersécurité, cloud, infogérance et ingénierie au prix des grandes entreprises.",
   keywords: ["IT TPE PME", "cybersécurité PME", "cloud PME", "infogérance TPE", "solutions informatiques petites entreprises"],
   openGraph: {
     title: "Solutions IT pour TPE & PME — Teknosure",
@@ -45,7 +45,7 @@ export default function TPEPMEPage() {
         subtitle="De la mise en place de votre infrastructure à la sécurisation de vos données, Teknosure est le partenaire informatique des petites et moyennes entreprises qui veulent grandir sans contraintes techniques."
         primaryLabel="Découvrir nos offres"
         primaryHref="#offres"
-        secondaryLabel="Audit gratuit"
+        secondaryLabel="Nous contacter"
         secondaryHref="#contact"
         imageSrc="/images/PME-TPE.jpg"
         overlayMode="dark"

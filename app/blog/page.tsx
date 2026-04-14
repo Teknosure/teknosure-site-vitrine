@@ -1,11 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 import { articles } from "./data";
 
-export const metadata = {
-  title: "Blog & Veille — Teknosure",
+export const metadata: Metadata = {
+  title: "Blog & Veille Cybersécurité, Cloud & IA",
   description:
     "Regards d'experts Teknosure : cybersécurité, infrastructure cloud, IA, infogérance. Actualités, analyses et bonnes pratiques pour les DSI et dirigeants.",
+  openGraph: {
+    url: "https://www.teknosure.com/blog",
+  },
 };
 
 const featured = articles.find((a) => a.featured)!;
@@ -124,10 +128,10 @@ export default function BlogPage() {
         <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/5" />
         <div className="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
           <h2 className="mb-4 text-3xl font-extrabold text-white sm:text-4xl">
-            Besoin d&apos;un audit de sécurité ?
+            Un projet IT ou une question de sécurité ?
           </h2>
           <p className="mb-8 text-lg text-[var(--primary-border)]">
-            Nos experts vous accompagnent — l&apos;audit initial est offert et sans engagement.
+            Nos experts vous accompagnent et vous proposent un devis personnalisé sous 48h.
           </p>
           <Link
             href="/contact"

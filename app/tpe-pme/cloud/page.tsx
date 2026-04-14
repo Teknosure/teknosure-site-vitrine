@@ -76,7 +76,7 @@ export default function OffreCloudPage() {
         titleAccent="Migrez vers le cloud"
         title="en toute sérénité"
         subtitle="AWS, Azure ou Google Cloud — nos experts gèrent votre migration, votre infrastructure et vos sauvegardes pour une disponibilité maximale."
-        primaryLabel="Demander un audit gratuit"
+        primaryLabel="Demander un devis"
         primaryHref="/contact"
         secondaryLabel="Voir tous nos packs"
         secondaryHref="/tpe-pme"

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef, useCallback } from "react";
 
 type OverlayMode = "dark" | "light";
@@ -88,14 +87,7 @@ export default function FullscreenHero({
     };
   }, [startAutoPlay]);
 
-  const router = useRouter();
-
   const handleTabClick = (index: number) => {
-    if (activeTab === index && tabs?.[index]?.href) {
-      // Deuxième clic sur l'onglet actif → navigation vers la page du service
-      router.push(tabs[index].href);
-      return;
-    }
     activeTabRef.current = index;
     setActiveTab(index);
     startAutoPlay();
@@ -240,7 +232,7 @@ export default function FullscreenHero({
               {primaryLabel}
             </Link>
             <Link
-              href={hasTabs && active?.href ? active.href : secondaryHref}
+              href={hasTabs && active?.href && active.href !== "/" ? active.href : secondaryHref}
               className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-6 py-3 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-8 sm:py-3.5 sm:text-base ${
                 isDark
                   ? "border-white/50 text-white hover:border-white hover:bg-white/10"

@@ -2,13 +2,13 @@ import ContactFormSection from "@/app/components/sections/ContactFormSection";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Nous Contacter — Audit Gratuit & Sans Engagement",
+  title: "Nous Contacter — Devis & Conseil",
   description:
-    "Contactez Teknosure pour un audit gratuit de votre SI. Cybersécurité, cloud, infogérance, ingénierie. Réponse sous 24h. Basé à Taverny (95), intervenant partout en France.",
-  keywords: ["contact Teknosure", "audit gratuit", "devis informatique", "cybersécurité Taverny", "ESN Île-de-France"],
+    "Contactez Teknosure pour un devis personnalisé. Cybersécurité, cloud, infogérance, ingénierie. Réponse sous 24h. Basé à Taverny (95), intervenant partout en France.",
+  keywords: ["contact Teknosure", "devis informatique", "conseil IT", "cybersécurité Taverny", "ESN Île-de-France"],
   openGraph: {
-    title: "Contacter Teknosure — Audit Gratuit",
-    description: "Audit gratuit de votre SI. Réponse sous 24h. Basé à Taverny, intervenant partout en France.",
+    title: "Contacter Teknosure — Devis personnalisé",
+    description: "Devis personnalisé pour votre projet IT. Réponse sous 24h. Basé à Taverny, intervenant partout en France.",
     url: "https://www.teknosure.com/contact",
   },
 };

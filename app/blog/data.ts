@@ -58,7 +58,7 @@ La bonne nouvelle : une posture solide ne nécessite pas un budget de grand grou
 
 ## L'approche Teknosure pour les ETI
 
-Nous proposons des offres calibrées pour les ETI et PME : audit initial offert, déploiement rapide, contrat d'infogérance sécurité avec SLA adaptés à votre organisation. Pas de sur-dimensionnement, pas de coûts cachés.`,
+Nous proposons des offres calibrées pour les ETI et PME : déploiement rapide, contrat d'infogérance sécurité avec SLA adaptés à votre organisation. Pas de sur-dimensionnement, pas de coûts cachés.`,
   },
   {
     slug: "ia-generative-opportunite-ou-surface-attaque",

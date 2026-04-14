@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const atouts = [
   "Réponse sous 24h, sans engagement",
-  "Audit initial offert",
+  "Devis personnalisé",
   "Interlocuteur dédié tout au long du projet",
   "TPE, PME, ETI et grands comptes bienvenus",
 ];

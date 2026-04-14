@@ -3,17 +3,17 @@
 import Image from "next/image";
 
 const partners: { name: string; logo: string | null }[] = [
-  { name: "Palo Alto Networks", logo: "/images/partners/paloaltonetworks.svg" },
-  { name: "Microsoft",          logo: "/images/partners/microsoft.svg" },
-  { name: "AWS",                logo: null },
-  { name: "Barracuda",          logo: null },
-  { name: "Acronis",            logo: null },
-  { name: "Google",             logo: "/images/partners/google.svg" },
-  { name: "Atlassian",          logo: "/images/partners/atlassian.svg" },
+  { name: "Palo Alto Networks", logo: "/images/partners/palo_alto_networks.jpg" },
+  { name: "Microsoft",          logo: "/images/partners/microsoft.jpg" },
+  { name: "AWS",                logo: "/images/partners/aws.png" },
+  { name: "Barracuda",          logo: "/images/partners/Barracuda.png" },
+  { name: "Acronis",            logo: "/images/partners/Acronis-logo.png" },
+  { name: "Google",             logo: "/images/partners/Google.png" },
+  { name: "Atlassian",          logo: "/images/partners/Atlassian-logo.png" },
   { name: "Adobe",              logo: "/images/partners/adobe.svg" },
-  { name: "Apple",              logo: "/images/partners/apple.svg" },
-  { name: "Elastic",            logo: "/images/partners/elastic.svg" },
-  { name: "Atos",               logo: null },
+  { name: "Apple",              logo: "/images/partners/apple.png" },
+  { name: "Elastic",            logo: "/images/partners/logo-elastic.png" },
+  { name: "Atos",               logo: "/images/partners/atos.png" },
 ];
 
 export default function PartnersSection() {
@@ -38,16 +38,20 @@ export default function PartnersSection() {
           {track.map((partner, i) => (
             <div
               key={i}
-              className="group flex h-14 w-40 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white px-4 shadow-sm transition-all hover:border-[var(--primary-border)] hover:shadow-md"
+              className="group flex h-16 w-48 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white px-5 shadow-sm transition-all hover:border-[var(--primary-border)] hover:shadow-md"
               title={partner.name}
             >
               {partner.logo ? (
                 <Image
                   src={partner.logo}
                   alt={partner.name}
-                  width={100}
-                  height={36}
-                  className="h-7 w-auto object-contain opacity-40 grayscale transition-all duration-300 group-hover:opacity-80 group-hover:grayscale-0"
+                  width={120}
+                  height={48}
+                  className={`w-auto object-contain opacity-40 grayscale transition-all duration-300 group-hover:opacity-80 group-hover:grayscale-0 ${
+                    partner.name === "Palo Alto Networks" || partner.name === "Microsoft"
+                      ? "h-14"
+                      : "h-10"
+                  }`}
                 />
               ) : (
                 <span className="select-none text-xs font-semibold text-gray-300 transition-colors group-hover:text-gray-500">

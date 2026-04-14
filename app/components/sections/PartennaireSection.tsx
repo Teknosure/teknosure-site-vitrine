@@ -14,6 +14,16 @@ const partners: { name: string; logo: string | null }[] = [
   { name: "Apple",              logo: "/images/partners/apple.png" },
   { name: "Elastic",            logo: "/images/partners/logo-elastic.png" },
   { name: "Atos",               logo: "/images/partners/atos.png" },
+  { name: "Odoo",               logo: "/images/partners/Odoo.png" },
+  { name: "Ivanti",             logo: "/images/partners/ivanti.png" },
+  { name: "Cisco",              logo: "/images/partners/Cisco.png" },
+  { name: "IBM",                logo: "/images/partners/IBM.png" },
+  { name: "Fortinet",           logo: "/images/partners/fortinet.png" },
+  { name: "SentinelOne",        logo: "/images/partners/sentinelone.png" },
+  { name: "Check Point",        logo: "/images/partners/Check_Point.png" },
+  { name: "Bitdefender",        logo: "/images/partners/Bitdefender-Logo.png" },
+  { name: "SonicWall",          logo: "/images/partners/SonicWall.png" },
+  { name: "Rapid7",             logo: "/images/partners/rapid7.png" },
 ];
 
 export default function PartnersSection() {

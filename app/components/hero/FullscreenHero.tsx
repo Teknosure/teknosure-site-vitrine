@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef, useCallback } from "react";
 
 type OverlayMode = "dark" | "light";
@@ -87,7 +88,14 @@ export default function FullscreenHero({
     };
   }, [startAutoPlay]);
 
+  const router = useRouter();
+
   const handleTabClick = (index: number) => {
+    if (activeTab === index && tabs?.[index]?.href) {
+      // Deuxième clic sur l'onglet actif → navigation vers la page du service
+      router.push(tabs[index].href);
+      return;
+    }
     activeTabRef.current = index;
     setActiveTab(index);
     startAutoPlay();
@@ -123,7 +131,8 @@ export default function FullscreenHero({
   }, [activeTab, currentTitleAccent]);
 
   return (
-    <section className="relative flex h-screen min-h-[720px] flex-col overflow-hidden pb-20 sm:pb-24 lg:pb-28">
+    // <section className="relative flex h-screen min-h-[720px] flex-col overflow-hidden pb-20 sm:pb-24 lg:pb-28">
+    <section className="relative flex h-[85vh] min-h-[600px] flex-col overflow-hidden pb-16 sm:pb-20 lg:pb-24">
 
       {/* ── Images — toutes pré-chargées, crossfade via opacité ────────── */}
       {hasTabs ? (
@@ -231,7 +240,7 @@ export default function FullscreenHero({
               {primaryLabel}
             </Link>
             <Link
-              href={secondaryHref}
+              href={hasTabs && active?.href ? active.href : secondaryHref}
               className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-6 py-3 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-8 sm:py-3.5 sm:text-base ${
                 isDark
                   ? "border-white/50 text-white hover:border-white hover:bg-white/10"
@@ -241,7 +250,9 @@ export default function FullscreenHero({
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-              {secondaryLabel}
+              {hasTabs && active?.href && active.href !== "/"
+                ? `Offre ${active.label}`
+                : secondaryLabel}
             </Link>
           </div>
         </div>
@@ -260,6 +271,48 @@ export default function FullscreenHero({
           >
             {tabs.map((tab, index) => {
               const isActive = activeTab === index;
+              const isNavigable = isActive && tab.href && tab.href !== "/";
+
+              // Onglet actif avec href → vrai lien de navigation
+              if (isNavigable) {
+                return (
+                  <Link
+                    key={tab.href}
+                    href={tab.href}
+                    role="tab"
+                    aria-selected={true}
+                    className={`relative shrink-0 px-4 py-4 text-xs font-semibold transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 sm:flex-1 sm:px-6 sm:py-5 sm:text-sm lg:text-base text-white`}
+                  >
+                    <span className="flex items-center justify-center gap-1.5">
+                      {tab.label}
+                      <svg className="h-3 w-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                    <span
+                      className="absolute bottom-0"
+                      style={{
+                        left: "24px",
+                        right: "24px",
+                        height: "2px",
+                        background: "linear-gradient(to right, #60a5fa, #22d3ee)",
+                      }}
+                    />
+                    <span
+                      className="absolute bottom-0"
+                      style={{
+                        left: `calc(24px + ${progress}% * (100% - 48px) / 100)`,
+                        right: "24px",
+                        height: "2px",
+                        background: "rgba(255,255,255,0.25)",
+                        transition: "left 0.1s linear",
+                      }}
+                    />
+                  </Link>
+                );
+              }
+
+              // Onglet inactif → bouton qui change l'onglet
               return (
                 <button
                   key={tab.href}
@@ -271,8 +324,6 @@ export default function FullscreenHero({
                   }`}
                 >
                   {tab.label}
-
-                  {/* Barre de base : blanche si inactif, bleue pleine si actif */}
                   <span
                     className="absolute bottom-0"
                     style={{
@@ -285,20 +336,6 @@ export default function FullscreenHero({
                       transition: "background 0.3s ease",
                     }}
                   />
-
-                  {/* Barre de progression : recouvre la barre bleue en blanc pour montrer le temps restant */}
-                  {isActive && (
-                    <span
-                      className="absolute bottom-0"
-                      style={{
-                        left: `calc(24px + ${progress}% * (100% - 48px) / 100)`,
-                        right: "24px",
-                        height: "2px",
-                        background: "rgba(255,255,255,0.25)",
-                        transition: "left 0.1s linear",
-                      }}
-                    />
-                  )}
                 </button>
               );
             })}

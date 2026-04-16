@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 interface SubService {
   name: string;
@@ -14,11 +15,17 @@ interface Offre {
   items: string[];
   services: SubService[];
   partners: string[];
+  color: string;
+  colorLight: string;
+  colorBorder: string;
 }
 
 const offres: Offre[] = [
   {
     label: "Identifier",
+    color: "text-blue-600",
+    colorLight: "bg-blue-50",
+    colorBorder: "border-blue-200",
     title: "IDENTIFIER — Audit, Diagnostic & Cartographie",
     description:
       "Connaissez-vous vraiment votre exposition cyber ? Commencez par savoir. Nous cartographions vos actifs, risques et vulnérabilités pour vous fournir un plan d'action clair, priorisé et adapté à votre contexte.",
@@ -49,6 +56,9 @@ const offres: Offre[] = [
   },
   {
     label: "Protéger",
+    color: "text-emerald-600",
+    colorLight: "bg-emerald-50",
+    colorBorder: "border-emerald-200",
     title: "PROTÉGER — Sécurité Périmétrique, Cloud & Endpoints",
     description:
       "Déployez les bons contrôles pour réduire la surface d'attaque. Nous mettons en place les contrôles techniques et organisationnels pour limiter l'impact des incidents et protéger chaque point d'entrée de votre SI.",
@@ -81,6 +91,9 @@ const offres: Offre[] = [
   },
   {
     label: "Détecter",
+    color: "text-orange-600",
+    colorLight: "bg-orange-50",
+    colorBorder: "border-orange-200",
     title: "DÉTECTER — SOC Managé, XDR & SIEM",
     description:
       "Surveiller en continu pour réagir avant qu'il ne soit trop tard. Notre SOC managé offre une surveillance 24/7/365 avec corrélation d'événements (SIEM), threat intelligence et réponse automatisée — sans recruter d'équipe sécurité interne.",
@@ -111,6 +124,9 @@ const offres: Offre[] = [
   },
   {
     label: "Répondre",
+    color: "text-red-600",
+    colorLight: "bg-red-50",
+    colorBorder: "border-red-200",
     title: "RÉPONDRE — Incident Response & Gestion de Crise",
     description:
       "Containment, investigation et remédiation dans les meilleurs délais. En cas d'incident, notre équipe intervient immédiatement : détection < 15 min, notification < 30 min, containment < 1h, rapport complet < 24h.",
@@ -142,6 +158,9 @@ const offres: Offre[] = [
   },
   {
     label: "Récupérer",
+    color: "text-purple-600",
+    colorLight: "bg-purple-50",
+    colorBorder: "border-purple-200",
     title: "RÉCUPÉRER — Backup, PRA & Continuité Métier",
     description:
       "Garantir la reprise rapide de votre activité après tout incident. Nous restaurons vos capacités et services avec des RTO et RPO contractuels, des tests réguliers et un accompagnement post-incident complet.",
@@ -173,6 +192,45 @@ const offres: Offre[] = [
   },
 ];
 
+// Helper function to get partner logo path
+const getPartnerLogo = (partnerName: string): string => {
+  const logoMap: { [key: string]: string } = {
+    // Identifier
+    "Qualys": "/images/partners/rapid7.png",
+    "Tenable": "/images/partners/ivanti.png",
+    "Nessus": "/images/partners/SonicWall.png",
+    "EBIOS RM": "/images/partners/atos.png",
+    
+    // Protéger
+    "Fortinet": "/images/partners/fortinet.png",
+    "Palo Alto": "/images/partners/palo_alto_networks.jpg",
+    "Check Point": "/images/partners/Check_Point.png",
+    "SentinelOne": "/images/partners/sentinelone.png",
+    "Bitdefender": "/images/partners/Bitdefender-Logo.png",
+    "ESET": "/images/partners/SonicWall.png",
+    "Cisco Umbrella": "/images/partners/Cisco.png",
+    "Cisco": "/images/partners/Cisco.png",
+    "Barracuda": "/images/partners/Barracuda.png",
+    
+    // Détecter
+    "Microsoft Sentinel": "/images/partners/microsoft.svg",
+    "Elastic": "/images/partners/elastic.svg",
+    "Splunk": "/images/partners/ibm.png",
+    "CrowdStrike": "/images/partners/rapid7.png",
+    
+    // Répondre
+    "Mandiant": "/images/partners/google.svg",
+    "CERT-FR": "/images/partners/atos.png",
+    
+    // Récupérer
+    "Acronis": "/images/partners/Acronis-logo.png",
+    "Veeam": "/images/partners/ivanti.png",
+    "Azure Backup": "/images/partners/microsoft.svg",
+    "AWS Backup": "/images/partners/aws.png",
+  };
+  return logoMap[partnerName] || "/images/partners/microsoft.svg";
+};
+
 export default function CyberOffresSection() {
   const [active, setActive] = useState(0);
   const [animKey, setAnimKey] = useState(0);
@@ -197,17 +255,11 @@ export default function CyberOffresSection() {
 
         {/* Titre */}
         <div className="mb-10 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--primary)]">
-            Cadre NIST Cybersecurity Framework
-          </p>
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            Notre Approche —{" "}
-            <span className="bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] bg-clip-text text-transparent">
-              Cadre NIST Cybersecurity Framework
-            </span>
+            Nos solutions ETI & Grand groupe
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-gray-500">
-            5 fonctions fondamentales pour une protection complète et cohérente de votre SI.
+            Des solutions sur mesure, dimensionnées pour les ETI et grands groupes, avec des équipes certifiées et des SLA garantis.
           </p>
         </div>
 
@@ -227,7 +279,7 @@ export default function CyberOffresSection() {
                   aria-selected={isActive}
                   onClick={() => handleTabChange(i)}
                   className={`relative shrink-0 px-5 py-4 text-sm font-medium transition-colors duration-200 focus:outline-none ${
-                    isActive ? "text-[var(--primary)]" : "text-gray-500 hover:text-gray-800"
+                    isActive ? offre.color : "text-gray-500 hover:text-gray-800"
                   }`}
                 >
                   {offre.label}
@@ -235,7 +287,7 @@ export default function CyberOffresSection() {
                   <span
                     className={`absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-300 ${
                       isActive
-                        ? "bg-linear-to-r from-blue-500 to-cyan-400"
+                        ? offre.color.replace('text-', 'bg-')
                         : "border border-gray-300 bg-transparent"
                     }`}
                   />
@@ -298,17 +350,24 @@ export default function CyberOffresSection() {
                   </ul>
                   {current.partners.length > 0 && (
                     <div>
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-400">
+                      <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-gray-400">
                         Nos partenaires
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap items-center gap-4">
                         {current.partners.map((p) => (
-                          <span
+                          <div
                             key={p}
-                            className="rounded-full border border-[var(--primary-border)] bg-[var(--primary-light)] px-3 py-1 text-xs font-medium text-[var(--primary-dark)]"
+                            className="relative h-10 w-24 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                            title={p}
                           >
-                            {p}
-                          </span>
+                            <Image
+                              src={getPartnerLogo(p)}
+                              alt={p}
+                              fill
+                              sizes="96px"
+                              className="object-contain"
+                            />
+                          </div>
                         ))}
                       </div>
                     </div>

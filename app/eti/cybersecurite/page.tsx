@@ -1,4 +1,6 @@
 import FullscreenHero from "@/app/components/hero/FullscreenHero";
+import CyberOffresSection from "@/app/components/sections/CyberOffresSection";
+import CyberExpertsSection from "@/app/components/sections/CyberExpertsSection";
 import Link from "next/link";
 
 export const metadata = {
@@ -138,39 +140,8 @@ export default function ETICybersecuritePage() {
         </div>
       </section>
 
-      {/* ── Solutions ─────────────────────────────────────────────────────── */}
-      <section id="solutions" className="bg-gray-50 py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <span className="mb-3 inline-block rounded-full bg-red-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-red-600">
-              Nos solutions ETI
-            </span>
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-              Une couverture sécurité complète
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-gray-500">
-              Des solutions sur mesure, dimensionnées pour les ETI et grands groupes, avec des équipes certifiées et des SLA garantis.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {solutions.map((s) => (
-              <div key={s.num} className="group relative flex flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:border-red-200 hover:shadow-md">
-                <span className={`mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-extrabold ${s.color}`}>
-                  {s.num}
-                </span>
-                <h3 className="mb-2 text-base font-bold text-gray-800 group-hover:text-red-700">{s.title}</h3>
-                <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-500">{s.desc}</p>
-                <div className="mt-auto flex flex-wrap gap-1.5 border-t border-gray-100 pt-4">
-                  {s.tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500">{tag}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Offres Cybersécurité ──────────────────────────────────────────── */}
+      <CyberOffresSection />
 
       {/* ── Certifications ────────────────────────────────────────────────── */}
       <section className="bg-white py-16">
@@ -186,6 +157,9 @@ export default function ETICybersecuritePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Regard d'expert ───────────────────────────────────────────────── */}
+      <CyberExpertsSection />
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <section className="bg-gray-50 py-20">

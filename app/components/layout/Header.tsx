@@ -54,7 +54,7 @@ export default function Header() {
       bg: "bg-orange-50",
     },
     {
-      name: "Ingénierie logicielle",
+      name: "Apps & Solutions sur mesure",
       desc: "Apps web & mobile sur mesure",
       href: "/services/ingenierie",
       icon: (

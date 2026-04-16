@@ -92,7 +92,7 @@ export default function Footer() {
               <li><Link href="/services/cybersecurite" className="text-sm transition-colors hover:text-white">Cybersécurité & conformité</Link></li>
               <li><Link href="/services/cloud" className="text-sm transition-colors hover:text-white">Cloud & Réseaux</Link></li>
               <li><Link href="/services/infogerance" className="text-sm transition-colors hover:text-white">Infogérance IT & Infrastructure</Link></li>
-              <li><Link href="/services/ingenierie" className="text-sm transition-colors hover:text-white">Ingénierie logicielle</Link></li>
+              <li><Link href="/services/ingenierie" className="text-sm transition-colors hover:text-white">Apps & Solutions sur mesure</Link></li>
               <li><Link href="/services/ia" className="text-sm transition-colors hover:text-white">IA et automatisation</Link></li>
             </ul>
           </div>

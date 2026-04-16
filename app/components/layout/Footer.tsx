@@ -90,7 +90,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li><Link href="/services/cybersecurite" className="text-sm transition-colors hover:text-white">Cybersécurité & conformité</Link></li>
-              <li><Link href="/services/cloud" className="text-sm transition-colors hover:text-white">Infrastructure & Cloud</Link></li>
+              <li><Link href="/services/cloud" className="text-sm transition-colors hover:text-white">Cloud & Réseaux</Link></li>
               <li><Link href="/services/infogerance" className="text-sm transition-colors hover:text-white">Infogérance IT & Infrastructure</Link></li>
               <li><Link href="/services/ingenierie" className="text-sm transition-colors hover:text-white">Ingénierie logicielle</Link></li>
               <li><Link href="/services/ia" className="text-sm transition-colors hover:text-white">IA et automatisation</Link></li>

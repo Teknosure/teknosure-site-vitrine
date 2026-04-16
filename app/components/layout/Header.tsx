@@ -34,7 +34,7 @@ export default function Header() {
 
   const services = [
     {
-      name: "Infrastructure & Cloud",
+      name: "Cloud & Réseaux",
       desc: "Migration, hébergement, hybride",
       href: "/services/cloud",
       icon: (

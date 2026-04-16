@@ -12,6 +12,7 @@ export type CookieConsent = {
 
 const CONSENT_KEY = "teknosure_cookie_consent";
 const CONSENT_VERSION = "1.0";
+const CONSENT_TTL_MONTHS = 13; // Durée de validité du consentement (CNIL recommande 13 mois)
 
 export function useCookieConsent() {
   const [consent, setConsent] = useState<CookieConsent | null>(null);
@@ -27,8 +28,24 @@ export function useCookieConsent() {
         if (parsed.consentVersion !== CONSENT_VERSION) {
           setShowBanner(true);
         } else {
-          setConsent(parsed);
-          setShowBanner(false);
+          // Vérifier la durée de conservation : si le consentement est trop ancien,
+          // on le considère expiré et on redemande le consentement.
+          try {
+            const consentDate = new Date(parsed.consentDate);
+            const expiry = new Date(consentDate);
+            expiry.setMonth(expiry.getMonth() + CONSENT_TTL_MONTHS);
+            if (isNaN(consentDate.getTime()) || expiry < new Date()) {
+              // Consentement expiré
+              localStorage.removeItem(CONSENT_KEY);
+              setShowBanner(true);
+            } else {
+              setConsent(parsed);
+              setShowBanner(false);
+            }
+          } catch {
+            // En cas d'erreur dans la date, redemander le consentement
+            setShowBanner(true);
+          }
         }
       } catch {
         setShowBanner(true);

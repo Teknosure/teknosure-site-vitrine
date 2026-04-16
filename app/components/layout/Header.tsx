@@ -8,17 +8,18 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [tpepmeDropdownOpen, setTpepmeDropdownOpen] = useState(false);
+  const [cyberDropdownOpen, setCyberDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lang, setLang] = useState<"FR" | "EN">("FR");
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const tpepmeDropdownRef = useRef<HTMLDivElement>(null);
+  const cyberDropdownRef = useRef<HTMLDivElement>(null);
 
   const pagesWithHero = [
     "/etudes-de-cas", "/a-propos", "/contact", "/tpe-pme",
     "/tpe-pme/cybersecurite", "/tpe-pme/cloud", "/tpe-pme/infogerance",
     "/tpe-pme/ingenierie", "/tpe-pme/ia",
+    "/eti/cybersecurite",
   ];
 
   const shouldBeTransparent =
@@ -33,16 +34,6 @@ export default function Header() {
 
   const services = [
     {
-      name: "Cybersécurité & conformité",
-      desc: "Audit, pentest, SOC managé",
-      href: "/services/cybersecurite",
-      icon: (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-      ),
-      color: "text-red-500",
-      bg: "bg-red-50",
-    },
-    {
       name: "Infrastructure & Cloud",
       desc: "Migration, hébergement, hybride",
       href: "/services/cloud",
@@ -53,8 +44,8 @@ export default function Header() {
       bg: "bg-sky-50",
     },
     {
-      name: "Infogérance & Services Managés",
-      desc: "Support IT externalisé 24/7",
+      name: "Infogérance IT & Infrastructure",
+      desc: "Serveurs, M365, MCO, postes & SLA garanti",
       href: "/services/infogerance",
       icon: (
         <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -84,11 +75,12 @@ export default function Header() {
     },
   ];
 
-  const offresTPEPME = [
+  const cyberItems = [
     {
-      name: "Offre Cybersécurité",
-      desc: "Protection & conformité RGPD",
+      name: "TPE / PME",
+      desc: "Packs fixes, RGPD, prix accessibles",
       href: "/tpe-pme/cybersecurite",
+      badge: "🏢",
       icon: (
         <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
       ),
@@ -96,44 +88,15 @@ export default function Header() {
       bg: "bg-red-50",
     },
     {
-      name: "Offre Cloud & Infrastructure",
-      desc: "Migration & hébergement sécurisé",
-      href: "/tpe-pme/cloud",
+      name: "ETI / Grands comptes",
+      desc: "SOC 24/7, ISO 27001, NIS2, sur devis",
+      href: "/eti/cybersecurite",
+      badge: "🏭",
       icon: (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
       ),
-      color: "text-sky-500",
-      bg: "bg-sky-50",
-    },
-    {
-      name: "Offre Infogérance",
-      desc: "Gestion IT externalisée 24/7",
-      href: "/tpe-pme/infogerance",
-      icon: (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-      ),
-      color: "text-orange-500",
-      bg: "bg-orange-50",
-    },
-    {
-      name: "Offre Ingénierie logicielle",
-      desc: "Apps web & mobile sur mesure",
-      href: "/tpe-pme/ingenierie",
-      icon: (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-      ),
-      color: "text-violet-500",
-      bg: "bg-violet-50",
-    },
-    {
-      name: "Offre IA & Automatisation",
-      desc: "Optimisation & RPA intelligente",
-      href: "/tpe-pme/ia",
-      icon: (
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-      ),
-      color: "text-emerald-500",
-      bg: "bg-emerald-50",
+      color: "text-blue-600",
+      bg: "bg-blue-50",
     },
   ];
 
@@ -148,8 +111,8 @@ export default function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setServicesDropdownOpen(false);
       }
-      if (tpepmeDropdownRef.current && !tpepmeDropdownRef.current.contains(e.target as Node)) {
-        setTpepmeDropdownOpen(false);
+      if (cyberDropdownRef.current && !cyberDropdownRef.current.contains(e.target as Node)) {
+        setCyberDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -158,7 +121,7 @@ export default function Header() {
 
   useEffect(() => {
     setServicesDropdownOpen(false);
-    setTpepmeDropdownOpen(false);
+    setCyberDropdownOpen(false);
     setMobileMenuOpen(false);
   }, [pathname]);
 
@@ -204,7 +167,7 @@ export default function Header() {
                 aria-haspopup="true"
                 className={`flex items-center gap-1 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] xl:text-base ${textColor} ${textHoverColor}`}
               >
-                Expertise
+                Nos Expertises IT
                 <svg
                   className={`h-4 w-4 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""}`}
                   fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
@@ -248,48 +211,50 @@ export default function Header() {
               )}
             </div>
 
-            {/* Dropdown TPE/PME */}
-            <div className="relative" ref={tpepmeDropdownRef}>
+            {/* Dropdown Cybersécurité */}
+            <div className="relative" ref={cyberDropdownRef}>
               <button
-                onClick={() => setTpepmeDropdownOpen((prev) => !prev)}
-                aria-expanded={tpepmeDropdownOpen}
+                onClick={() => setCyberDropdownOpen((prev) => !prev)}
+                aria-expanded={cyberDropdownOpen}
                 aria-haspopup="true"
                 className={`flex items-center gap-1 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] xl:text-base ${textColor} ${textHoverColor}`}
               >
-                TPE/PME
+                Cybersécurité
                 <svg
-                  className={`h-4 w-4 transition-transform duration-200 ${tpepmeDropdownOpen ? "rotate-180" : ""}`}
+                  className={`h-4 w-4 transition-transform duration-200 ${cyberDropdownOpen ? "rotate-180" : ""}`}
                   fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
 
-              {tpepmeDropdownOpen && (
-                <div role="menu" className="absolute left-0 top-full z-50 w-[480px] pt-3">
+              {cyberDropdownOpen && (
+                <div role="menu" className="absolute left-0 top-full z-50 w-[360px] pt-3">
                   <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl">
 
                     {/* Header du dropdown */}
-                    <div className="bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] px-5 py-4">
-                      <p className="text-xs font-bold uppercase tracking-widest text-white/70">TPE / PME</p>
-                      <p className="mt-0.5 text-base font-bold text-white">Solutions adaptées à votre taille</p>
+                    <div className="bg-gradient-to-r from-red-700 to-red-500 px-5 py-4">
+                      <p className="text-xs font-bold uppercase tracking-widest text-white/70">Protection avancée</p>
+                      <p className="mt-0.5 text-base font-bold text-white">Cybersécurité</p>
                     </div>
 
-                    {/* Grille des expertises */}
-                    <div className="grid grid-cols-2 gap-px bg-gray-100 p-px">
-                      {offresTPEPME.map((offre) => (
+                    {/* Items */}
+                    <div className="grid grid-cols-1 gap-px bg-gray-100 p-px">
+                      {cyberItems.map((item) => (
                         <Link
-                          key={offre.href}
-                          href={offre.href}
+                          key={item.href}
+                          href={item.href}
                           role="menuitem"
-                          className="group flex items-start gap-3 bg-white px-4 py-3.5 transition-colors hover:bg-[var(--primary-light)] focus:bg-[var(--primary-light)] focus:outline-none"
+                          className="group flex items-start gap-3 bg-white px-4 py-3.5 transition-colors hover:bg-red-50 focus:bg-red-50 focus:outline-none"
                         >
-                          <span className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${offre.bg} ${offre.color} transition-transform group-hover:scale-110`}>
-                            {offre.icon}
+                          <span className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.bg} ${item.color} transition-transform group-hover:scale-110`}>
+                            {item.icon}
                           </span>
                           <span>
-                            <span className="block text-sm font-semibold text-gray-800 group-hover:text-[var(--primary-dark)]">{offre.name}</span>
-                            <span className="mt-0.5 block text-xs leading-snug text-gray-500">{offre.desc}</span>
+                            <span className="flex items-center gap-1.5 text-sm font-semibold text-gray-800 group-hover:text-red-700">
+                              <span>{item.badge}</span> {item.name}
+                            </span>
+                            <span className="mt-0.5 block text-xs leading-snug text-gray-500">{item.desc}</span>
                           </span>
                         </Link>
                       ))}
@@ -329,20 +294,6 @@ export default function Header() {
               </svg>
               {lang}
             </button>
-
-            <a
-              href="tel:+33146884975"
-              className={`hidden items-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition-all xl:flex ${
-                isTransparent && isDarkBg
-                  ? "border-white/40 text-white hover:border-white hover:bg-white/10"
-                  : "border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white"
-              }`}
-            >
-              <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-              </svg>
-              +33 1 46 88 49 75
-            </a>
 
             <Link
               href="/contact"
@@ -395,7 +346,7 @@ export default function Header() {
               <div className="overflow-hidden rounded-xl border border-gray-200">
                 <div className="bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] px-4 py-2.5">
                   <p className="text-xs font-bold uppercase tracking-widest text-white/70">Teknosure</p>
-                  <p className="text-sm font-bold text-white">Nos domaines d'expertise</p>
+                  <p className="text-sm font-bold text-white">Nos domaines d'expertise IT</p>
                 </div>
                 <div className="grid grid-cols-1 gap-px bg-gray-100 sm:grid-cols-2">
                   {services.map((service) => (
@@ -413,23 +364,25 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Bloc TPE/PME */}
-              <div className="overflow-hidden rounded-xl border border-gray-200">
-                <div className="bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] px-4 py-2.5">
-                  <p className="text-xs font-bold uppercase tracking-widest text-white/70">TPE / PME</p>
-                  <p className="text-sm font-bold text-white">Solutions par expertise</p>
+              {/* Bloc Cybersécurité */}
+              <div className="overflow-hidden rounded-xl border border-red-200">
+                <div className="bg-gradient-to-r from-red-700 to-red-500 px-4 py-2.5">
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/70">Protection avancée</p>
+                  <p className="text-sm font-bold text-white">Cybersécurité</p>
                 </div>
                 <div className="grid grid-cols-1 gap-px bg-gray-100 sm:grid-cols-2">
-                  {offresTPEPME.map((offre) => (
+                  {cyberItems.map((item) => (
                     <Link
-                      key={offre.href}
-                      href={offre.href}
-                      className={`flex items-center gap-3 bg-white px-3 py-2.5 text-sm transition-colors hover:bg-[var(--primary-light)]`}
+                      key={item.href}
+                      href={item.href}
+                      className="flex items-center gap-3 bg-white px-3 py-2.5 text-sm transition-colors hover:bg-red-50"
                     >
-                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${offre.bg} ${offre.color}`}>
-                        {offre.icon}
+                      <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${item.bg} ${item.color}`}>
+                        {item.icon}
                       </span>
-                      <span className="font-medium text-gray-700">{offre.name}</span>
+                      <span className="font-medium text-gray-700">
+                        {item.badge} {item.name}
+                      </span>
                     </Link>
                   ))}
                 </div>

@@ -73,7 +73,6 @@ const offresPackagees = [
   {
     num: "04",
     title: "SOC / XDR 24/7",
-    price: "À partir de 8 €/poste/mois",
     delay: "Continu",
     desc: "Surveillance 24/7, XDR, threat intelligence, alertes en temps réel, dashboard mensuel.",
   },
@@ -94,7 +93,6 @@ const offresPackagees = [
   {
     num: "07",
     title: "Infogérance Cybersécurité",
-    price: "À partir de 25 €/user/mois",
     delay: "Mensuel",
     desc: "MCO sécurité complet : patch management, supervision, reporting, support N1/N2/N3.",
   },
@@ -234,7 +232,11 @@ export default function OffreCybersecuritePage() {
                 <h3 className="mb-2 text-base font-bold text-gray-800 group-hover:text-red-700">{offre.title}</h3>
                 <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-500">{offre.desc}</p>
                 <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
-                  <span className="text-sm font-bold text-red-600">{offre.price}</span>
+                  {offre.price ? (
+                    <span className="text-sm font-bold text-red-600">{offre.price}</span>
+                  ) : (
+                    <span className="text-sm font-bold text-gray-400">Sur devis</span>
+                  )}
                   <span className="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-500">⏱ {offre.delay}</span>
                 </div>
               </div>

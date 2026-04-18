@@ -33,6 +33,11 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# SonarQube
+.scannerwork/
+.sonar/
+.env.sonar
+
 # vercel
 .vercel
 

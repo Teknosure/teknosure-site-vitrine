@@ -44,7 +44,7 @@ export default function CybersecuritePage() {
         tagline="Expertise certifiée — Protection avancée"
         titleAccent="Cybersécurité"
         title="et conformité numérique"
-        subtitle="Nous sécurisons votre périmètre numérique grâce à une détection avancée des menaces, des tests d'intrusion et des audits de conformité (ISO 27001, RGPD). Notre équipe garantit l'intégrité de vos données."
+        subtitle="Conseil et accompagnement en conformité numérique, audits de sécurité, détection avancée des menaces, tests d'intrusion et services managés pour une protection globale des systèmes d'information."
         primaryLabel="Nous contacter"
         primaryHref="/contact"
         secondaryLabel="Nos solutions"

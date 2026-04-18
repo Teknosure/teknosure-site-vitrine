@@ -8,31 +8,31 @@ const expertiseTabs: HeroTab[] = [
   {
     label: "Notre mission",
     href: "/",
-    tagline: "Cabinet de conseil informatique de premier plan",
+    tagline: "Votre partenaire de confiance en transformation numérique",
     titleAccent: "Intelligence numérique",
     title: "sécurisée et évolutive",
     subtitle:
-      "Teknosure offre aux entreprises des solutions de cybersécurité de pointe, une infrastructure cloud performante et des logiciels sur mesure.",
+      "Teknosure sécurise et digitalise les entreprises grâce à la cybersécurité, aux services managés, aux réseaux, aux infrastructures, au cloud et au développement d'applications sur mesure.",
     imageSrc: "/images/hero2.jpg",
   },
   {
     label: "Cybersécurité",
     href: "/tpe-pme/cybersecurite",
-    tagline: "Protection & Conformité",
+    tagline: "Sécurisez votre transformation digitale",
     titleAccent: "Cybersécurité",
     title: "et conformité numérique",
     subtitle:
-      "Détection avancée des menaces, tests d'intrusion et audits ISO 27001 / RGPD pour sécuriser votre périmètre numérique.",
+      "Conseil et accompagnement en conformité numérique, audits de sécurité, détection avancée des menaces, tests d'intrusion et services managés pour une protection globale des systèmes d'information.",
     imageSrc: "/images/cyber3.jpg",
   },
   {
     label: "IA et automatisation",
     href: "/tpe-pme/ia",
-    tagline: "Intelligence artificielle",
+    tagline: "Accélérez votre transformation digitale",
     titleAccent: "Automatisez",
     title: "et augmentez votre performance",
     subtitle:
-      "Tirez parti du machine learning et de la RPA pour automatiser vos processus et exploiter la donnée comme levier stratégique.",
+      "Exploitez la puissance de l'IA et de l'automatisation pour optimiser vos opérations, gagner en efficacité et créer plus de valeur.",
     imageSrc: "/images/ia.jpg",
   },
   {

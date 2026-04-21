@@ -34,8 +34,8 @@ const faq = [
 
 const expertises = [
   { label: "Cybersécurité", href: "/services/cybersecurite", color: "bg-red-50 text-red-600 border-red-100" },
-  { label: "Cloud & Réseaux", href: "/services/cloud", color: "bg-[var(--primary-light)] text-[var(--primary)] border-[var(--primary-border)]" },
-  { label: "Infogérance IT & Infrastructure", href: "/services/infogerance", color: "bg-emerald-50 text-emerald-600 border-emerald-100" },
+  { label: "Infrastructure, réseaux & cloud", href: "/services/cloud", color: "bg-[var(--primary-light)] text-[var(--primary)] border-[var(--primary-border)]" },
+  { label: "Infogérance & Services Managés", href: "/services/infogerance", color: "bg-emerald-50 text-emerald-600 border-emerald-100" },
   { label: "Apps & Solutions sur mesure", href: "/services/ingenierie", color: "bg-violet-50 text-violet-600 border-violet-100" },
 ];
 

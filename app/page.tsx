@@ -36,7 +36,7 @@ const expertiseTabs: HeroTab[] = [
     imageSrc: "/images/ia.jpg",
   },
   {
-    label: "Cloud et Infogérance",
+    label: "Infrastructure, réseaux & cloud",
     href: "/tpe-pme/cloud",
     tagline: "Infrastructure & Cloud",
     titleAccent: "Migration cloud",

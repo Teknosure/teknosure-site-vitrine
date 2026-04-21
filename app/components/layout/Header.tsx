@@ -34,7 +34,7 @@ export default function Header() {
 
   const services = [
     {
-      name: "Cloud & Réseaux",
+      name: "Infrastructure, réseaux & cloud",
       desc: "Migration, hébergement, hybride",
       href: "/services/cloud",
       icon: (
@@ -44,7 +44,7 @@ export default function Header() {
       bg: "bg-sky-50",
     },
     {
-      name: "Infogérance IT & Infrastructure",
+      name: "Infogérance & Services Managés",
       desc: "Serveurs, M365, MCO, postes & SLA garanti",
       href: "/services/infogerance",
       icon: (

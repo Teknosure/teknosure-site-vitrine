@@ -123,8 +123,7 @@ export default function FullscreenHero({
   }, [activeTab, currentTitleAccent]);
 
   return (
-    // <section className="relative flex h-screen min-h-[720px] flex-col overflow-hidden pb-20 sm:pb-24 lg:pb-28">
-    <section className="relative flex h-[85vh] min-h-[600px] flex-col overflow-hidden pb-16 sm:pb-20 lg:pb-24">
+    <section className="relative flex min-h-[600px] flex-col overflow-hidden pb-12 sm:pb-16 lg:min-h-[85vh] lg:pb-20 xl:h-screen">
 
       {/* ── Images — toutes pré-chargées, crossfade via opacité ────────── */}
       {hasTabs ? (
@@ -188,7 +187,7 @@ export default function FullscreenHero({
 
           <h1
             key={`title-${activeTab}`}
-            className={`animate-hero-title mb-5 max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl xl:text-6xl ${
+            className={`animate-hero-title mb-4 max-w-3xl text-2xl font-extrabold leading-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
@@ -213,7 +212,7 @@ export default function FullscreenHero({
           {currentSubtitle && (
             <p
               key={`subtitle-${activeTab}`}
-              className={`animate-hero-subtitle mb-8 max-w-2xl text-sm leading-relaxed sm:text-base lg:text-lg ${
+              className={`animate-hero-subtitle mb-6 max-w-2xl text-sm leading-relaxed sm:text-base lg:mb-8 lg:text-lg ${
                 isDark ? "text-gray-300" : "text-gray-600"
               }`}
             >
@@ -224,7 +223,7 @@ export default function FullscreenHero({
           <div key={`cta-${activeTab}`} className="animate-hero-cta flex flex-col gap-3 sm:flex-row sm:gap-4">
             <Link
               href={primaryHref}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-all hover:from-blue-500 hover:to-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-8 sm:py-3.5 sm:text-base"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-[var(--primary-dark)] to-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-all hover:from-blue-500 hover:to-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 lg:text-base"
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -233,7 +232,7 @@ export default function FullscreenHero({
             </Link>
             <Link
               href={hasTabs && active?.href && active.href !== "/" ? active.href : secondaryHref}
-              className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-6 py-3 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-8 sm:py-3.5 sm:text-base ${
+              className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 lg:text-base ${
                 isDark
                   ? "border-white/50 text-white hover:border-white hover:bg-white/10"
                   : "border-gray-400 text-gray-700 hover:border-gray-600 hover:bg-gray-50"

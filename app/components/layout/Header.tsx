@@ -231,7 +231,7 @@ export default function Header() {
                   <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl">
 
                     {/* Header du dropdown */}
-                    <div className="bg-gradient-to-r from-red-700 to-red-500 px-5 py-4">
+                    <div className="bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] px-5 py-4">
                       <p className="text-xs font-bold uppercase tracking-widest text-white/70">Protection avancée</p>
                       <p className="mt-0.5 text-base font-bold text-white">Cybersécurité</p>
                     </div>
@@ -243,13 +243,13 @@ export default function Header() {
                           key={item.href}
                           href={item.href}
                           role="menuitem"
-                          className="group flex items-start gap-3 bg-white px-4 py-3.5 transition-colors hover:bg-red-50 focus:bg-red-50 focus:outline-none"
+                          className="group flex items-start gap-3 bg-white px-4 py-3.5 transition-colors hover:bg-[var(--primary-light)] focus:bg-[var(--primary-light)] focus:outline-none"
                         >
                           <span className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${item.bg} ${item.color} transition-transform group-hover:scale-110`}>
                             {item.icon}
                           </span>
                           <span>
-                            <span className="flex items-center gap-1.5 text-sm font-semibold text-gray-800 group-hover:text-red-700">
+                            <span className="flex items-center gap-1.5 text-sm font-semibold text-gray-800 group-hover:text-[var(--primary-dark)]">
                               {item.name}
                             </span>
                             <span className="mt-0.5 block text-xs leading-snug text-gray-500">{item.desc}</span>

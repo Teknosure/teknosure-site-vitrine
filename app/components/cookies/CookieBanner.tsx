@@ -29,20 +29,19 @@ export default function CookieBanner() {
         <div className="p-6">
           {/* Icône + titre */}
           <div className="mb-4 flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--primary-light)]">
-              <svg className="h-5 w-5 text-[var(--primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gray-100">
+              <svg className="h-5 w-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
                   d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM12 8v4m0 4h.01" />
               </svg>
             </div>
             <div>
               <h2 className="text-base font-semibold text-gray-900">
-                Votre vie privée nous importe
+                Gestion des cookies
               </h2>
               <p className="mt-1 text-sm text-gray-600 leading-relaxed">
-                Nous utilisons des cookies pour améliorer votre expérience sur notre site. Les cookies essentiels sont
-                nécessaires au bon fonctionnement du site. Les autres nous aident à comprendre comment vous naviguez.{" "}
-                <Link href="/cookies" className="font-medium text-[var(--primary)] hover:underline">
+                Nous utilisons des cookies pour améliorer votre expérience. Les cookies essentiels sont nécessaires au bon fonctionnement. Les autres nous aident à comprendre comment vous naviguez.{" "}
+                <Link href="/cookies" className="font-medium text-gray-900 underline hover:text-gray-700">
                   En savoir plus
                 </Link>
               </p>
@@ -72,7 +71,7 @@ export default function CookieBanner() {
                 <div>
                   <p className="text-sm font-medium text-gray-800">📊 Cookies analytiques</p>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    Statistiques anonymes de navigation pour améliorer le site (ex. : pages visitées, durée de session).
+                    Statistiques anonymes de navigation pour améliorer le site.
                   </p>
                 </div>
                 <label className="relative shrink-0 cursor-pointer">
@@ -82,7 +81,7 @@ export default function CookieBanner() {
                     checked={analyticsChecked}
                     onChange={(e) => setAnalyticsChecked(e.target.checked)}
                   />
-                  <div className="h-6 w-11 rounded-full bg-gray-300 transition-colors peer-checked:bg-[var(--primary)] after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-5" />
+                  <div className="h-6 w-11 rounded-full bg-gray-300 transition-colors peer-checked:bg-gray-700 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-5" />
                 </label>
               </div>
 
@@ -91,8 +90,7 @@ export default function CookieBanner() {
                 <div>
                   <p className="text-sm font-medium text-gray-800">📢 Cookies marketing</p>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    Publicités personnalisées et mesure de performance des campagnes. Les données peuvent être
-                    partagées avec des partenaires tiers.
+                    Publicités personnalisées. Les données peuvent être partagées avec des tiers.
                   </p>
                 </div>
                 <label className="relative shrink-0 cursor-pointer">
@@ -102,17 +100,17 @@ export default function CookieBanner() {
                     checked={marketingChecked}
                     onChange={(e) => setMarketingChecked(e.target.checked)}
                   />
-                  <div className="h-6 w-11 rounded-full bg-gray-300 transition-colors peer-checked:bg-[var(--primary)] after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-5" />
+                  <div className="h-6 w-11 rounded-full bg-gray-300 transition-colors peer-checked:bg-gray-700 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-5" />
                 </label>
               </div>
             </div>
           )}
 
-          {/* Boutons d'action */}
+          {/* Boutons d'action — tous égaux visuellement */}
           <div className="flex flex-wrap items-center gap-3">
             <button
               onClick={acceptAll}
-              className="flex-1 min-w-[140px] rounded-xl bg-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[var(--primary-dark)] hover:shadow-md active:scale-95"
+              className="flex-1 min-w-[140px] rounded-xl border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 active:scale-95"
             >
               Tout accepter
             </button>
@@ -125,14 +123,14 @@ export default function CookieBanner() {
             {showDetails ? (
               <button
                 onClick={() => saveCustom(analyticsChecked, marketingChecked)}
-                className="flex-1 min-w-[140px] rounded-xl border border-[var(--primary)] px-5 py-2.5 text-sm font-semibold text-[var(--primary)] transition-all hover:bg-[var(--primary-light)] active:scale-95"
+                className="flex-1 min-w-[140px] rounded-xl border border-gray-900 bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-gray-800 active:scale-95"
               >
                 Enregistrer mes choix
               </button>
             ) : (
               <button
                 onClick={() => setShowDetails(true)}
-                className="flex-1 min-w-[140px] rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-600 transition-all hover:border-gray-300 hover:bg-gray-50 active:scale-95"
+                className="flex-1 min-w-[140px] rounded-xl border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 transition-all hover:border-gray-400 hover:bg-gray-50 active:scale-95"
               >
                 Personnaliser
               </button>

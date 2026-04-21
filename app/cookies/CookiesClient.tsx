@@ -205,7 +205,7 @@ export default function CookiesPage() {
             Mentions légales
           </Link>
           <span className="text-gray-300">·</span>
-          <a href="mailto:dpo@teknosure.fr" className="hover:text-[var(--primary)] hover:underline">
+          <a href="mailto:contact@teknosure.com" className="hover:text-[var(--primary)] hover:underline">
             Contacter le DPO
           </a>
         </div>

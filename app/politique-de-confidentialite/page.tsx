@@ -140,8 +140,8 @@ const sections = [
         </div>
         <p className="mt-2">
           Pour exercer vos droits, contactez notre DPO à l'adresse :{" "}
-          <a href="mailto:dpo@teknosure.fr" className="font-medium text-[var(--primary)] hover:underline">
-            dpo@teknosure.fr
+          <a href="mailto:contact@teknosure.com" className="font-medium text-[var(--primary)] hover:underline">
+            contact@teknosure.com
           </a>.
           Nous répondons dans un délai maximum d'<strong>1 mois</strong>.
         </p>
@@ -242,14 +242,14 @@ export default function PolitiqueDeConfidentialite() {
             Notre Délégué à la Protection des Données (DPO) est à votre disposition.
           </p>
           <a
-            href="mailto:dpo@teknosure.fr"
+            href="mailto:contact@teknosure.com"
             className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[var(--primary)] shadow transition-all hover:shadow-md hover:-translate-y-0.5"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            dpo@teknosure.fr
+            contact@teknosure.com
           </a>
         </div>
 

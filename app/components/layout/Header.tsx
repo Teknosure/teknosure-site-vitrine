@@ -142,11 +142,11 @@ export default function Header() {
           {/* ── Logo ──────────────────────────────────────────────────── */}
           <Link href="/" className="shrink-0" aria-label="Teknosure — Accueil">
             <Image
-              src={isTransparent && isDarkBg ? "/images/logo-transparent.png" : "/images/logo.png"}
+              src="/images/Logo-Transparent-Teknosure1.png"
               alt="Teknosure"
-              width={220}
-              height={56}
-              className="h-12 w-auto object-contain transition-all duration-300 sm:h-16"
+              width={180}
+              height={45}
+              className="h-10 w-auto object-contain transition-all duration-300 sm:h-12"
               priority
             />
           </Link>

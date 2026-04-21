@@ -14,11 +14,11 @@ export default function Footer() {
             <div className="mb-4">
               <Link href="/" aria-label="Teknosure — Accueil">
                 <Image
-                  src="/images/logo-transparent.png"
+                  src="/images/Logo-Transparent-Teknosure1.png"
                   alt="Teknosure"
-                  width={200}
-                  height={60}
-                  className="h-20 w-auto object-contain"
+                  width={160}
+                  height={48}
+                  className="h-16 w-auto object-contain"
                 />
               </Link>
             </div>

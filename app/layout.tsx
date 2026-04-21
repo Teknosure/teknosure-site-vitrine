@@ -104,7 +104,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Teknosure",
               url: "https://www.teknosure.com",
-              logo: "https://www.teknosure.com/images/logo.png",
+              logo: "https://www.teknosure.com/images/Logo-Transparent-Teknosure1.png",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+33-1-46-88-49-75",

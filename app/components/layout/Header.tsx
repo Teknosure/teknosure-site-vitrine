@@ -276,7 +276,8 @@ export default function Header() {
 
           {/* ── Droite Desktop : Langue + CTA ────────────────────────── */}
           <div className="hidden items-center gap-3 lg:flex">
-            {/* Bouton langue */}
+            {/* Bouton langue - DÉSACTIVÉ temporairement */}
+            {/* 
             <button
               onClick={() => setLang((l) => (l === "FR" ? "EN" : "FR"))}
               aria-label="Changer de langue"
@@ -292,6 +293,7 @@ export default function Header() {
               </svg>
               {lang}
             </button>
+            */}
 
             <Link
               href="/contact"

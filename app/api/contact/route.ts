@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { sendEmail } from "@/lib/graphClient";
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,23 +14,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: process.env.SMTP_SECURE === "true",
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+    const senderEmail = process.env.SENDER_EMAIL || "contact@teknosure.com";
 
     // Email interne (notif à Teknosure)
-    await transporter.sendMail({
-      from: `"Teknosure Contact" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_EMAIL,
-      replyTo: email,
+    await sendEmail({
+      from: senderEmail,
+      toRecipients: [senderEmail],
       subject: `[Contact] ${service} — ${prenom} ${nom}`,
-      html: `
+      body: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 12px;">
           <div style="background: linear-gradient(135deg, #2563eb, #06b6d4); padding: 20px 24px; border-radius: 8px; margin-bottom: 24px;">
             <h1 style="color: white; margin: 0; font-size: 20px;">Nouveau message de contact</h1>
@@ -55,11 +46,11 @@ export async function POST(req: NextRequest) {
     });
 
     // Email de confirmation automatique au client
-    await transporter.sendMail({
-      from: `"Teknosure" <${process.env.SMTP_USER}>`,
-      to: email,
+    await sendEmail({
+      from: senderEmail,
+      toRecipients: [email],
       subject: "Nous avons bien reçu votre message — Teknosure",
-      html: `
+      body: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 12px;">
           <div style="background: linear-gradient(135deg, #2563eb, #06b6d4); padding: 20px 24px; border-radius: 8px; margin-bottom: 24px; text-align: center;">
             <h1 style="color: white; margin: 0; font-size: 20px;">Message bien reçu ✓</h1>

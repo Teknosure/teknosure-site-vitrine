@@ -38,7 +38,16 @@ const defis = [
 
 export default function IngenieriePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div 
+      className="min-h-screen bg-white"
+      style={{
+        // @ts-ignore
+        '--page-primary': '#8b5cf6',
+        '--page-primary-dark': '#7c3aed',
+        '--page-primary-light': '#f5f3ff',
+        '--page-primary-border': '#ddd6fe',
+      } as React.CSSProperties}
+    >
 
       {/* ── Hero plein écran ─────────────────────────────────────────────── */}
       <FullscreenHero
@@ -67,7 +76,7 @@ export default function IngenieriePage() {
             </div>
 
             {/* Trait séparateur vertical */}
-            <div className="hidden lg:block lg:w-px lg:shrink-0 lg:bg-[var(--primary-light)]0" />
+            <div className="hidden lg:block lg:w-px lg:shrink-0 lg:bg-[var(--page-primary-light)]0" />
 
             {/* 3 cartes stats droite */}
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mt-0 lg:w-3/5 lg:pl-16">
@@ -76,7 +85,7 @@ export default function IngenieriePage() {
                   key={i}
                   className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
                 >
-                  <p className="mb-3 text-3xl font-extrabold text-[var(--primary)] lg:text-4xl">
+                  <p className="mb-3 text-3xl font-extrabold text-[var(--page-primary)] lg:text-4xl">
                     {item.stat}
                   </p>
                   <p className="text-sm leading-relaxed text-gray-500">

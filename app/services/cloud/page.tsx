@@ -36,7 +36,16 @@ const defis = [
 
 export default function CloudPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div 
+      className="min-h-screen bg-white"
+      style={{
+        // @ts-ignore
+        '--page-primary': '#0ea5e9',
+        '--page-primary-dark': '#0284c7',
+        '--page-primary-light': '#e0f2fe',
+        '--page-primary-border': '#bae6fd',
+      } as React.CSSProperties}
+    >
 
       {/* ── Hero ────────────────────────────────────────────────────────── */}
       <FullscreenHero
@@ -61,11 +70,11 @@ export default function CloudPage() {
                 Les défis<br />du cloud<br />d&apos;aujourd&apos;hui
               </h2>
             </div>
-            <div className="hidden lg:block lg:w-px lg:shrink-0 lg:bg-[var(--primary-light)]0" />
+            <div className="hidden lg:block lg:w-px lg:shrink-0 lg:bg-[var(--page-primary-light)]0" />
             <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mt-0 lg:w-3/5 lg:pl-16">
               {defis.map((item, i) => (
                 <div key={i} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                  <p className="mb-3 text-3xl font-extrabold text-[var(--primary)] lg:text-4xl">{item.stat}</p>
+                  <p className="mb-3 text-3xl font-extrabold text-[var(--page-primary)] lg:text-4xl">{item.stat}</p>
                   <p className="text-sm leading-relaxed text-gray-500">{item.description}</p>
                 </div>
               ))}

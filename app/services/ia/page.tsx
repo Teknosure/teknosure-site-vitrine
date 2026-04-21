@@ -36,7 +36,16 @@ const defis = [
 
 export default function IAPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div 
+      className="min-h-screen bg-white"
+      style={{
+        // @ts-ignore
+        '--page-primary': '#10b981',
+        '--page-primary-dark': '#059669',
+        '--page-primary-light': '#ecfdf5',
+        '--page-primary-border': '#a7f3d0',
+      } as React.CSSProperties}
+    >
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <FullscreenHero

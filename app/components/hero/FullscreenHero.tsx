@@ -236,35 +236,21 @@ export default function FullscreenHero({
               </svg>
               {primaryLabel}
             </Link>
-            {hasTabs && active?.href && active.href !== "/" ? (
-              <Link
-                href={active.href}
-                className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 lg:text-base ${
-                  isDark
-                    ? "border-white/50 text-white hover:border-white hover:bg-white/10"
-                    : "border-gray-400 text-gray-700 hover:border-gray-600 hover:bg-gray-50"
-                }`}
-              >
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-                {`Offre ${active.label}`}
-              </Link>
-            ) : (
-              <Link
-                href={secondaryHref}
-                className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 lg:text-base ${
-                  isDark
-                    ? "border-white/50 text-white hover:border-white hover:bg-white/10"
-                    : "border-gray-400 text-gray-700 hover:border-gray-600 hover:bg-gray-50"
-                }`}
-              >
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-                {secondaryLabel}
-              </Link>
-            )}
+            <Link
+              href={hasTabs && active?.href && active.href !== "/" ? active.href : secondaryHref}
+              className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 lg:text-base ${
+                isDark
+                  ? "border-white/50 text-white hover:border-white hover:bg-white/10"
+                  : "border-gray-400 text-gray-700 hover:border-gray-600 hover:bg-gray-50"
+              }`}
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+              {hasTabs && active?.href && active.href !== "/"
+                ? `Offre ${active.label}`
+                : secondaryLabel}
+            </Link>
           </div>
         </div>
       </div>

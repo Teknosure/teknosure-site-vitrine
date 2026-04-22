@@ -123,7 +123,13 @@ export default function FullscreenHero({
   }, [activeTab, currentTitleAccent]);
 
   return (
-    <section className="relative flex min-h-[600px] flex-col overflow-hidden pb-12 sm:pb-16 lg:min-h-[85vh] lg:pb-20 xl:h-screen">
+  <section className="relative flex min-h-[600px] flex-col overflow-hidden pb-12 sm:pb-16 lg:min-h-[85vh] lg:pb-20 xl:h-screen">
+      {/* Chevron bas animé pour indiquer la suite */}
+      <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 animate-bounce">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-lg">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
 
       {/* ── Images — toutes pré-chargées, crossfade via opacité ────────── */}
       {hasTabs ? (
@@ -230,21 +236,35 @@ export default function FullscreenHero({
               </svg>
               {primaryLabel}
             </Link>
-            <Link
-              href={hasTabs && active?.href && active.href !== "/" ? active.href : secondaryHref}
-              className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 lg:text-base ${
-                isDark
-                  ? "border-white/50 text-white hover:border-white hover:bg-white/10"
-                  : "border-gray-400 text-gray-700 hover:border-gray-600 hover:bg-gray-50"
-              }`}
-            >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-              {hasTabs && active?.href && active.href !== "/"
-                ? `Offre ${active.label}`
-                : secondaryLabel}
-            </Link>
+            {hasTabs && active?.href && active.href !== "/" ? (
+              <Link
+                href={active.href}
+                className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 lg:text-base ${
+                  isDark
+                    ? "border-white/50 text-white hover:border-white hover:bg-white/10"
+                    : "border-gray-400 text-gray-700 hover:border-gray-600 hover:bg-gray-50"
+                }`}
+              >
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+                {`Offre ${active.label}`}
+              </Link>
+            ) : (
+              <Link
+                href={secondaryHref}
+                className={`inline-flex items-center justify-center gap-2 rounded-full border-2 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-transparent sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 lg:text-base ${
+                  isDark
+                    ? "border-white/50 text-white hover:border-white hover:bg-white/10"
+                    : "border-gray-400 text-gray-700 hover:border-gray-600 hover:bg-gray-50"
+                }`}
+              >
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+                {secondaryLabel}
+              </Link>
+            )}
           </div>
         </div>
       </div>

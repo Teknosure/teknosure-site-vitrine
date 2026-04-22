@@ -1,6 +1,7 @@
 const services = [
   {
     id: 1,
+    slug: "migration",
     title: "Cloud Managé (Azure/AWS/GCP)",
     description:
       "Accompagnement complet de votre migration vers AWS, Azure ou Google Cloud : audit, planification, exécution et validation.",
@@ -52,6 +53,7 @@ const services = [
   },
   {
     id: 4,
+    slug: "infrastructure",
     title: "Réseaux & Wi-Fi Entreprise",
     description:
       "SD-WAN, switching managé, Wi-Fi entreprise Cisco/Fortinet, QoS, VLAN, audit réseau, câblage.",
@@ -86,6 +88,7 @@ const services = [
   },
   {
     id: 6,
+    slug: "hebergement",
     title: "Sauvegarde & PRA Cloud",
     description:
       "Backup-as-a-Service, réplication temps réel, PRA automatisé Azure/AWS, RTO/RPO contractuels.",
@@ -153,7 +156,7 @@ export default function CloudServicesSection() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <article key={service.id} className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-border)] hover:shadow-lg">
+            <article key={service.id} id={(service as any).slug} className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-border)] hover:shadow-lg">
               <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 text-[var(--primary)] transition-colors group-hover:from-blue-100 group-hover:to-cyan-100">
                 {service.icon}
               </div>

@@ -1,6 +1,7 @@
 const services = [
   {
     id: 1,
+    slug: "web",
     title: "Développement Web",
     description:
       "Création d'applications web modernes, réactives et accessibles pour offrir une expérience utilisateur optimale sur tous les appareils.",
@@ -18,6 +19,7 @@ const services = [
   },
   {
     id: 2,
+    slug: "mobile",
     title: "Développement Mobile",
     description:
       "Conception et développement d'applications mobiles natives, hybrides ou cross-platform pour iOS et Android.",
@@ -52,6 +54,7 @@ const services = [
   },
   {
     id: 4,
+    slug: "api",
     title: "Développement Back-end",
     description:
       "Création d'APIs robustes, sécurisées et performantes pour alimenter vos applications et services.",
@@ -144,6 +147,7 @@ export default function IngenieireServicesSection() {
           {services.map((service) => (
             <article
               key={service.id}
+              id={(service as any).slug}
               className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-border)] hover:shadow-lg"
             >
               {/* Icône */}

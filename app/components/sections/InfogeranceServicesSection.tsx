@@ -1,6 +1,7 @@
 const services = [
   {
     id: 1,
+    slug: "support",
     title: "Support IT Externalisé",
     description:
       "Un helpdesk réactif et une équipe technique disponible pour résoudre les incidents de vos utilisateurs et maintenir votre parc informatique opérationnel.",
@@ -18,6 +19,7 @@ const services = [
   },
   {
     id: 2,
+    slug: "m365",
     title: "SOC — Centre Opérations Sécurité",
     description:
       "Surveillance continue de votre système d'information pour détecter, analyser et répondre aux menaces en temps réel, 24h/24 et 7j/7.",
@@ -52,6 +54,7 @@ const services = [
   },
   {
     id: 4,
+    slug: "serveurs",
     title: "Maintenance Continue",
     description:
       "Mises à jour, patchs de sécurité, optimisations et vérifications proactives pour garantir la performance et la stabilité de vos systèmes.",
@@ -121,7 +124,7 @@ export default function InfogeranceServicesSection() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <article key={service.id} className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-border)] hover:shadow-lg">
+            <article key={service.id} id={(service as any).slug} className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--primary-border)] hover:shadow-lg">
               <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-50 to-cyan-50 text-[var(--primary)] transition-colors group-hover:from-blue-100 group-hover:to-cyan-100">
                 {service.icon}
               </div>

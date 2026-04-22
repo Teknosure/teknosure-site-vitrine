@@ -250,7 +250,7 @@ export default function CyberOffresSection() {
   const prev = offres[prevIndex];
 
   return (
-    <section className="bg-gray-50 py-20">
+    <section id="audit" className="bg-gray-50 py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Titre */}

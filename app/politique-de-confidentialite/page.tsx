@@ -15,7 +15,7 @@ const sections = [
       <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
         <p>
           Le responsable du traitement de vos données personnelles est la société <strong>Teknosure</strong>,
-          SAS au capital de [capital social] €, immatriculée au RCS de [ville] sous le numéro [SIRET],
+          SAS au capital de 1000€, immatriculée au RCS de Taverny sous le numéro 92162249400018,
           dont le siège social est situé au :
         </p>
         <address className="not-italic rounded-xl bg-gray-50 p-4 border border-gray-100">

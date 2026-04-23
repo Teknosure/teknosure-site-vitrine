@@ -49,7 +49,7 @@ export default function CybersecuritePage() {
         primaryHref="/contact"
         secondaryLabel="Nos solutions"
         secondaryHref="#solutions"
-        imageSrc="/images/cyber2.jpg"
+        imageSrc="/images/cyber-tpe.png"
         overlayMode="dark"
       />
 

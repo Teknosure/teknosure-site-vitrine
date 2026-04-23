@@ -51,6 +51,11 @@ export default function Header() {
       accentBar: "from-sky-400 to-sky-600",
       glowColor: "rgba(14,165,233,0.15)",
       tag: "Cloud & Réseau",
+      subLinks: [
+        { label: "Migration cloud", href: "/services/cloud#migration" },
+        { label: "Infrastructure réseau", href: "/services/cloud#infrastructure" },
+        { label: "Hébergement hybride", href: "/services/cloud#hebergement" },
+      ],
     },
     {
       name: "Infogérance & Services Managés",
@@ -72,6 +77,11 @@ export default function Header() {
       accentBar: "from-orange-400 to-orange-600",
       glowColor: "rgba(249,115,22,0.15)",
       tag: "Infogérance",
+      subLinks: [
+        { label: "Infogérance serveurs", href: "/services/infogerance#serveurs" },
+        { label: "Microsoft 365", href: "/services/infogerance#m365" },
+        { label: "Support & MCO", href: "/services/infogerance#support" },
+      ],
     },
     {
       name: "Apps & Solutions sur mesure",
@@ -92,6 +102,11 @@ export default function Header() {
       accentBar: "from-violet-400 to-violet-600",
       glowColor: "rgba(139,92,246,0.15)",
       tag: "Développement",
+      subLinks: [
+        { label: "Applications web", href: "/services/ingenierie#web" },
+        { label: "Applications mobile", href: "/services/ingenierie#mobile" },
+        { label: "Intégrations API", href: "/services/ingenierie#api" },
+      ],
     },
     {
       name: "IA et automatisation",
@@ -112,15 +127,20 @@ export default function Header() {
       accentBar: "from-emerald-400 to-emerald-600",
       glowColor: "rgba(16,185,129,0.15)",
       tag: "Intelligence Artificielle",
+      subLinks: [
+        { label: "Agents IA", href: "/services/ia#agents" },
+        { label: "Automatisation RPA", href: "/services/ia#rpa" },
+        { label: "Analyse prédictive", href: "/services/ia#predictive" },
+      ],
     },
   ];
 
   const cyberItems = [
     {
-      name: "Cybersécurité TPE / PME",
-      desc: "Packs clé en main, conformité RGPD, audits & sensibilisation — tarifs accessibles et sans surprise.",
-      href: "/tpe-pme/cybersecurite",
-      tag: "TPE / PME",
+      name: "Cybersécurité & Conformité",
+      desc: "Protection de votre SI pour TPE/PME et ETI — audits, SOC 24/7, RGPD, ISO 27001 & NIS2.",
+      href: "/services/cybersecurite",
+      tag: "Cybersécurité",
       icon: (
         <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -135,26 +155,11 @@ export default function Header() {
       iconHover: "group-hover:bg-red-100 group-hover:text-red-600",
       accentBar: "from-red-400 to-rose-600",
       glowColor: "rgba(239,68,68,0.15)",
-    },
-    {
-      name: "Cybersécurité ETI / Grands comptes",
-      desc: "SOC managé 24/7, ISO 27001, NIS2, tests d'intrusion & réponse aux incidents — sur devis.",
-      href: "/eti/cybersecurite",
-      tag: "ETI / Grands comptes",
-      icon: (
-        <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      ),
-      color: "text-indigo-600",
-      bg: "bg-indigo-50",
-      border: "border-indigo-100",
-      cardHover: "hover:bg-indigo-50 hover:border-indigo-300",
-      titleHover: "group-hover:text-indigo-700",
-      arrowColor: "text-indigo-500",
-      iconHover: "group-hover:bg-indigo-100 group-hover:text-indigo-600",
-      accentBar: "from-indigo-400 to-blue-600",
-      glowColor: "rgba(99,102,241,0.15)",
+      subLinks: [
+        { label: "Offre TPE / PME", href: "/tpe-pme/cybersecurite" },
+        { label: "Offre ETI / Grands comptes", href: "/eti/cybersecurite" },
+        { label: "Audit de sécurité", href: "/services/cybersecurite#audit" },
+      ],
     },
   ];
 
@@ -213,7 +218,8 @@ export default function Header() {
   const isNosSolutionsActive =
     pathname?.startsWith("/services/") ||
     pathname?.startsWith("/tpe-pme/") ||
-    pathname?.startsWith("/eti/");
+    pathname?.startsWith("/eti/") ||
+    pathname === "/services/cybersecurite";
 
   const navLinkClass = (href: string) => {
     const active = href === "/" ? pathname === "/" : pathname?.startsWith(href);
@@ -266,7 +272,7 @@ export default function Header() {
                       : `${textColor} ${textHoverColor}`
                   }`}
                 >
-                  Nos Solutions
+                  Nos Services & Solutions
                   <svg
                     className={`h-4 w-4 transition-transform duration-200 ${servicesOverlayOpen ? "rotate-180" : ""}`}
                     fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
@@ -349,7 +355,7 @@ export default function Header() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-xs font-bold uppercase tracking-widest text-white/70">Teknosure</p>
-                        <p className="text-sm font-bold text-white">Nos Solutions</p>
+                        <p className="text-sm font-bold text-white">Nos Services & Solutions</p>
                       </div>
                       {isNosSolutionsActive && (
                         <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold text-white">
@@ -379,26 +385,29 @@ export default function Header() {
                         </Link>
                       );
                     })}
-                    {cyberItems.map((item) => {
-                      const active = pathname === item.href;
+                    {/* Cybersécurité — lien unique vers la page centrale */}
+                    {(() => {
+                      const cyberHref = "/services/cybersecurite";
+                      const active = pathname === cyberHref || pathname === "/tpe-pme/cybersecurite" || pathname === "/eti/cybersecurite";
                       return (
                         <Link
-                          key={item.href}
-                          href={item.href}
+                          href={cyberHref}
                           className={`flex items-center gap-3 px-3 py-2.5 text-sm transition-colors ${
-                            active ? "bg-gray-50" : "bg-white hover:bg-gray-50"
+                            active ? "bg-red-50" : "bg-white hover:bg-gray-50"
                           }`}
                         >
-                          <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${item.bg} ${item.color}`}>
-                            {item.icon}
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-50 text-red-500">
+                            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
                           </span>
-                          <span className={`font-medium ${active ? `${item.color} font-semibold` : "text-gray-700"}`}>
-                            {item.name}
+                          <span className={`font-medium ${active ? "text-red-600 font-semibold" : "text-gray-700"}`}>
+                            Cybersécurité & Conformité
                           </span>
-                          {active && <span className={`ml-auto h-1.5 w-1.5 rounded-full ${item.color.replace("text-", "bg-")}`} />}
+                          {active && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-red-500" />}
                         </Link>
                       );
-                    })}
+                    })()}
                   </div>
                 </div>
 
@@ -446,13 +455,13 @@ export default function Header() {
         )}
       </header>
 
-      {/* ── Overlay — Nos Solutions ──────────────────────────────────────── */}
+      {/* ── Overlay — Nos Services & Solutions ──────────────────────────── */}
       {servicesOverlayOpen && (
         <div
           className="fixed inset-0 z-40 flex flex-col"
           role="dialog"
           aria-modal="true"
-          aria-label="Nos Solutions"
+          aria-label="Nos Services & Solutions"
         >
           {/* Backdrop cliquable */}
           <div
@@ -476,7 +485,7 @@ export default function Header() {
               <div className="mb-5 flex items-center justify-between">
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--primary)]">Teknosure</p>
-                  <h2 className="mt-0.5 text-xl font-bold text-gray-900">Toutes nos solutions</h2>
+                  <h2 className="mt-0.5 text-xl font-bold text-gray-900">Nos Services & Solutions</h2>
                 </div>
                 <button
                   onClick={() => setServicesOverlayOpen(false)}
@@ -489,143 +498,77 @@ export default function Header() {
                 </button>
               </div>
 
-              {/* ── Corps : Expertises IT gauche | Cyber droite ─────────── */}
-              <div className="flex gap-4">
+              {/* ── Grille unique — Cyber en premier, puis IT ───────────── */}
+              <div className="grid grid-cols-3 gap-3">
+                {[...cyberItems, ...services].map((item, i) => (
+                  <div
+                    key={item.href}
+                    className={`expertise-card group relative flex flex-col overflow-hidden rounded-xl border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${item.cardHover}`}
+                    style={{
+                      animationDelay: `${i * 50}ms`,
+                      animation: "fadeInUp 0.3s ease-out both",
+                      "--glow": item.glowColor,
+                    } as React.CSSProperties}
+                  >
+                    {/* Halo coloré */}
+                    <span
+                      className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      style={{ background: `radial-gradient(ellipse at 25% 25%, ${item.glowColor} 0%, transparent 70%)` }}
+                    />
 
-                {/* ── Colonne gauche : Expertises IT (grille 2×2) ───────── */}
-                <div className="flex-1 min-w-0">
-                  {/* Label */}
-                  <div className="mb-3 flex items-center gap-2">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[var(--primary)] text-white">
-                      <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2" />
-                      </svg>
-                    </span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Expertises IT</span>
-                  </div>
-
-                  {/* Grille 2×2 */}
-                  <div className="grid grid-cols-2 gap-3">
-                    {services.map((service, i) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        onClick={() => setServicesOverlayOpen(false)}
-                        className={`expertise-card group relative flex flex-col overflow-hidden rounded-xl border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${service.cardHover}`}
-                        style={{
-                          animationDelay: `${i * 60}ms`,
-                          animation: "fadeInUp 0.3s ease-out both",
-                          "--glow": service.glowColor,
-                        } as React.CSSProperties}
-                      >
-                        {/* Halo coloré */}
-                        <span
-                          className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                          style={{ background: `radial-gradient(ellipse at 25% 25%, ${service.glowColor} 0%, transparent 70%)` }}
-                        />
-
-                        {/* Icône + Badge */}
-                        <div className="mb-3 flex items-center gap-2.5">
-                          <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 ${service.bg} ${service.color} ${service.border} ${service.iconHover}`}>
-                            {service.icon}
-                          </span>
-                          <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider ${service.bg} ${service.color} border ${service.border}`}>
-                            {service.tag}
-                          </span>
-                        </div>
-
-                        {/* Titre */}
-                        <h4 className={`mb-1 text-sm font-bold leading-snug text-gray-900 transition-colors duration-200 ${service.titleHover}`}>
-                          {service.name}
-                        </h4>
-
-                        {/* Description */}
-                        <p className="flex-1 text-xs leading-relaxed text-gray-500">
-                          {service.desc}
-                        </p>
-
-                        {/* Flèche */}
-                        <span className={`mt-3 flex items-center gap-1 text-[11px] font-bold transition-all duration-200 ${service.arrowColor} opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1`}>
-                          En savoir plus
-                          <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                          </svg>
+                    {/* Zone principale cliquable */}
+                    <Link
+                      href={item.href}
+                      onClick={() => setServicesOverlayOpen(false)}
+                      className="relative flex flex-col p-4 pb-3"
+                    >
+                      {/* Icône + Badge */}
+                      <div className="mb-3 flex items-center gap-2.5">
+                        <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 ${item.bg} ${item.color} ${item.border} ${item.iconHover}`}>
+                          {item.icon}
                         </span>
-
-                        {/* Barre de couleur */}
-                        <span className={`absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r transition-all duration-500 group-hover:w-full ${service.accentBar}`} />
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-
-                {/* ── Colonne droite : Cybersécurité ────────────────────── */}
-                <div className="w-64 shrink-0">
-                  {/* Label */}
-                  <div className="mb-3 flex items-center gap-2">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-red-500 text-white">
-                      <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                      </svg>
-                    </span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Cybersécurité</span>
-                  </div>
-
-                  {/* Cartes cyber — même style que IT */}
-                  <div className="flex flex-col gap-3">
-                    {cyberItems.map((item, i) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setServicesOverlayOpen(false)}
-                        className={`expertise-card group relative flex flex-col overflow-hidden rounded-xl border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${item.cardHover}`}
-                        style={{
-                          animationDelay: `${(services.length + i) * 60}ms`,
-                          animation: "fadeInUp 0.3s ease-out both",
-                          "--glow": item.glowColor,
-                        } as React.CSSProperties}
-                      >
-                        {/* Halo coloré */}
-                        <span
-                          className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                          style={{ background: `radial-gradient(ellipse at 25% 25%, ${item.glowColor} 0%, transparent 70%)` }}
-                        />
-
-                        {/* Icône + Badge */}
-                        <div className="mb-3 flex items-center gap-2.5">
-                          <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 ${item.bg} ${item.color} ${item.border} ${item.iconHover}`}>
-                            {item.icon}
-                          </span>
-                          <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider ${item.bg} ${item.color} border ${item.border}`}>
-                            {item.tag}
-                          </span>
-                        </div>
-
-                        {/* Titre */}
-                        <h4 className={`mb-1 text-sm font-bold leading-snug text-gray-900 transition-colors duration-200 ${item.titleHover}`}>
-                          {item.name}
-                        </h4>
-
-                        {/* Description */}
-                        <p className="flex-1 text-xs leading-relaxed text-gray-500">
-                          {item.desc}
-                        </p>
-
-                        {/* Flèche */}
-                        <span className={`mt-3 flex items-center gap-1 text-[11px] font-bold transition-all duration-200 ${item.arrowColor} opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1`}>
-                          Découvrir l'offre
-                          <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                          </svg>
+                        <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider ${item.bg} ${item.color} border ${item.border}`}>
+                          {item.tag}
                         </span>
+                      </div>
 
-                        {/* Barre de couleur */}
-                        <span className={`absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r transition-all duration-500 group-hover:w-full ${item.accentBar}`} />
-                      </Link>
-                    ))}
+                      {/* Titre */}
+                      <h4 className={`mb-1 text-sm font-bold leading-snug text-gray-900 transition-colors duration-200 ${item.titleHover}`}>
+                        {item.name}
+                      </h4>
+
+                      {/* Description */}
+                      <p className="text-xs leading-relaxed text-gray-500">
+                        {item.desc}
+                      </p>
+                    </Link>
+
+                    {/* Séparateur */}
+                    <div className="mx-3 border-t border-gray-100" />
+
+                    {/* Sous-liens */}
+                    <div className="relative flex flex-col gap-0.5 px-3 py-2">
+                      {item.subLinks.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          href={sub.href}
+                          onClick={() => setServicesOverlayOpen(false)}
+                          className={`sublink-item flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-semibold text-gray-600 transition-all duration-150 hover:bg-gray-50 hover:translate-x-1 ${item.arrowColor.replace("text-", "hover:text-")}`}
+                        >
+                          <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md ${item.bg} ${item.color} border ${item.border}`}>
+                            <svg className="h-2.5 w-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </span>
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Barre de couleur */}
+                    <span className={`absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r transition-all duration-500 group-hover:w-full ${item.accentBar}`} />
                   </div>
-                </div>
-
+                ))}
               </div>
 
               {/* CTA footer compact */}

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Bot, Minimize2 } from "lucide-react";
+import { MessageCircle, X, Send, Bot, Minimize2 } from "lucide-react"; 
+
+const FLOWISE_API_URL = process.env.NEXT_PUBLIC_FLOWISE_API_URL || "";
 
 interface Message {
   id: string;
@@ -92,7 +94,7 @@ export default function ChatBot() {
     setIsMinimized(false);
   }
 
-  function handleSend(text?: string) {
+  async function handleSend(text?: string) {
     const content = (text ?? input).trim();
     if (!content) return;
 
@@ -107,18 +109,46 @@ export default function ChatBot() {
     setInput("");
     setIsTyping(true);
 
-    // Simulate Alex "typing" — real logic comes later
-    setTimeout(() => {
-      setIsTyping(false);
+    try {
+      // Appel à l'API Flowise (Agent Alex)
+      // Flowise fait le RAG → cherche dans la knowledge base Teknosure
+      // → envoie à Mistral via LiteLLM → renvoie la réponse
+      const response = await fetch(FLOWISE_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          question: content,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erreur API: ${response.status}`);
+      }
+
+      const data = await response.json();
+
       const alexMsg: Message = {
         id: `alex-${Date.now()}`,
         role: "alex",
-        content:
-          "Merci pour votre message ! Notre équipe prend en compte votre demande. En attendant, n'hésitez pas à consulter notre page **contact** ou à nous appeler au **+33 1 46 88 49 75**.",
+        content: data.text || "Je suis désolé, je n'ai pas pu traiter votre demande. Contactez-nous au 01 46 88 49 75.",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, alexMsg]);
-    }, 1400);
+    } catch (error) {
+      console.error("Erreur chatbot:", error);
+      const errorMsg: Message = {
+        id: `alex-${Date.now()}`,
+        role: "alex",
+        content:
+          "Désolé, je rencontre un problème technique. N'hésitez pas à nous contacter directement au **01 46 88 49 75** ou par email à **contact@teknosure.fr**.",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMsg]);
+    } finally {
+      setIsTyping(false);
+    }
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {

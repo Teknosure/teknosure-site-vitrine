@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Bot, Minimize2 } from "lucide-react"; 
+import { MessageCircle, X, Send, Bot, Minimize2 } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 const FLOWISE_API_URL = process.env.NEXT_PUBLIC_FLOWISE_API_URL || "";
 
@@ -39,14 +40,37 @@ function formatTime(date: Date | null) {
   return date.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 }
 
-function renderContent(text: string) {
-  return text.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return <strong key={i}>{part.slice(2, -2)}</strong>;
-    }
-    return <span key={i}>{part}</span>;
-  });
-}
+const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components"] = {
+  h3: ({ children }) => (
+    <p className="text-sm font-semibold mt-2 mb-0.5 leading-snug">{children}</p>
+  ),
+  ul: ({ children }) => (
+    <ul className="list-disc list-inside space-y-0.5 my-1 text-sm">{children}</ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="list-decimal list-inside space-y-0.5 my-1 text-sm">{children}</ol>
+  ),
+  li: ({ children }) => (
+    <li className="leading-snug">{children}</li>
+  ),
+  p: ({ children }) => (
+    <p className="text-sm leading-relaxed mb-1 last:mb-0">{children}</p>
+  ),
+  strong: ({ children }) => (
+    <strong className="font-semibold">{children}</strong>
+  ),
+  hr: () => <hr className="border-current opacity-20 my-1.5" />,
+  a: ({ href, children }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline underline-offset-2 opacity-90 hover:opacity-100"
+    >
+      {children}
+    </a>
+  ),
+};
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -258,7 +282,9 @@ export default function ChatBot() {
                     ? { background: "linear-gradient(135deg, #0D6EA1 0%, #1B9AD2 100%)" }
                     : undefined}
                 >
-                  {renderContent(msg.content)}
+                  <ReactMarkdown components={markdownComponents}>
+                    {msg.content}
+                  </ReactMarkdown>
                 </div>
                 <span className="text-[10px] text-gray-400 mt-1 px-1">
                   {formatTime(msg.timestamp)}

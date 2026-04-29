@@ -9,23 +9,21 @@ interface Message {
   id: string;
   role: "user" | "alex";
   content: string;
-  timestamp: Date;
+  timestamp: Date | null;
 }
 
-const WELCOME_MESSAGES: Message[] = [
+const WELCOME_MESSAGES: Omit<Message, "timestamp">[] = [
   {
     id: "init-1",
     role: "alex",
     content:
       "Bonjour ! Je suis **Alex**, l'assistant virtuel de Teknosure. 👋",
-    timestamp: new Date(),
   },
   {
     id: "init-2",
     role: "alex",
     content:
       "Je suis là pour répondre à vos questions sur nos services : cybersécurité, cloud managé, infogérance et ingénierie logicielle. Comment puis-je vous aider ?",
-    timestamp: new Date(),
   },
 ];
 
@@ -36,7 +34,8 @@ const QUICK_REPLIES = [
   "Nous contacter",
 ];
 
-function formatTime(date: Date) {
+function formatTime(date: Date | null) {
+  if (!date) return "";
   return date.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 }
 
@@ -52,12 +51,19 @@ function renderContent(text: string) {
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [messages, setMessages] = useState<Message[]>(WELCOME_MESSAGES);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [hasUnread, setHasUnread] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Initialise les messages de bienvenue côté client uniquement pour éviter
+  // une erreur d'hydratation causée par new Date() différent entre SSR et client
+  useEffect(() => {
+    const now = new Date();
+    setMessages(WELCOME_MESSAGES.map((m) => ({ ...m, timestamp: now })));
+  }, []);
 
   useEffect(() => {
     if (isOpen && !isMinimized) {

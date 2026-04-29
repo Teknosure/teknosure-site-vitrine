@@ -18,7 +18,7 @@ const WELCOME_MESSAGES: Omit<Message, "timestamp">[] = [
     id: "init-1",
     role: "alex",
     content:
-      "Bonjour ! Je suis **Alex**, votre conseiller Teknosure. 👋 Posez-moi vos questions sur nos offres cybersécurité, cloud, IT ou transformation digitale. Je connais nos tarifs, nos packs et je peux vous orienter vers la bonne solution.",
+      "Bonjour ! Je suis **Alex**, votre interlocuteur Teknosure. 👋 N'hésitez pas à me poser toutes vos questions, je suis là pour vous guider.",
   },
 ];
 

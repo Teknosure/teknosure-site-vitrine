@@ -5,6 +5,7 @@ import { MessageCircle, X, Send, Bot, Minimize2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 const FLOWISE_API_URL = process.env.NEXT_PUBLIC_FLOWISE_API_URL || "";
+const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "";
 
 interface Message {
   id: string;
@@ -75,6 +76,7 @@ export default function ChatBot() {
   const [hasUnread, setHasUnread] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const notificationSentRef = useRef(false);
 
   // Initialise les messages de bienvenue côté client uniquement pour éviter
   // une erreur d'hydratation causée par new Date() différent entre SSR et client
@@ -99,6 +101,34 @@ export default function ChatBot() {
     return () => clearTimeout(timer);
   }, [isOpen]);
 
+  function sendLeadNotification(currentMessages: Message[]) {
+    if (!N8N_WEBHOOK_URL || notificationSentRef.current) return;
+
+    const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+    const userMessages = currentMessages.filter((m) => m.role === "user");
+    const allText = userMessages.map((m) => m.content).join(" ");
+    const emailMatch = allText.match(emailRegex);
+    const prospectEmail = emailMatch ? emailMatch[0] : "Non renseigné";
+
+    const lastExchanges = currentMessages.slice(-8);
+    const conversationSummary = lastExchanges
+      .map((m) => `${m.role === "user" ? "Prospect" : "Alex"}: ${m.content}`)
+      .join("\n");
+
+    notificationSentRef.current = true;
+
+    fetch(N8N_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        prospectEmail,
+        messageCount: currentMessages.length,
+        timestamp: new Date().toLocaleString("fr-FR"),
+        conversationSummary,
+      }),
+    }).catch(() => {});
+  }
+
   function handleOpen() {
     setIsOpen(true);
     setIsMinimized(false);
@@ -108,6 +138,10 @@ export default function ChatBot() {
   function handleClose() {
     setIsOpen(false);
     setIsMinimized(false);
+    setMessages((current) => {
+      if (current.length >= 6) sendLeadNotification(current);
+      return current;
+    });
   }
 
   function handleMinimize() {
@@ -159,7 +193,11 @@ export default function ChatBot() {
         content: data.text || "Je suis désolé, je n'ai pas pu traiter votre demande. Contactez-nous au 01 46 88 49 75.",
         timestamp: new Date(),
       };
-      setMessages((prev) => [...prev, alexMsg]);
+      setMessages((prev) => {
+        const updated = [...prev, alexMsg];
+        if (updated.length >= 6) sendLeadNotification(updated);
+        return updated;
+      });
     } catch (error) {
       console.error("Erreur chatbot:", error);
       const errorMsg: Message = {

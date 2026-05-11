@@ -17,7 +17,7 @@ export default function Header() {
   const pagesWithHero = [
     "/etudes-de-cas", "/a-propos", "/contact", "/tpe-pme",
     "/tpe-pme/cybersecurite", "/tpe-pme/cloud", "/tpe-pme/infogerance",
-    "/tpe-pme/ingenierie", "/tpe-pme/ia",
+    "/tpe-pme/ingenierie", "/tpe-pme/ia", "/tpe-pme/infra-it",
     "/eti/cybersecurite",
   ];
 
@@ -55,6 +55,7 @@ export default function Header() {
         { label: "Migration cloud", href: "/services/cloud#migration" },
         { label: "Infrastructure réseau", href: "/services/cloud#infrastructure" },
         { label: "Hébergement hybride", href: "/services/cloud#hebergement" },
+        { label: "Offres Infra IT", href: "/tpe-pme/infra-it" },
       ],
     },
     {

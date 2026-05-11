@@ -103,7 +103,7 @@ export default function CybersecuritePage() {
 
             {/* Logo */}
             <div className="shrink-0">
-              <div className="flex h-44 w-44 items-center justify-center rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 lg:h-52 lg:w-52">
+              <div className="flex h-44 w-44 items-center justify-center rounded-2xl bg-white p-6 shadow-lg lg:h-52 lg:w-52">
                 <Image
                   src="/images/FFcyber.png"
                   alt="FFCyber — Fédération Française de la Cybersécurité"

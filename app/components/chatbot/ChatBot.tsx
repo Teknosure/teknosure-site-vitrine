@@ -190,7 +190,7 @@ export default function ChatBot() {
       const alexMsg: Message = {
         id: `alex-${Date.now()}`,
         role: "alex",
-        content: data.text || "Je suis désolé, je n'ai pas pu traiter votre demande. Contactez-nous au 01 46 88 49 75.",
+        content: data.text || "Je suis désolé, je n'ai pas pu traiter votre demande. Contactez-nous au 01 76 29 78 99.",
         timestamp: new Date(),
       };
       setMessages((prev) => {
@@ -204,7 +204,7 @@ export default function ChatBot() {
         id: `alex-${Date.now()}`,
         role: "alex",
         content:
-          "Désolé, je rencontre un problème technique. N'hésitez pas à nous contacter directement au **01 46 88 49 75** ou par email à **contact@teknosure.fr**.",
+          "Désolé, je rencontre un problème technique. N'hésitez pas à nous contacter directement au **01 76 29 78 99** ou par email à **contact@teknosure.fr**.",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMsg]);

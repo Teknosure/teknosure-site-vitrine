@@ -26,7 +26,7 @@ const sections = [
           <a href="mailto:contact@teknosure.fr" className="text-[var(--primary)] hover:underline">
             contact@teknosure.fr
           </a><br />
-          Tél. : +33 1 46 88 49 75
+          Tél. : +33 1 76 29 78 99
         </address>
       </div>
     ),

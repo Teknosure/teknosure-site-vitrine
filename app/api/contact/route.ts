@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
           <p style="color: #4b5563;">Notre équipe vous répondra dans les <strong>24 heures ouvrées</strong>.</p>
           <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; margin: 24px 0;">
             <p style="color: #1d4ed8; font-weight: 600; margin: 0 0 8px;">Besoin urgent ?</p>
-            <p style="color: #1e40af; margin: 0;">📞 <a href="tel:+33146884975" style="color: #2563eb;">+33 1 46 88 49 75</a></p>
+            <p style="color: #1e40af; margin: 0;">📞 <a href="tel:+33176297899" style="color: #2563eb;">+33 1 76 29 78 99</a></p>
             <p style="color: #1e40af; margin: 4px 0 0;">✉️ <a href="mailto:contact@teknosure.fr" style="color: #2563eb;">contact@teknosure.fr</a></p>
           </div>
           <p style="color: #9ca3af; font-size: 12px; text-align: center; margin-top: 24px;">

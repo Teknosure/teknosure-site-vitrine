@@ -32,8 +32,8 @@ const infos = [
       </svg>
     ),
     label: "Téléphone",
-    value: "+33 1 46 88 49 75",
-    href: "tel:+33146884975",
+    value: "+33 1 76 29 78 99",
+    href: "tel:+33176297899",
   },
   {
     icon: (

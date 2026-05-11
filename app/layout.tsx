@@ -109,7 +109,7 @@ export default function RootLayout({
               logo: "https://www.teknosure.com/images/Logo-Transparent-Teknosure1.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+33-1-46-88-49-75",
+                telephone: "+33-1-76-29-78-99",
                 email: "contact@teknosure.fr",
                 contactType: "customer service",
                 availableLanguage: "French",

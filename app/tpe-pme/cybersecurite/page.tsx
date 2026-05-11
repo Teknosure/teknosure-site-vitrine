@@ -48,80 +48,87 @@ const inclus = [
   { icon: <CheckBadgeIcon />, color: "text-green-600 bg-green-50", title: "Conformité RGPD", desc: "Accompagnement à la mise en conformité et rédaction des documents obligatoires." },
 ];
 
-const offresPackagees = [
-  {
-    num: "01",
-    title: "Diagnostic Cyber Express",
-    price: "À partir de 1 490 €",
-    delay: "48h",
-    desc: "Score de sécurité rapide. Scan externe, analyse M365/Google, DMARC/SPF/DKIM, top 10 failles.",
-  },
-  {
-    num: "02",
-    title: "Sécurité Cloud M365/Google",
-    price: "À partir de 1 900 €",
-    delay: "72h",
-    desc: "Audit 72 points, durcissement, MFA obligatoire, DLP, Safe Links, anti-phishing avancé.",
-  },
-  {
-    num: "03",
-    title: "Pentest Light",
-    price: "À partir de 2 500 €",
-    delay: "1–3j",
-    desc: "Test d'intrusion externe et web. Rapport CVSS, PoC, scoring OWASP, plan correctif.",
-  },
-  {
-    num: "04",
-    title: "SOC / XDR 24/7",
-    delay: "Continu",
-    desc: "Surveillance 24/7, XDR, threat intelligence, alertes en temps réel, dashboard mensuel.",
-  },
-  {
-    num: "05",
-    title: "Conformité NIS2/DORA/RGPD",
-    price: "À partir de 1 500 €",
-    delay: "3–6 sem.",
-    desc: "Gap analysis, documentation, mise en œuvre des mesures techniques et organisationnelles.",
-  },
-  {
-    num: "06",
-    title: "Sensibilisation Phishing",
-    price: "À partir de 490 €",
-    delay: "1 mois",
-    desc: "Campagnes de phishing simulé, modules e-learning, tableaux de bord de vigilance.",
-  },
-  {
-    num: "07",
-    title: "Infogérance Cybersécurité",
-    delay: "Mensuel",
-    desc: "MCO sécurité complet : patch management, supervision, reporting, support N1/N2/N3.",
-  },
-];
-
 const packs = [
   {
-    stars: "⭐",
-    name: "Pack Starter PME",
-    price: "2 990 € HT",
-    saving: "Économie jusqu'à 1 000 €",
-    items: ["01 — Diagnostic Cyber Express (48h)", "02 — Sécurité Cloud M365/Google", "06 — Sensibilisation Phishing"],
-    color: "from-red-500 to-rose-400",
+    id: "essentiel",
+    badge: "Starter",
+    badgeColor: "bg-blue-100 text-blue-700",
+    name: "Pack Essentiel",
+    subtitle: "< 20 utilisateurs",
+    price: "45 €",
+    priceSuffix: "/ user / mois",
+    highlighted: false,
+    borderClass: "border-blue-200 hover:border-blue-400",
+    accentClass: "text-blue-600",
+    btnClass: "border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white",
+    features: [
+      "Audit de cybersécurité annuel standardisé",
+      "EDR managé — protection temps réel",
+      "Supervision Firewall + VPN (1 firewall / 1 site inclus)",
+      "Sauvegarde quotidienne chiffrée",
+      "Rapport mensuel",
+    ],
   },
   {
-    stars: "⭐⭐",
+    id: "serenite",
+    badge: "Recommandé",
+    badgeColor: "bg-red-100 text-red-700",
     name: "Pack Sérénité",
-    price: "3 990 € HT",
-    saving: "Économie jusqu'à 1 200 €",
-    items: ["01 — Diagnostic Cyber Express", "02 — Sécurité Cloud M365", "04 — SOC/XDR (3 mois offerts)"],
-    color: "from-red-600 to-red-500",
+    subtitle: "Protection renforcée",
+    price: "69 €",
+    priceSuffix: "/ user / mois",
+    highlighted: true,
+    borderClass: "border-red-500 ring-2 ring-red-200",
+    accentClass: "text-red-600",
+    btnClass: "bg-linear-to-r from-red-600 to-rose-500 text-white hover:opacity-90",
+    features: [
+      "Tout le Pack Essentiel inclus",
+      "Audit de Conformité",
+      "SOC managé 24/7",
+      "Email Protection",
+      "Patch Management",
+    ],
   },
   {
-    stars: "⭐⭐⭐",
-    name: "Pack Cyber 360°",
-    price: "Sur devis",
-    saving: "Remise volume accordée",
-    items: ["01 — Diagnostic + 05 — Conformité", "04 — SOC XDR 24/7", "07 — Infogérance (12 mois)"],
-    color: "from-gray-900 to-gray-800",
+    id: "premium",
+    badge: "Premium",
+    badgeColor: "bg-purple-100 text-purple-700",
+    name: "Pack Premium",
+    subtitle: "Protection maximale",
+    price: "149 €",
+    priceSuffix: "/ user / mois",
+    highlighted: false,
+    borderClass: "border-purple-200 hover:border-purple-400",
+    accentClass: "text-purple-700",
+    btnClass: "border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white",
+    features: [
+      "Tout le Pack Sérénité inclus",
+      "SOC étendu (endpoints + réseau + cloud + messagerie)",
+      "Pentest & Durcissement annuel",
+      "Revue trimestrielle RSSI (pilotage, suivi, recommandations)",
+      "Sensibilisation anti-phishing (2 campagnes/an)",
+    ],
+  },
+  {
+    id: "rssi",
+    badge: "Enterprise",
+    badgeColor: "bg-gray-100 text-gray-700",
+    name: "Pack RSSI",
+    subtitle: "RSSI externalisé",
+    price: "À partir de 4 500 €",
+    priceSuffix: "HT / mois",
+    highlighted: false,
+    borderClass: "border-gray-300 hover:border-gray-500",
+    accentClass: "text-gray-700",
+    btnClass: "border-2 border-gray-700 text-gray-700 hover:bg-gray-900 hover:text-white",
+    features: [
+      "Gouvernance & pilotage",
+      "Audit de sécurité avancé",
+      "Politique & conformité",
+      "Sensibilisation des utilisateurs",
+      "Simulation gestion de crise",
+      "Reporting & direction",
+    ],
   },
 ];
 
@@ -190,7 +197,7 @@ export default function OffreCybersecuritePage() {
       </section>
 
       {/* ── Chiffres clés ─────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-r from-red-600 to-rose-500 py-16">
+      <section className="bg-linear-to-r from-red-600 to-rose-500 py-16">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-3">
             {[
@@ -207,71 +214,93 @@ export default function OffreCybersecuritePage() {
         </div>
       </section>
 
-      {/* ── Offres Packagées ──────────────────────────────────────────────── */}
-      <section className="bg-gray-50 py-20 lg:py-28">
+      {/* ── Packs Cybersécurité ────────────────────────────────────────────── */}
+      <section id="packs" className="bg-gray-50 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
           <div className="mb-14 text-center">
             <span className="inline-block rounded-full bg-red-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-red-600">
-              Offres Packagées TPE / PME
+              Nos packs cybersécurité
             </span>
             <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
-              7 offres calibrées pour votre <span className="text-red-500">réalité opérationnelle</span>
+              Une protection adaptée à <span className="text-red-500">chaque étape</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base text-gray-500">
-              Budgets maîtrisés, délais courts — chaque offre est pensée pour s'adapter à votre taille et vos contraintes.
+              Des packs progressifs, tout inclus et à tarif transparent — démarrez sereinement et montez en protection selon vos besoins.
             </p>
           </div>
 
-          {/* Grille 7 offres */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {offresPackagees.map((offre) => (
-              <div key={offre.num} className="group relative flex flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:border-red-200 hover:shadow-md">
-                <span className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-xs font-extrabold text-red-600">
-                  {offre.num}
-                </span>
-                <h3 className="mb-2 text-base font-bold text-gray-800 group-hover:text-red-700">{offre.title}</h3>
-                <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-500">{offre.desc}</p>
-                <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
-                  {offre.price ? (
-                    <span className="text-sm font-bold text-red-600">{offre.price}</span>
-                  ) : (
-                    <span className="text-sm font-bold text-gray-400">Sur devis</span>
+          {/* Grille 4 packs */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {packs.map((pack) => (
+              <div
+                key={pack.id}
+                className={`relative flex flex-col rounded-2xl border-2 bg-white p-7 shadow-sm transition-all duration-300 hover:shadow-xl ${pack.borderClass} ${pack.highlighted ? "scale-[1.02] shadow-lg" : ""}`}
+              >
+                {/* Badge */}
+                <div className="mb-5 flex items-center justify-between">
+                  <span className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${pack.badgeColor}`}>
+                    {pack.badge}
+                  </span>
+                  {pack.highlighted && (
+                    <span className="rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
+                      ★ Populaire
+                    </span>
                   )}
-                  <span className="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-semibold text-gray-500">⏱ {offre.delay}</span>
                 </div>
+
+                {/* Nom */}
+                <h3 className={`mb-1 text-xl font-extrabold text-gray-900`}>{pack.name}</h3>
+                <p className={`mb-4 text-xs font-semibold uppercase tracking-wide ${pack.accentClass}`}>{pack.subtitle}</p>
+
+                {/* Prix */}
+                <div className="mb-6 border-b border-gray-100 pb-5">
+                  <span className={`text-3xl font-extrabold ${pack.accentClass}`}>{pack.price}</span>
+                  <span className="ml-1 text-sm text-gray-400">{pack.priceSuffix}</span>
+                </div>
+
+                {/* Features */}
+                <ul className="mb-8 flex-1 space-y-3">
+                  {pack.features.map((f, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-gray-700">
+                      <svg className={`mt-0.5 h-4 w-4 shrink-0 ${pack.accentClass}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <Link
+                  href="/contact"
+                  className={`block w-full rounded-xl px-6 py-3 text-center text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${pack.btnClass}`}
+                >
+                  Choisir ce pack
+                </Link>
               </div>
             ))}
           </div>
 
-          {/* Packs combinés */}
-          <div className="mt-16">
-            <h3 className="mb-2 text-center text-2xl font-bold text-gray-900">Packs Combinés — Économisez jusqu'à 30 %</h3>
-            <p className="mb-10 text-center text-sm text-gray-500">Les meilleures offres groupées, pensées pour chaque profil d'entreprise.</p>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {packs.map((pack) => (
-                <div key={pack.name} className={`flex flex-col rounded-2xl bg-gradient-to-br ${pack.color} p-7 text-white shadow-lg`}>
-                  <p className="mb-1 text-lg">{pack.stars}</p>
-                  <h4 className="mb-1 text-xl font-extrabold">{pack.name}</h4>
-                  <p className="mb-1 text-2xl font-bold">{pack.price}</p>
-                  <p className="mb-5 text-xs font-semibold text-white/70">{pack.saving}</p>
-                  <ul className="flex-1 space-y-2 border-t border-white/20 pt-5">
-                    {pack.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-white/90">
-                        <span className="mt-0.5 text-white">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className="mt-6 rounded-full border-2 border-white/40 py-2.5 text-center text-sm font-bold text-white transition-all hover:border-white hover:bg-white/20"
-                  >
-                    Choisir ce pack
-                  </Link>
-                </div>
-              ))}
+          {/* Catalogue — PRA */}
+          <div className="mt-14 rounded-2xl border border-dashed border-gray-300 bg-white p-7">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <span className="mb-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-bold uppercase tracking-widest text-gray-500">
+                  Catalogue — Option complémentaire
+                </span>
+                <h3 className="mt-1 text-lg font-bold text-gray-900">Test de PRA (Plan de Reprise d&apos;Activité) — 2 fois/an</h3>
+                <p className="mt-1 text-sm text-gray-500">Simulation complète de reprise sur incident critique : vérification des sauvegardes, délais de restauration, rapport de résultat.</p>
+              </div>
+              <div className="shrink-0 text-right">
+                <p className="text-2xl font-extrabold text-gray-900">3 500 €</p>
+                <p className="text-xs text-gray-400">HT / an</p>
+                <Link href="/contact" className="mt-3 inline-block rounded-xl border-2 border-gray-700 px-5 py-2 text-sm font-semibold text-gray-700 transition-all hover:bg-gray-900 hover:text-white">
+                  En savoir plus
+                </Link>
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -298,7 +327,7 @@ export default function OffreCybersecuritePage() {
             Nos experts analysent votre situation et vous proposent un devis personnalisé sous 48h.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contact" className="rounded-full bg-gradient-to-r from-red-600 to-rose-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:opacity-90">
+            <Link href="/contact" className="rounded-full bg-linear-to-r from-red-600 to-rose-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:opacity-90">
               Demander un devis
             </Link>
             <Link href="/tpe-pme" className="rounded-full border-2 border-white/30 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10">

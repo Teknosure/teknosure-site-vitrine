@@ -81,6 +81,7 @@ export default function Header() {
         { label: "Infogérance serveurs", href: "/services/infogerance#serveurs" },
         { label: "Microsoft 365", href: "/services/infogerance#m365" },
         { label: "Support & MCO", href: "/services/infogerance#support" },
+        { label: "Offres TPE/PME", href: "/tpe-pme/infogerance" },
       ],
     },
     {

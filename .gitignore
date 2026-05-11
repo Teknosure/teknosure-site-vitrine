@@ -47,3 +47,6 @@ next-env.d.ts
 
 # design assets (local only)
 /design-captures
+
+# Agent Alex — config locale (secrets, clés API)
+/agent-alex

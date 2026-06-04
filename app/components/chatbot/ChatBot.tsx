@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Bot, Minimize2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
-const FLOWISE_API_URL = process.env.NEXT_PUBLIC_FLOWISE_API_URL || "";
+const CHAT_API_URL = "/api/chat";
 const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "";
 
 interface Message {
@@ -171,7 +171,7 @@ export default function ChatBot() {
       // Appel à l'API Flowise (Agent Alex)
       // Flowise fait le RAG → cherche dans la knowledge base Teknosure
       // → envoie à Mistral via LiteLLM → renvoie la réponse
-      const response = await fetch(FLOWISE_API_URL, {
+      const response = await fetch(CHAT_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

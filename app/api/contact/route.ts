@@ -1,7 +1,10 @@
+import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { sendEmail } from "@/lib/graphClient";
 
 export async function POST(req: NextRequest) {
+  const correlationId = randomUUID();
+
   try {
     const body = await req.json();
     const { prenom, nom, email, telephone, entreprise, service, message } = body;
@@ -15,11 +18,18 @@ export async function POST(req: NextRequest) {
     }
 
     const senderEmail = process.env.SENDER_EMAIL || "contact@teknosure.com";
+    /** Boîte qui reçoit les notifications formulaire (par défaut = expéditeur Graph). Si contact@… n’est pas une vraie boîte consultée, définir CONTACT_NOTIFICATION_EMAIL. */
+    const notificationInbox =
+      process.env.CONTACT_NOTIFICATION_EMAIL?.trim() || senderEmail;
+
+    console.info(
+      `[contact ${correlationId}] début — service=${service} visiteur=${email} expéditeur_graph=${senderEmail} notification_vers=${notificationInbox}`
+    );
 
     // Email interne (notif à Teknosure)
     await sendEmail({
       from: senderEmail,
-      toRecipients: [senderEmail],
+      toRecipients: [notificationInbox],
       subject: `[Contact] ${service} — ${prenom} ${nom}`,
       body: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 12px;">
@@ -44,6 +54,9 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     });
+    console.info(
+      `[contact ${correlationId}] Graph OK — notification interne envoyée vers ${notificationInbox}`
+    );
 
     // Email de confirmation automatique au client
     await sendEmail({
@@ -69,10 +82,23 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     });
+    console.info(
+      `[contact ${correlationId}] Graph OK — confirmation automatique envoyée vers ${email}`
+    );
 
+    console.info(`[contact ${correlationId}] terminé avec succès`);
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
-    console.error("Erreur envoi mail:", err);
+    const errMsg = err instanceof Error ? err.message : String(err);
+    const graphBody =
+      err && typeof err === "object" && "body" in err
+        ? JSON.stringify((err as { body?: unknown }).body)
+        : undefined;
+    console.error(
+      `[contact ${correlationId}] échec Graph / envoi :`,
+      errMsg,
+      graphBody ? `body=${graphBody}` : ""
+    );
     return NextResponse.json(
       { error: "Erreur serveur. Veuillez réessayer ou nous appeler directement." },
       { status: 500 }

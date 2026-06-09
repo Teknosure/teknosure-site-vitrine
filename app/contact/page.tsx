@@ -109,26 +109,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Bande finale ─────────────────────────────────────────────────── */}
-      <section className="border-t border-gray-100 bg-gray-50 py-14">
-        <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
-          <p className="text-sm text-gray-500">
-            Vous préférez explorer nos services avant de nous contacter ?
-          </p>
-          <div className="mt-5 flex flex-wrap justify-center gap-4">
-            {expertises.map((e) => (
-              <Link
-                key={e.label}
-                href={e.href}
-                className={`rounded-full border px-5 py-2 text-xs font-semibold transition-all hover:-translate-y-0.5 hover:shadow-sm ${e.color}`}
-              >
-                {e.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }

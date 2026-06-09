@@ -1,8 +1,6 @@
 .git
 .next
 node_modules
-.env.local
-.env*.local
 npm-debug.log*
 README.md
 .dockerignore
@@ -10,3 +8,8 @@ Dockerfile
 docker-compose.yml
 design-captures/
 .vscode/
+certbot/
+nginx/
+sonar-project.properties
+sonar-scan.sh
+.sonarqube-setup.md

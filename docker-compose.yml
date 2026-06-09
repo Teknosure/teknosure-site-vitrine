@@ -22,10 +22,21 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./nginx/certs:/etc/nginx/certs:ro
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
     depends_on:
       - app
     networks:
       - teknosure-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: teknosure-certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    networks:
+      - teknosure-network   
 
   sonarqube:
     image: sonarqube:10-community

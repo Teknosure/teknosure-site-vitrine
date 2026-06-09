@@ -22,8 +22,8 @@ const infos = [
       </svg>
     ),
     label: "Email",
-    value: "contact@teknosure.fr",
-    href: "mailto:contact@teknosure.fr",
+    value: "contact@teknosure.com",
+    href: "mailto:contact@teknosure.com",
   },
   {
     icon: (

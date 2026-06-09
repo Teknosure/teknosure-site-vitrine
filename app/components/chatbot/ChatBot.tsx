@@ -204,7 +204,7 @@ export default function ChatBot() {
         id: `alex-${Date.now()}`,
         role: "alex",
         content:
-          "Désolé, je rencontre un problème technique. N'hésitez pas à nous contacter directement au **01 76 29 78 99** ou par email à **contact@teknosure.fr**.",
+          "Désolé, je rencontre un problème technique. N'hésitez pas à nous contacter directement au **01 76 29 78 99** ou par email à **contact@teknosure.com**.",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMsg]);

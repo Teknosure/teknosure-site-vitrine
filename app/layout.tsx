@@ -110,7 +110,7 @@ export default function RootLayout({
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+33-1-76-29-78-99",
-                email: "contact@teknosure.fr",
+                email: "contact@teknosure.com",
                 contactType: "customer service",
                 availableLanguage: "French",
               },

@@ -23,8 +23,8 @@ const sections = [
           16 rue de Condorcet<br />
           95150 Taverny<br />
           France<br />
-          <a href="mailto:contact@teknosure.fr" className="text-[var(--primary)] hover:underline">
-            contact@teknosure.fr
+          <a href="mailto:contact@teknosure.com" className="text-[var(--primary)] hover:underline">
+            contact@teknosure.com
           </a><br />
           Tél. : +33 1 76 29 78 99
         </address>

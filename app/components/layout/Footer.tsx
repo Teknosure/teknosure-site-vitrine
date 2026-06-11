@@ -80,35 +80,6 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-          {/* Badge FFCyber */}
-          <div className="mt-8">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-widest text-gray-600">
-              Membre officiel
-            </p>
-            <a
-              href="https://ffcyber.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-xl border border-gray-700 bg-gray-800 px-4 py-3 transition-colors hover:border-blue-500/40 hover:bg-gray-800/80"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
-                <Image
-                  src="/images/FFcyber.png"
-                  alt="FFCyber"
-                  width={36}
-                  height={36}
-                  className="object-contain"
-                />
-              </div>
-              <div>
-                <p className="text-xs font-bold leading-tight text-white">
-                  Fédération Française<br />de la Cybersécurité
-                </p>
-                <p className="mt-0.5 text-[10px] text-blue-400">ffcyber.fr</p>
-              </div>
-            </a>
-          </div>
-
           </div>
 
           {/* Services */}

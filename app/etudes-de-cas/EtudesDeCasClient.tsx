@@ -62,7 +62,7 @@ const projets: Projet[] = [
     id: 2,
     titre: "Application Mobile Métier",
     secteur: "Distribution B2B",
-    tag: "Client confidentiel",
+    tag: "PME",
     domaine: "Ingénierie logicielle",
     serviceHref: "/services/ingenierie",
     problematique:

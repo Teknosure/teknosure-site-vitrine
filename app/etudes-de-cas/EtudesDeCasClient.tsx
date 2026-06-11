@@ -62,11 +62,11 @@ const projets: Projet[] = [
     id: 2,
     titre: "Application Mobile Métier",
     secteur: "Distribution B2B",
-    tag: "Distritherm Services",
+    tag: "Client confidentiel",
     domaine: "Ingénierie logicielle",
     serviceHref: "/services/ingenierie",
     problematique:
-      "Distritherm Services souhaitait moderniser sa présence digitale et offrir à ses clients un accès simple et rapide à l'ensemble de ses produits depuis un smartphone. Absence totale d'une solution mobile dédiée, catalogue inaccessible, processus peu ergonomique.",
+      "Notre client, acteur de la distribution B2B, souhaitait moderniser sa présence digitale et offrir à ses clients un accès simple et rapide à l'ensemble de ses produits depuis un smartphone. Absence totale d'une solution mobile dédiée, catalogue inaccessible, processus peu ergonomique.",
     realisations: [
       "Application mobile sur mesure Android & iOS",
       "Navigation par catégories et sous-catégories produits",

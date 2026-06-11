@@ -3,6 +3,7 @@ import PartnersSection from "@/app/components/sections/PartennaireSection";
 import ServicesSection from "@/app/components/sections/ServicesSection";
 import PourquoiNnous from "@/app/components/sections/PourquoiNous";
 import CTASection from "@/app/components/sections/CTASection";
+import FFCyberSection from "@/app/components/sections/FFCyberSection";
 
 const expertiseTabs: HeroTab[] = [
   {
@@ -65,7 +66,7 @@ export default function Home() {
         primaryLabel="Obtenir une consultation"
         primaryHref="/contact"
         secondaryLabel="Nos expertises"
-        secondaryHref="/services"
+        secondaryHref="#expertises"
         imageSrc="/images/hero-bg.png"
         overlayMode="dark"
         tabs={expertiseTabs}
@@ -73,6 +74,7 @@ export default function Home() {
       <PartnersSection />
       <ServicesSection />
       <PourquoiNnous />
+      <FFCyberSection />
       <CTASection />
     </div>
   );

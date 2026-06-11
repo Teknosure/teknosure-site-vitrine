@@ -50,3 +50,8 @@ next-env.d.ts
 
 
 COPILOT_INSTRUCTIONS.md
+
+# SonarQube
+.sonarqube-setup.md
+sonar-project.properties
+sonar-scan.sh

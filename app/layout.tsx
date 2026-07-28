@@ -6,7 +6,6 @@ import Footer from "./components/layout/Footer";
 import CookieBanner from "./components/cookies/CookieBanner";
 import GoogleAnalytics from "./components/analytics/GoogleAnalytics";
 import ChatBot from "./components/chatbot/ChatBot";
-import EventBanner from "./components/layout/EventBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -93,7 +92,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
-        <EventBanner />
         <Header />
         <main>{children}</main>
         <Footer />

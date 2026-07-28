@@ -138,19 +138,55 @@ const sections = [
             </div>
           ))}
         </div>
-        <p className="mt-2">
-          Pour exercer vos droits, contactez notre DPO à l'adresse :{" "}
-          <a href="mailto:contact@teknosure.com" className="font-medium text-[var(--primary)] hover:underline">
-            contact@teknosure.com
-          </a>.
-          Nous répondons dans un délai maximum d'<strong>1 mois</strong>.
+        <div className="mt-4 rounded-xl border border-[var(--primary-light)] bg-[var(--primary-light)]/30 p-4">
+          <p className="text-sm font-semibold text-gray-800">Exercer vos droits</p>
+          <p className="mt-1 text-sm text-gray-600">
+            Adressez votre demande à notre Délégué à la Protection des Données (DPO) :{" "}
+            <a href="mailto:contact@teknosure.com" className="font-semibold text-[var(--primary)] hover:underline">
+              contact@teknosure.com
+            </a>
+          </p>
+          <p className="mt-1 text-xs text-gray-500">
+            Nous accusons réception sous 72 h et répondons dans un délai maximum d'<strong>1 mois</strong> (Art. 12 RGPD).
+            En cas de demande complexe, ce délai peut être prolongé de 2 mois supplémentaires, avec information préalable.
+          </p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "dpo",
+    title: "6. Délégué à la Protection des Données (DPO)",
+    content: (
+      <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
+        <p>
+          Teknosure a désigné un <strong>Délégué à la Protection des Données (DPO)</strong> chargé de veiller au
+          respect du RGPD au sein de l'organisation et d'être l'interlocuteur privilégié des personnes concernées
+          ainsi que de la CNIL.
         </p>
+        <div className="rounded-xl border border-[var(--primary-light)] bg-[var(--primary-light)]/20 p-4 space-y-2">
+          <p className="font-semibold text-gray-800">Contact DPO</p>
+          <p>
+            <span className="text-gray-500">E-mail dédié :</span>{" "}
+            <a href="mailto:contact@teknosure.com" className="font-semibold text-[var(--primary)] hover:underline">
+              contact@teknosure.com
+            </a>
+          </p>
+          <p>
+            <span className="text-gray-500">Adresse postale :</span>{" "}
+            DPO — Teknosure, 16 rue de Condorcet, 95150 Taverny, France
+          </p>
+          <p className="text-xs text-gray-500 pt-1">
+            Toute demande relative à l'exercice de vos droits (accès, rectification, effacement, portabilité, etc.)
+            doit être adressée au DPO. Nous accusons réception sous 72 h et répondons dans un délai maximum d'1 mois.
+          </p>
+        </div>
       </div>
     ),
   },
   {
     id: "securite",
-    title: "6. Sécurité des données",
+    title: "7. Sécurité des données",
     content: (
       <p className="text-sm text-gray-600 leading-relaxed">
         Teknosure met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données
@@ -162,7 +198,7 @@ const sections = [
   },
   {
     id: "cookies",
-    title: "7. Cookies",
+    title: "8. Cookies",
     content: (
       <p className="text-sm text-gray-600 leading-relaxed">
         Pour en savoir plus sur les cookies que nous utilisons et gérer vos préférences, consultez notre{" "}
@@ -174,7 +210,7 @@ const sections = [
   },
   {
     id: "modifications",
-    title: "8. Modifications",
+    title: "9. Modifications",
     content: (
       <p className="text-sm text-gray-600 leading-relaxed">
         Nous nous réservons le droit de modifier la présente politique de confidentialité à tout moment. En cas de
@@ -200,7 +236,7 @@ export default function PolitiqueDeConfidentialite() {
           </div>
           <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">Politique de confidentialité</h1>
           <p className="mt-3 text-base text-gray-500">
-            Dernière mise à jour : 14 avril 2026
+            Dernière mise à jour : 28 juillet 2026
           </p>
         </div>
 
@@ -236,21 +272,32 @@ export default function PolitiqueDeConfidentialite() {
         </div>
 
         {/* Contact DPO */}
-        <div className="mt-10 rounded-2xl bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] p-6 text-white text-center shadow-lg">
-          <h2 className="text-lg font-semibold">Une question sur vos données ?</h2>
-          <p className="mt-2 text-sm text-white/80">
-            Notre Délégué à la Protection des Données (DPO) est à votre disposition.
-          </p>
-          <a
-            href="mailto:contact@teknosure.com"
-            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[var(--primary)] shadow transition-all hover:shadow-md hover:-translate-y-0.5"
-          >
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            contact@teknosure.com
-          </a>
+        <div className="mt-10 rounded-2xl bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] p-6 text-white shadow-lg">
+          <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20">
+              <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h2 className="text-lg font-semibold">Contacter notre DPO</h2>
+              <p className="mt-1 text-sm text-white/80">
+                Pour toute question relative à vos données personnelles ou pour exercer vos droits RGPD,
+                notre Délégué à la Protection des Données vous répond sous 72 h.
+              </p>
+            </div>
+            <a
+              href="mailto:contact@teknosure.com"
+              className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[var(--primary)] shadow transition-all hover:shadow-md hover:-translate-y-0.5"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              contact@teknosure.com
+            </a>
+          </div>
         </div>
 
         {/* Liens */}

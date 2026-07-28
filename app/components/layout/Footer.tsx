@@ -151,7 +151,10 @@ export default function Footer() {
         {/* Copyright */}
         <div className="flex flex-col items-center justify-between gap-4 text-sm sm:flex-row">
           <p>© 2026 Teknosure. Tous droits réservés.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
+            <Link href="/mentions-legales" className="transition-colors hover:text-white">
+              Mentions légales
+            </Link>
             <Link href="/politique-de-confidentialite" className="transition-colors hover:text-white">
               Politique de confidentialité
             </Link>

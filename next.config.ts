@@ -1,7 +1,14 @@
+import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  images: {
+    localPatterns: [
+      { pathname: "/images/**" },
+      { pathname: "/api/media/**" },
+    ],
+  },
 };
 
-export default nextConfig;
+export default withPayload(nextConfig);

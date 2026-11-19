@@ -8,6 +8,7 @@ import sharp from "sharp";
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { Articles } from "./collections/Articles";
+import { migrations } from "./migrations";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -29,6 +30,9 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || "",
     },
+    // En production, Payload ne crée pas le schéma tout seul : ces migrations
+    // sont appliquées automatiquement au démarrage (celles déjà passées sont ignorées).
+    prodMigrations: migrations,
   }),
   sharp,
   plugins: [],

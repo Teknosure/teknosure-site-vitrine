@@ -42,6 +42,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Dossier des uploads Payload (monté en volume dans docker-compose)
+RUN mkdir -p /app/media && chown nextjs:nodejs /app/media
+
 USER nextjs
 
 EXPOSE 3000

@@ -2,20 +2,74 @@ import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { sendEmail } from "@/lib/graphClient";
 
+/** Échappe les caractères spéciaux HTML pour insérer une saisie utilisateur dans le corps d'un email. */
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/** Retourne la valeur nettoyée si c'est une chaîne, sinon une chaîne vide. Tronque à `max` caractères. */
+function field(value: unknown, max: number): string {
+  return typeof value === "string" ? value.trim().slice(0, max) : "";
+}
+
+/** Version texte brut pour l'objet de l'email : pas de retours à la ligne. */
+function plain(value: string): string {
+  return value.replace(/[\r\n]+/g, " ");
+}
+
+/** Vérification simple d'une adresse email (une seule @, domaine avec un point, pas d'espace ni de < > "). */
+function isValidEmail(value: string): boolean {
+  if (/[\s<>"]/.test(value)) return false;
+  const parts = value.split("@");
+  if (parts.length !== 2) return false;
+  const [local, domain] = parts;
+  const dot = domain.lastIndexOf(".");
+  return local.length > 0 && dot > 0 && dot < domain.length - 1;
+}
+
 export async function POST(req: NextRequest) {
   const correlationId = randomUUID();
 
   try {
     const body = await req.json();
-    const { prenom, nom, email, telephone, entreprise, service, message } = body;
+    const raw = {
+      prenom: field(body?.prenom, 100),
+      nom: field(body?.nom, 100),
+      email: field(body?.email, 254),
+      telephone: field(body?.telephone, 40),
+      entreprise: field(body?.entreprise, 200),
+      service: field(body?.service, 200),
+      message: field(body?.message, 5000),
+    };
 
     // Validation basique
-    if (!prenom || !nom || !email || !message || !service) {
+    if (!raw.prenom || !raw.nom || !raw.email || !raw.message || !raw.service) {
       return NextResponse.json(
         { error: "Veuillez remplir tous les champs obligatoires." },
         { status: 400 }
       );
     }
+
+    if (!isValidEmail(raw.email)) {
+      return NextResponse.json(
+        { error: "Adresse email invalide." },
+        { status: 400 }
+      );
+    }
+
+    // Valeurs échappées : les seules à insérer dans le HTML des emails.
+    const prenom = escapeHtml(raw.prenom);
+    const nom = escapeHtml(raw.nom);
+    const email = escapeHtml(raw.email);
+    const telephone = escapeHtml(raw.telephone);
+    const entreprise = escapeHtml(raw.entreprise);
+    const service = escapeHtml(raw.service);
+    const message = escapeHtml(raw.message);
 
     const senderEmail = process.env.SENDER_EMAIL || "contact@teknosure.com";
     /** Boîte qui reçoit les notifications formulaire (par défaut = expéditeur Graph). Si contact@… n’est pas une vraie boîte consultée, définir CONTACT_NOTIFICATION_EMAIL. */
@@ -23,14 +77,14 @@ export async function POST(req: NextRequest) {
       process.env.CONTACT_NOTIFICATION_EMAIL?.trim() || senderEmail;
 
     console.info(
-      `[contact ${correlationId}] début — service=${service} visiteur=${email} expéditeur_graph=${senderEmail} notification_vers=${notificationInbox}`
+      `[contact ${correlationId}] début — service=${plain(raw.service)} visiteur=${raw.email}expéditeur_graph=${senderEmail} notification_vers=${notificationInbox}`
     );
 
     // Email interne (notif à Teknosure)
     await sendEmail({
       from: senderEmail,
       toRecipients: [notificationInbox],
-      subject: `[Contact] ${service} — ${prenom} ${nom}`,
+      subject: plain(`[Contact] ${raw.service} — ${raw.prenom} ${raw.nom}`),
       body: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 12px;">
           <div style="background: linear-gradient(135deg, #2563eb, #06b6d4); padding: 20px 24px; border-radius: 8px; margin-bottom: 24px;">
@@ -61,7 +115,7 @@ export async function POST(req: NextRequest) {
     // Email de confirmation automatique au client
     await sendEmail({
       from: senderEmail,
-      toRecipients: [email],
+      toRecipients: [raw.email],
       subject: "Nous avons bien reçu votre message — Teknosure",
       body: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 12px;">
@@ -83,7 +137,7 @@ export async function POST(req: NextRequest) {
       `,
     });
     console.info(
-      `[contact ${correlationId}] Graph OK — confirmation automatique envoyée vers ${email}`
+      `[contact ${correlationId}] Graph OK — confirmation automatique envoyée vers ${raw.email}`
     );
 
     console.info(`[contact ${correlationId}] terminé avec succès`);

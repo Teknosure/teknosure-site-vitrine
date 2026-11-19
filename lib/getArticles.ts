@@ -77,7 +77,11 @@ export async function getArticles(): Promise<Article[]> {
     payloadArticles = result.docs
       .map((doc) => fromPayload(doc as Parameters<typeof fromPayload>[0]))
       .filter((article): article is Article => article !== null);
-  } catch {
+  } catch (err) {
+    console.error(
+      "[getArticles] Payload/PostgreSQL injoignable, repli sur les articles statiques :",
+      err instanceof Error ? err.message : err
+    );
     payloadArticles = [];
   }
 

@@ -6,8 +6,9 @@ services:
     container_name: teknosure-app
     restart: always
     env_file:
-      - .env        # PAYLOAD_SECRET
-      - .env.local  # Azure Graph, Flowise, n8n…
+      - path: .env          # obligatoire (seul fichier présent sur le VPS)
+      - path: .env.local    # facultatif (surcharges en local)
+        required: false
     environment:
       # Surcharge la valeur de .env (127.0.0.1) : dans Docker, la base est le service "db".
       DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD doit être défini dans .env}@db:5432/${POSTGRES_DB:-teknosure-website}

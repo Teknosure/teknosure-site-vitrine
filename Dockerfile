@@ -18,9 +18,9 @@ ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Les variables NEXT_PUBLIC_* sont injectées au build : .env.local est requis ici.
-# Il n'est pas recopié dans l'image finale (le standalone n'embarque que .env / .env.production).
-COPY .env.local .env.local
+# Les variables NEXT_PUBLIC_* sont injectées au build : elles sont lues dans .env
+# (et .env.local s'il existe), copiés plus haut par "COPY . .".
+# Sur le VPS il n'y a que .env ; en local, .env.local peut compléter.
 
 RUN npm run build
 

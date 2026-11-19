@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import FullscreenHero from "@/app/(frontend)/components/hero/FullscreenHero";
@@ -6,6 +7,13 @@ export type OfferPoint = {
   icon: ReactNode;
   title: string;
   description: string;
+};
+
+/** Bloc de présentation détaillée : un titre, un ou deux paragraphes et une image. */
+export type OfferDetails = {
+  heading: string;
+  paragraphs: string[];
+  image: { src: string; alt: string };
 };
 
 export type OfferPageProps = {
@@ -17,6 +25,7 @@ export type OfferPageProps = {
   subtitle: string;
   imageSrc: string;
   points: OfferPoint[];
+  details?: OfferDetails;
   related?: { label: string; href: string }[];
 };
 
@@ -29,8 +38,9 @@ export default function OfferPage({
   subtitle,
   imageSrc,
   points,
+  details,
   related = [],
-}: OfferPageProps) {
+}: Readonly<OfferPageProps>) {
   return (
     <div className="min-h-screen bg-white">
       <FullscreenHero
@@ -45,6 +55,35 @@ export default function OfferPage({
         imageSrc={imageSrc}
         overlayMode="dark"
       />
+
+      {details && (
+        <section className="bg-white py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
+                {tagline}
+              </p>
+              <h2 className="mb-6 text-3xl font-bold text-gray-900 sm:text-4xl">
+                {details.heading}
+              </h2>
+              <div className="space-y-4 text-base leading-relaxed text-gray-600">
+                {details.paragraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+              <Image
+                src={details.image.src}
+                alt={details.image.alt}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-gray-50 py-24">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
